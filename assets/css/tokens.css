@@ -1,0 +1,154 @@
+/* ═══════════════════════════════════════════════════════════════
+   newyorkalarmsystems.com — Design Tokens
+   Modern security e-commerce idiom (SimpliSafe / Vivint inspired):
+   bright, sans-first, product-led, lots of white space.
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ── Brand ── */
+  --brand-ink:       #0E1116;   /* near-black; primary ink */
+  --brand-ink-2:     #1A1F26;
+  --brand-signal:    #1F4DD8;   /* trust blue (user-selected) */
+  --brand-signal-2:  #143CB0;
+  --brand-signal-soft: #EAF0FE;
+  --brand-accent:    #FFCC33;   /* warm yellow accent */
+  --brand-paper:     #FFFFFF;
+  --brand-cream:     #F7F4ED;   /* very subtle warm bg for sections */
+  --brand-mist:      #F1F4F8;   /* cool neutral bg */
+  --brand-success:   #00875A;
+  --brand-warn:      #E84A27;
+
+  /* ── Neutrals (cool, near-white) ── */
+  --n-0:   #FFFFFF;
+  --n-50:  #FAFBFC;
+  --n-100: #F2F4F7;
+  --n-150: #E7EAF0;
+  --n-200: #DCE0E8;
+  --n-300: #C3C8D2;
+  --n-400: #8A91A0;
+  --n-500: #5A6273;
+  --n-600: #383F4D;
+  --n-700: #20262F;
+  --n-800: #131820;
+
+  /* ── Semantic ── */
+  --bg:        var(--brand-paper);
+  --bg-raised: var(--brand-paper);
+  --bg-sunk:   var(--brand-mist);
+  --bg-cream:  var(--brand-cream);
+  --bg-inverse: var(--brand-ink);
+
+  --fg:        var(--brand-ink);
+  --fg-2:      var(--n-600);
+  --fg-3:      var(--n-500);
+  --fg-muted:  var(--n-400);
+  --fg-on-ink: #FFFFFF;
+  --fg-on-ink-2: #B5BCC9;
+
+  --border:    var(--n-150);
+  --border-strong: var(--n-200);
+
+  /* (back-compat aliases used by older files) */
+  --brand-sand: var(--brand-cream);
+  --bull-bg: var(--brand-signal-soft);
+
+  /* ── Typography ── */
+  --ff-display: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ff-sans:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ff-serif:   'Manrope', sans-serif; /* override: no serif italic */
+  --ff-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  --fs-12: 12px; --fs-13: 13px; --fs-14: 14px; --fs-15: 15px;
+  --fs-16: 16px; --fs-18: 18px; --fs-20: 20px; --fs-24: 24px;
+  --fs-30: 30px; --fs-36: 36px; --fs-44: 44px; --fs-56: 56px; --fs-72: 72px;
+
+  --fw-reg: 400; --fw-med: 500; --fw-semi: 600; --fw-bold: 700; --fw-black: 800;
+
+  /* ── Spacing ── */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px;
+  --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px;
+  --s-16: 64px; --s-20: 80px; --s-24: 96px;
+
+  /* ── Radii ── (chunkier, more product-y) */
+  --r-xs:  6px; --r-sm: 10px; --r-md: 14px; --r-lg: 20px; --r-xl: 28px; --r-pill: 999px;
+
+  /* ── Shadows ── */
+  --shadow-xs: 0 1px 2px rgba(14,17,22,0.06);
+  --shadow-sm: 0 2px 6px rgba(14,17,22,0.06), 0 0 0 1px rgba(14,17,22,0.04);
+  --shadow-md: 0 8px 24px rgba(14,17,22,0.08), 0 2px 4px rgba(14,17,22,0.04);
+  --shadow-lg: 0 24px 60px rgba(14,17,22,0.14), 0 4px 12px rgba(14,17,22,0.06);
+  --shadow-ink: 0 14px 40px rgba(14,17,22,0.30);
+  --ring: 0 0 0 4px rgba(31,77,216,0.18);
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-fast: 120ms; --dur-base: 200ms; --dur-slow: 400ms;
+
+  --max-w: 1240px;
+  --col-gap: 24px;
+}
+
+/* ═══════════════════════════════════ */
+
+html, body {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-16);
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1 {
+  font-family: var(--ff-display);
+  font-weight: 800;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+}
+h1 em, .h1 em { font-style: normal; color: var(--brand-signal); }
+
+h2, .h2 {
+  font-family: var(--ff-display);
+  font-weight: 800;
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+}
+h2 em, .h2 em { font-style: normal; color: var(--brand-signal); }
+
+h3, .h3 {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: var(--fs-20);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-family: var(--ff-sans);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brand-signal);
+}
+
+.lede {
+  font-family: var(--ff-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+
+p { font-size: var(--fs-16); line-height: 1.6; color: var(--fg-2); }
+
+a { color: var(--brand-signal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+::selection { background: var(--brand-signal); color: white; }

@@ -1,0 +1,279 @@
+/* NYAS — WP-specific overrides + a few responsive fixes for our PHP-only sections.
+   Loaded after responsive.css so these win cleanly. */
+
+/* ── Skip link (accessibility) ─────────────────────────────────── */
+.skip-link {
+	position: absolute;
+	left: -9999px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+.skip-link:focus {
+	position: fixed;
+	left: 16px;
+	top: 16px;
+	width: auto;
+	height: auto;
+	z-index: 100;
+	padding: 12px 18px;
+	background: var(--brand-signal);
+	color: #fff;
+	border-radius: 8px;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	word-wrap: normal !important;
+}
+
+/* ── WP nav menu walker output → styled like .nav-link ─────────── */
+.nav .nav-menu,
+.nav ul.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 4px;
+}
+.nav .nav-menu li,
+.nav ul.menu li {
+	margin: 0;
+}
+.nav .nav-menu a,
+.nav ul.menu a {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--fg);
+	padding: 9px 14px;
+	border-radius: 10px;
+	text-decoration: none;
+	transition: all var(--dur-base) var(--ease-out);
+	display: inline-flex;
+	align-items: center;
+}
+.nav .nav-menu a:hover,
+.nav ul.menu a:hover {
+	background: var(--n-100);
+	text-decoration: none;
+}
+.nav .nav-menu .current-menu-item > a,
+.nav .nav-menu .current_page_item > a {
+	color: var(--brand-signal);
+}
+.site-header.ink .nav .nav-menu a {
+	color: rgba(255, 255, 255, 0.78);
+}
+.site-header.ink .nav .nav-menu a:hover,
+.site-header.ink .nav .nav-menu .current-menu-item > a {
+	color: #fff;
+	background: rgba(255, 255, 255, 0.08);
+}
+
+/* Footer menu walker */
+.site-footer .menu,
+.site-footer ul.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* ── Post prose (single posts/pages) ───────────────────────────── */
+.post-prose p,
+.post-prose li {
+	font-family: var(--ff-sans);
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.7;
+	color: var(--fg-2);
+	margin: 0 0 24px;
+}
+.post-prose h2 {
+	font-family: var(--ff-display);
+	font-weight: 800;
+	font-size: clamp(28px, 3.4vw, 36px);
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+	color: var(--fg);
+	margin: 56px 0 20px;
+}
+.post-prose h3 {
+	font-family: var(--ff-display);
+	font-weight: 700;
+	font-size: 22px;
+	margin: 36px 0 12px;
+	color: var(--fg);
+}
+.post-prose blockquote {
+	border-left: 3px solid var(--brand-signal);
+	padding: 8px 0 8px 24px;
+	margin: 32px 0;
+	font-style: italic;
+	color: var(--fg-2);
+	font-size: 22px;
+	line-height: 1.4;
+}
+.post-prose ul,
+.post-prose ol {
+	padding-left: 22px;
+	margin: 0 0 24px;
+}
+.post-prose li { margin-bottom: 8px; }
+.post-prose a { color: var(--brand-signal-2); text-decoration: underline; }
+.post-prose strong { font-weight: 700; color: var(--fg); }
+.post-prose img,
+.post-prose .wp-block-image img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 12px;
+	margin: 24px 0;
+}
+
+/* ── Case-study prose (more editorial than post-prose) ─────────── */
+.case-prose p {
+	font-size: 18px;
+	line-height: 1.65;
+	color: var(--fg-2);
+	margin: 0 0 20px;
+}
+.case-prose h2 {
+	font-family: var(--ff-display);
+	font-weight: 800;
+	font-size: clamp(28px, 3.4vw, 36px);
+	letter-spacing: -0.02em;
+	margin: 48px 0 16px;
+	line-height: 1.1;
+}
+.case-prose blockquote {
+	border-left: 3px solid var(--brand-signal);
+	padding: 8px 0 8px 20px;
+	margin: 28px 0;
+	font-style: italic;
+	color: var(--fg);
+	font-family: var(--ff-display);
+	font-weight: 600;
+	font-size: 22px;
+}
+.case-prose ul {
+	padding-left: 22px;
+	margin: 0 0 24px;
+}
+.case-prose strong { font-weight: 700; color: var(--fg); }
+
+/* ── WP block alignment ────────────────────────────────────────── */
+.alignwide { max-width: 1240px; margin-left: auto; margin-right: auto; }
+.alignfull { width: 100%; max-width: none; margin-left: 0; margin-right: 0; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignleft { float: left; margin: 0 24px 24px 0; max-width: 50%; }
+.alignright { float: right; margin: 0 0 24px 24px; max-width: 50%; }
+
+/* ── Comments form ─────────────────────────────────────────────── */
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+	font-family: var(--ff-sans);
+	font-size: 15px;
+	color: var(--fg);
+	background: var(--n-0);
+	border: 1.5px solid var(--border-strong);
+	border-radius: 12px;
+	padding: 14px 16px;
+	width: 100%;
+	box-sizing: border-box;
+}
+.comment-form input:focus,
+.comment-form textarea:focus {
+	outline: none;
+	border-color: var(--brand-signal);
+	box-shadow: var(--ring);
+}
+.comment-form .form-submit input[type="submit"] {
+	font-family: var(--ff-sans);
+	font-weight: 700;
+	background: var(--brand-signal);
+	color: #fff;
+	border: 0;
+	padding: 13px 22px;
+	border-radius: 999px;
+	cursor: pointer;
+	font-size: 14px;
+}
+.comment-list .comment {
+	padding: 20px 0;
+	border-bottom: 1px solid var(--border);
+	list-style: none;
+}
+
+/* ── Pagination ────────────────────────────────────────────────── */
+.page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 40px;
+	height: 40px;
+	padding: 0 14px;
+	border-radius: 999px;
+	font-family: var(--ff-display);
+	font-weight: 700;
+	color: var(--fg);
+	border: 1px solid var(--border);
+	background: var(--brand-paper);
+	margin: 0 4px;
+	text-decoration: none;
+}
+.page-numbers.current {
+	background: var(--brand-ink);
+	color: #fff;
+	border-color: var(--brand-ink);
+}
+.page-numbers:hover { background: var(--n-100); }
+
+/* ── Responsive fallbacks for our PHP-only grids ───────────────── */
+@media (max-width: 980px) {
+	.nyas-services-head,
+	.nyas-cases-head,
+	.nyas-blog-head,
+	.nyas-feat-case,
+	.nyas-coverage,
+	.nyas-faq-grid,
+	.nyas-feat-post,
+	.nyas-included,
+	.nyas-service-hero,
+	.nyas-case-hero,
+	.nyas-case-cta,
+	.nyas-post-cta,
+	.nyas-newsletter,
+	.nyas-why-head,
+	.nyas-about-story {
+		grid-template-columns: 1fr !important;
+		gap: 32px !important;
+	}
+}
+
+@media (max-width: 720px) {
+	.hero-specsheet-cards { grid-template-columns: repeat(2, 1fr) !important; }
+	.scenario-tabs { gap: 0; overflow-x: auto; flex-wrap: nowrap; }
+	.scenario-tab { flex-shrink: 0; padding: 14px 18px !important; font-size: 14px !important; }
+	[data-scenario-body] { grid-template-columns: 1fr !important; gap: 24px !important; }
+	.compare-table th,
+	.compare-table td { padding: 12px 10px; font-size: 12px; }
+	.about-mosaic { grid-template-columns: 1fr 1fr !important; grid-template-rows: 200px 200px 200px !important; }
+}
+
+/* ── A few quality-of-life tweaks ──────────────────────────────── */
+.site-main { display: block; }
+img { max-width: 100%; height: auto; }
+
+/* Make sure FAQ summary doesn't show the default disclosure triangle */
+.nyas-faq-item summary::-webkit-details-marker { display: none; }
+.nyas-faq-item summary { list-style: none; }
+.nyas-faq-item[open] .nyas-faq-toggle { color: var(--brand-signal); }

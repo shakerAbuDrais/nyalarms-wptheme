@@ -1,0 +1,21 @@
+/*
+Theme Name: New York Alarm Systems
+Theme URI: https://newyorkalarmsystems.com/
+Author: New York Alarm Systems
+Author URI: https://newyorkalarmsystems.com/
+Description: Marketing theme for New York Alarm Systems — a five-borough alarm and 24/7 monitoring service. SimpliSafe / Vivint-inspired idiom: bright, sans-first, product-led, with lots of white space.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 7.4
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: nyas
+Tags: business, security, marketing, custom-menu, custom-logo, featured-images, full-width-template, threaded-comments, translation-ready
+*/
+
+/*
+This file is intentionally minimal — the real styles are split across
+assets/css/tokens.css, assets/css/app.css, and assets/css/responsive.css
+and enqueued in functions.php.
+*/

@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# WP build artifacts (none yet, but reserve)
+node_modules/
+vendor/
+*.log
+*.zip
+
+# Local override
+wp-config.local.php
