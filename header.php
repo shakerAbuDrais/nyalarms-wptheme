@@ -98,7 +98,7 @@ if ( is_front_page() ) {
 		</div>
 	</div>
 
-	<div class="mobile-drawer" data-nyas-drawer>
+	<div class="mobile-drawer" data-nyas-drawer style="display:block">
 		<div class="mobile-drawer-panel">
 			<div class="mobile-drawer-head">
 				<div style="display:flex;align-items:center;gap:12px">
@@ -153,5 +153,45 @@ if ( is_front_page() ) {
 		</div>
 	</div>
 </header>
+
+<script>
+/* Drawer failsafe — runs immediately so the burger works even if app.js
+   hasn't loaded or hits an error elsewhere. */
+(function () {
+	function ready(fn) {
+		if (document.readyState !== 'loading') fn();
+		else document.addEventListener('DOMContentLoaded', fn);
+	}
+	ready(function () {
+		var burger = document.querySelector('[data-nyas-burger]');
+		var drawer = document.querySelector('[data-nyas-drawer]');
+		var close  = document.querySelector('[data-nyas-drawer-close]');
+		var header = document.querySelector('[data-nyas-header]');
+		if (!burger || !drawer || burger.dataset.nyasBound) return;
+		burger.dataset.nyasBound = '1';
+
+		function setOpen(open) {
+			drawer.classList.toggle('open', open);
+			burger.setAttribute('aria-expanded', String(open));
+			if (header) header.classList.toggle('menu-open', open);
+			document.body.style.overflow = open ? 'hidden' : '';
+		}
+		burger.addEventListener('click', function (e) {
+			e.preventDefault();
+			setOpen(!drawer.classList.contains('open'));
+		});
+		if (close) close.addEventListener('click', function () { setOpen(false); });
+		drawer.addEventListener('click', function (e) {
+			if (e.target === drawer) setOpen(false);
+		});
+		drawer.querySelectorAll('a').forEach(function (a) {
+			a.addEventListener('click', function () { setOpen(false); });
+		});
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape' && drawer.classList.contains('open')) setOpen(false);
+		});
+	});
+})();
+</script>
 
 <main id="content" class="site-main">

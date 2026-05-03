@@ -21,6 +21,9 @@
 		const close  = document.querySelector('[data-nyas-drawer-close]');
 		const header = document.querySelector('[data-nyas-header]');
 		if (!burger || !drawer) return;
+		// Skip if the inline failsafe in header.php already bound listeners.
+		if (burger.dataset.nyasBound === '1') return;
+		burger.dataset.nyasBound = '1';
 
 		function setOpen(open) {
 			drawer.classList.toggle('open', open);

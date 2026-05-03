@@ -324,9 +324,30 @@ section,
 
 img, video, iframe { max-width: 100%; height: auto; }
 
-/* Drawer: ensure it sits above sticky filter bars */
-.mobile-drawer { z-index: 999 !important; }
+/* Defensive: every grid item gets min-width: 0 so long content doesn't
+   overflow its column and clip the next one. Single rule fixes the
+   "3rd column shows half" class of bug across testimonials, recent
+   posts, why-us, services archive, etc. */
+.grid > *,
+.grid-2 > *, .grid-3 > *, .grid-4 > *, .grid-5 > *,
+[style*="grid-template-columns"] > * {
+	min-width: 0;
+}
+
+/* Drawer: sit above EVERYTHING (sticky filter bars, headers, third-party
+   widgets like Cloudways' chat). Z-index escalation is safe — drawer
+   is hidden by default. */
+.mobile-drawer { z-index: 9999 !important; }
+.mobile-drawer-panel { z-index: 10000 !important; }
 .site-header { z-index: 100 !important; }
+
+/* Belt-and-suspenders: when .open is added by JS, force visibility even
+   if responsive.css's display:block @media rule didn't apply. */
+.mobile-drawer.open { display: block !important; }
+.mobile-drawer.open .mobile-drawer-panel {
+	transform: translateX(0) !important;
+	pointer-events: auto !important;
+}
 
 /* Sticky filter bars under header should account for header height */
 [data-nyas-filter],
