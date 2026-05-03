@@ -218,18 +218,18 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 <?php get_template_part( 'template-parts/section', 'scenarios' ); ?>
 
 <?php // ─── 8. Why us ─── ?>
-<section class="section-sunk">
+<section class="section-sunk nyas-why">
 	<div class="container">
-		<div style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start;margin-bottom:48px" class="nyas-why-head">
-			<div>
+		<div class="nyas-why-head">
+			<div class="nyas-why-head-text">
 				<?php nyas_eyebrow( __( 'Why us', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg"><?php esc_html_e( 'Six reasons', 'nyas' ); ?> <em><?php esc_html_e( 'NY chooses us.', 'nyas' ); ?></em></h2>
+				<h2 class="display-lg" style="text-wrap:balance"><?php esc_html_e( 'Six reasons', 'nyas' ); ?> <em><?php esc_html_e( 'NY chooses us.', 'nyas' ); ?></em></h2>
 			</div>
-			<p style="font-size:17px;line-height:1.6;color:var(--fg-2);max-width:580px">
+			<p class="nyas-why-head-lede">
 				<?php esc_html_e( 'Most national alarm companies sell hardware. We sell response time, accountability, and a phone number that gets answered the first ring — even at 3 a.m. on a Tuesday.', 'nyas' ); ?>
 			</p>
 		</div>
-		<div class="grid" style="grid-template-columns:repeat(3,1fr)">
+		<div class="nyas-why-grid">
 			<?php
 			$why = array(
 				array( 'icon' => 'zap',          'title' => '30-second dispatch', 'desc' => 'We measure every alarm. Our 12-month rolling median is 28 seconds, station to officer.' ),
@@ -240,12 +240,12 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 				array( 'icon' => 'shield-check', 'title' => 'Insurance-grade',    'desc' => 'Direct integration with Chubb, Travelers, and most NY commercial insurers for premium discounts.' ),
 			);
 			foreach ( $why as $it ) : ?>
-				<div style="padding:28px 4px;border-top:1px solid var(--border-strong)">
-					<div style="width:44px;height:44px;border-radius:10px;background:var(--brand-ink);color:var(--brand-signal);display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px">
+				<div class="nyas-why-card">
+					<div class="nyas-why-icon">
 						<?php nyas_icon( $it['icon'], 22 ); ?>
 					</div>
-					<h3 style="font-family:var(--ff-display);font-weight:800;font-size:22px;letter-spacing:-0.01em;margin-bottom:8px"><?php echo esc_html( $it['title'] ); ?></h3>
-					<p style="margin:0;font-size:14px"><?php echo esc_html( $it['desc'] ); ?></p>
+					<h3 class="nyas-why-title"><?php echo esc_html( $it['title'] ); ?></h3>
+					<p class="nyas-why-desc"><?php echo esc_html( $it['desc'] ); ?></p>
 				</div>
 			<?php endforeach; ?>
 		</div>

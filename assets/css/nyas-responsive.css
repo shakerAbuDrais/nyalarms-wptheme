@@ -384,3 +384,89 @@ pre, code { white-space: pre-wrap; word-break: break-word; }
 .section-ink em,
 .section-ink h2 em,
 .section-ink h1 em { color: #3CD68C; }
+
+/* ─────────────────────────────────────────────────────
+   "Why us — Six reasons" section
+   Owns its own layout so nothing here gets cropped.
+   ───────────────────────────────────────────────────── */
+.nyas-why .nyas-why-head {
+	display: grid;
+	grid-template-columns: minmax(260px, 1.1fr) minmax(0, 2fr);
+	gap: 64px;
+	align-items: end;
+	margin-bottom: 56px;
+}
+.nyas-why-head-text {
+	min-width: 0;
+}
+.nyas-why-head-text h2 {
+	text-wrap: balance;
+}
+.nyas-why-head-lede {
+	font-size: 17px;
+	line-height: 1.6;
+	color: var(--fg-2);
+	max-width: 560px;
+	margin: 0;
+	min-width: 0;
+}
+
+/* Six-card grid */
+.nyas-why-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 32px 24px;
+}
+.nyas-why-card {
+	min-width: 0;
+	padding: 28px 0 0;
+	border-top: 1px solid var(--border-strong);
+	display: flex;
+	flex-direction: column;
+}
+.nyas-why-icon {
+	width: 44px;
+	height: 44px;
+	border-radius: 10px;
+	background: var(--brand-ink);
+	color: var(--brand-signal);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 16px;
+	flex-shrink: 0;
+}
+.nyas-why-title {
+	font-family: var(--ff-display);
+	font-weight: 800;
+	font-size: 20px;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	margin: 0 0 8px;
+	text-wrap: balance;
+	word-break: break-word;
+}
+.nyas-why-desc {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--fg-2);
+}
+
+@media (max-width: 1100px) {
+	.nyas-why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 980px) {
+	.nyas-why .nyas-why-head {
+		grid-template-columns: 1fr;
+		gap: 24px;
+		margin-bottom: 40px;
+		align-items: start;
+	}
+	.nyas-why-head-lede { max-width: none; }
+}
+@media (max-width: 600px) {
+	.nyas-why-grid { grid-template-columns: 1fr; gap: 24px; }
+	.nyas-why-card { padding-top: 24px; }
+	.nyas-why-title { font-size: 19px; }
+}
