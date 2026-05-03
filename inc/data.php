@@ -224,7 +224,11 @@ function nyas_case( $slug ) {
 }
 
 /**
- * Editorial / blog seed posts (used as fallback if WP has no posts yet).
+ * Editorial / blog seed posts (used as fallback if WP has no posts yet,
+ * and as the source for the "Import sample blog posts" wizard button).
+ *
+ * Each post has body content broken into paragraphs and headings —
+ * imported as full WP posts when the wizard runs.
  */
 function nyas_seed_posts() {
 	return array(
@@ -238,6 +242,7 @@ function nyas_seed_posts() {
 			'author'   => 'Marcus Tan',
 			'img'      => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
 			'featured' => true,
+			'content'  => "Every week, someone calls our Long Island City office with the same question. They're moving into a pre-war one-bedroom — usually somewhere on the Upper West Side, or a brownstone parlor in Cobble Hill — and they've read three contradictory things about alarm systems on Reddit.\n\nShould it be wired, the kind their parents had, with the keypad screwed into the foyer wall? Or should it be wireless, the kind that ships in a box and sticks to the molding?\n\nBoth can work. Both can fail. Here's how we decide, building by building.\n\n<blockquote>The honest answer is that the building decides, not the homeowner. Pre-war NYC plaster walls have opinions about radio frequencies that no marketing brochure mentions.</blockquote>\n\n<h2>The case for wired</h2>\n\nIf your apartment was built before 1945, there's a good chance it has lath-and-plaster walls reinforced with horsehair, brittle BX cable in the chases, and a parlor floor that creaks. Wired panels — meaning a hardwired control box, contact sensors connected by 22/4 cable, and a keypad — have one massive advantage in this kind of building: they don't need to talk through six inches of plaster reinforced with metal mesh. They just send a low-voltage signal down a copper pair.\n\n<h2>The case for wireless</h2>\n\nThat said, ninety percent of our residential installs in 2025 were wireless — even in pre-war buildings. Modern mesh-based panels operate at 915 MHz with 128-bit AES encryption and a five-year battery life on each sensor. They handle plaster fine, as long as the gateway is positioned thoughtfully.\n\n<h2>What we tell people on the call</h2>\n\nHonestly? Most New Yorkers will be perfectly served by a wireless system, properly placed. The exceptions are real but uncommon: extremely old plaster, very large floor plans (over 1,800 sqft), and buildings where an integrated fire system makes hardwiring the smart play anyway.",
 		),
 		array(
 			'slug'    => 'nypd-response-2025',
@@ -248,6 +253,7 @@ function nyas_seed_posts() {
 			'read'    => '9 min',
 			'author'  => 'Diana Velez',
 			'img'     => 'https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=900&q=80',
+			'content' => "The NYPD's annual response-time report for 2025 dropped last week, and it's worth a careful read for anyone designing alarm systems in New York City.\n\nThe headline: median response to verified burglar alarms held steady citywide at 7.2 minutes. The story underneath: three precincts (the 19th, the 13th, and the 84th) saw their median climb past 9 minutes, and one precinct (the 109th in Queens) actually improved by almost 90 seconds.\n\n<h2>What changed in the slower precincts</h2>\n\nIn each of the three precincts that slipped, the underlying cause was the same: false-alarm volume drove down the priority of unverified events. Officers don't roll out the door at the same speed for an alarm with a 60% historical false-dispatch rate as they do for one verified by audio or video.\n\n<blockquote>The fastest way to make NYPD respond faster to your alarm is to make sure it's verified. Period.</blockquote>\n\n<h2>How we adjusted</h2>\n\nThis is exactly why our default install spec for 2026 includes either a video-verification camera or two-way audio at the panel — both count as verification under NYPD's 2024 protocol.\n\nIf your existing system is alarm-only with no verification, we can usually retrofit a single PoE camera at the front door for under \$400 in hardware. The math pays for itself the first false alarm you avoid.",
 		),
 		array(
 			'slug'    => 'no-more-24-month',
@@ -258,6 +264,7 @@ function nyas_seed_posts() {
 			'read'    => '4 min',
 			'author'  => 'Diana Velez',
 			'img'     => 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=80',
+			'content' => "For most of our first decade, we offered 24-month monitoring contracts. Not 36, not 60 — but two years felt like a reasonable middle ground.\n\nWe stopped doing them in 2023. Here's why.\n\n<h2>The trap nobody mentions</h2>\n\nWhen you sign a 24-month contract, you're not committing to two years of monitoring. You're committing to two years of <em>your current monitoring vendor</em> — even if their service degrades, even if they get acquired, even if they raise prices.\n\nWe watched two of our customers get stuck after their previous vendor (not us) was acquired by a national. Service quality dropped. Phone calls went to a Texas call center. They couldn't leave for a year. We took them on as soon as their contract ended.\n\n<blockquote>If we're not earning your business every month, you should be free to leave. That's just honest.</blockquote>\n\n<h2>What we do instead</h2>\n\nMonth-to-month monitoring with 30 days' cancel notice. Hardware is purchased one-time and yours to keep. If you cancel, the panel and sensors stay on your wall — you can self-monitor, or hire a new vendor to take over the equipment.\n\nWe've heard exactly two complaints about this in 18 months. Both were from sales reps at competitors.",
 		),
 		array(
 			'slug'    => 'co-op-board-checklist',
@@ -268,6 +275,7 @@ function nyas_seed_posts() {
 			'read'    => '5 min',
 			'author'  => 'Priya Iyer',
 			'img'     => 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80',
+			'content' => "Co-op boards are not the enemy. They're protecting the building. But every Manhattan co-op we've worked with — and we've done over 400 — wants the same eight things on paper before they'll sign off on alarm hardware.\n\nIf you walk in with all eight ready, your alteration agreement clears in days, not months.\n\n<h2>The eight items</h2>\n\n<strong>1. Certificate of insurance</strong> — naming the building corporation as additional insured, $2M general liability minimum.\n\n<strong>2. Licensed electrician affidavit</strong> — even for low-voltage work in many older buildings.\n\n<strong>3. Schedule of work</strong> — exact dates, times, and floors affected. Most co-ops require weekday-only, 9–5.\n\n<strong>4. Hardware spec sheet</strong> — every component, model number, and where it'll be mounted.\n\n<strong>5. Wall penetration disclosure</strong> — what (if anything) gets drilled, and what's used to seal it after.\n\n<strong>6. Removal plan</strong> — how the system comes out cleanly if you sell or move.\n\n<strong>7. Monitoring company UL listing</strong> — co-ops want to see UL 827 on the cover sheet.\n\n<strong>8. Building rules acknowledgment</strong> — signed by you, confirming you've read the alteration rules.\n\n<h2>What we do</h2>\n\nWe pre-package items 1, 2, 4, 5, 7, and 8 with every co-op install — they're the same for every job. Items 3 and 6 we customize per unit.",
 		),
 		array(
 			'slug'    => 'false-alarms',
@@ -278,6 +286,7 @@ function nyas_seed_posts() {
 			'read'    => '7 min',
 			'author'  => 'Rashaan Cole',
 			'img'     => 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=900&q=80',
+			'content' => "NYC issued $9M in false-alarm fines in 2024. Most of them were avoidable.\n\nThe city's ordinance is straightforward: after the second false alarm in a calendar year, fines start at $100 and escalate. Five false alarms and you're at $750 each. Frequent offenders end up on a list that delays NYPD response on real events.\n\n<h2>Why most false alarms happen</h2>\n\nIn our data across 9,400 monitored properties, the top three causes are: motion sensors triggered by HVAC airflow, glass-break sensors mistaking dropped dishes for windows, and pets above weight thresholds.\n\nNone of these are panel failures. They're spec mistakes — the wrong sensor for the room.\n\n<blockquote>A good install is 80% specifying the right sensor for the right room, and 20% the actual mounting.</blockquote>\n\n<h2>Our two-step verification protocol</h2>\n\n<strong>Step one: dual-sensor confirmation.</strong> No single sensor triggers a dispatch. We require two zones to agree (e.g., glass-break + motion) within 90 seconds.\n\n<strong>Step two: human verification.</strong> Operators pull a live camera feed or open two-way audio before any 911 call. This adds 8–12 seconds to dispatch — but cuts false-positive rate by 91%.\n\nOur 2025 rolling false-dispatch rate: 0.38%. Industry average: 7.4%.",
 		),
 		array(
 			'slug'    => 'video-verification',
@@ -288,6 +297,7 @@ function nyas_seed_posts() {
 			'read'    => '6 min',
 			'author'  => 'Marcus Tan',
 			'img'     => 'https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?w=900&q=80',
+			'content' => "If you've watched the NYPD's response data for the last five years, one number jumps out: video-verified alarms get a Priority 2 response on average. Unverified alarms hover between Priority 4 and 5.\n\nThat's the difference between an officer rolling out in 90 seconds versus 7 minutes.\n\n<h2>What \"verified\" means in NYPD's protocol</h2>\n\nFour things count as verification under the 2024 NYPD protocol: live video confirming a person on the property, two-way audio confirming the same, two independent zones agreeing within 90 seconds, or a panic button pressed (panics are always verified).\n\nNote that motion + door contact in the same zone do <em>not</em> count — they have to be different zones.\n\n<h2>Why we default to video</h2>\n\nVideo is the easiest one to retrofit. A single PoE camera at the front entry, integrated with the central station, costs under $400 in hardware and gives you priority response for the rest of the system's life.\n\n<blockquote>If we install one camera in your home or business, that camera is the difference between a 7-minute response and a 90-second response. It's the highest-leverage piece of hardware we sell.</blockquote>\n\nWe spec at least one verification camera on every install since mid-2024.",
 		),
 	);
 }

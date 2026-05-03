@@ -14,8 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const NYAS_SETUP_DONE_OPTION = 'nyas_setup_done';
-const NYAS_SETUP_ACTION      = 'nyas_run_setup';
+const NYAS_SETUP_DONE_OPTION  = 'nyas_setup_done';
+const NYAS_SETUP_ACTION       = 'nyas_run_setup';
+const NYAS_SEED_POSTS_OPTION  = 'nyas_seed_posts_done';
+const NYAS_SEED_POSTS_ACTION  = 'nyas_import_seed_posts';
 
 /**
  * Decide whether the notice should appear.
@@ -33,6 +35,24 @@ function nyas_setup_should_show_notice() {
 	$svcs    = get_page_by_path( 'services' );
 	$cases   = get_page_by_path( 'cases' );
 	if ( $home && $about && $svcs && $cases ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Decide whether the seed-posts notice should appear.
+ */
+function nyas_seed_posts_should_show() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return false;
+	}
+	if ( get_option( NYAS_SEED_POSTS_OPTION ) ) {
+		return false;
+	}
+	// Don't show if there are already several published posts (someone's writing).
+	$count = wp_count_posts( 'post' );
+	if ( $count && (int) $count->publish >= 3 ) {
 		return false;
 	}
 	return true;
@@ -82,6 +102,229 @@ function nyas_setup_admin_notice() {
 	<?php
 }
 add_action( 'admin_notices', 'nyas_setup_admin_notice' );
+
+/**
+ * Render the seed-posts admin notice (separate button).
+ */
+function nyas_seed_posts_admin_notice() {
+	if ( ! nyas_seed_posts_should_show() ) {
+		return;
+	}
+
+	$flash = get_transient( 'nyas_seed_posts_flash' );
+	if ( $flash ) {
+		delete_transient( 'nyas_seed_posts_flash' );
+		$class = 'success' === $flash['type'] ? 'notice-success' : 'notice-error';
+		echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible"><p>' . wp_kses_post( $flash['message'] ) . '</p></div>';
+		if ( 'success' === $flash['type'] ) {
+			return;
+		}
+	}
+
+	$action_url = admin_url( 'admin-post.php' );
+	?>
+	<div class="notice notice-info" style="border-left-color: #1F4DD8;">
+		<h3 style="margin: 12px 0 4px; font-size: 16px;">
+			<?php esc_html_e( 'Import sample blog posts', 'nyas' ); ?>
+		</h3>
+		<p style="margin: 0 0 12px;">
+			<?php esc_html_e( 'Create the 6 design-spec sample posts (Buyers guide / Industry / Field notes), with categories, dates, body content, and Unsplash featured images attached. Useful for filling the Insights archive while you write your own.', 'nyas' ); ?>
+		</p>
+		<p>
+			<form method="post" action="<?php echo esc_url( $action_url ); ?>" style="display:inline-block;">
+				<input type="hidden" name="action" value="<?php echo esc_attr( NYAS_SEED_POSTS_ACTION ); ?>" />
+				<?php wp_nonce_field( NYAS_SEED_POSTS_ACTION ); ?>
+				<button type="submit" class="button button-primary" style="background: #1F4DD8; border-color: #143CB0;">
+					<?php esc_html_e( 'Import sample posts', 'nyas' ); ?>
+				</button>
+			</form>
+			<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'nyas_dismiss_seed_posts', 1 ), 'nyas_dismiss_seed_posts' ) ); ?>" style="margin-left: 12px;">
+				<?php esc_html_e( 'Dismiss (I\'ll write my own)', 'nyas' ); ?>
+			</a>
+		</p>
+	</div>
+	<?php
+}
+add_action( 'admin_notices', 'nyas_seed_posts_admin_notice' );
+
+/**
+ * Dismiss handler for seed posts notice.
+ */
+function nyas_seed_posts_handle_dismiss() {
+	if ( ! isset( $_GET['nyas_dismiss_seed_posts'] ) ) {
+		return;
+	}
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	check_admin_referer( 'nyas_dismiss_seed_posts' );
+	update_option( NYAS_SEED_POSTS_OPTION, time() );
+	wp_safe_redirect( remove_query_arg( array( 'nyas_dismiss_seed_posts', '_wpnonce' ) ) );
+	exit;
+}
+add_action( 'admin_init', 'nyas_seed_posts_handle_dismiss' );
+
+/**
+ * Seed-posts importer handler.
+ */
+function nyas_seed_posts_handle_run() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Insufficient permissions.', 'nyas' ) );
+	}
+	check_admin_referer( NYAS_SEED_POSTS_ACTION );
+
+	// Need these for media_sideload_image.
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/media.php';
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+
+	$created = 0;
+	$skipped = 0;
+	$failed  = 0;
+
+	foreach ( nyas_seed_posts() as $seed ) {
+		// Skip if already imported by slug.
+		$existing = get_page_by_path( $seed['slug'], OBJECT, 'post' );
+		if ( $existing ) {
+			$skipped++;
+			continue;
+		}
+
+		// Build content with a simple intro paragraph + body.
+		$content = isset( $seed['content'] ) ? $seed['content'] : $seed['excerpt'];
+		// Convert blank-line-separated blocks into <p>...</p>.
+		$paragraphs = preg_split( '/\n\s*\n/', trim( $content ) );
+		$wrapped    = array();
+		foreach ( $paragraphs as $p ) {
+			$p = trim( $p );
+			if ( '' === $p ) {
+				continue;
+			}
+			// Don't double-wrap already-wrapped HTML (h2, blockquote, ul, etc.).
+			if ( preg_match( '/^<(h2|h3|blockquote|ul|ol|p|div)/i', $p ) ) {
+				$wrapped[] = $p;
+			} else {
+				$wrapped[] = '<p>' . $p . '</p>';
+			}
+		}
+		$post_content = implode( "\n\n", $wrapped );
+
+		// Date — try to parse seed date string.
+		$ts = strtotime( $seed['date'] );
+		if ( ! $ts ) {
+			$ts = time();
+		}
+		$post_date = date( 'Y-m-d H:i:s', $ts );
+
+		$post_id = wp_insert_post( array(
+			'post_type'    => 'post',
+			'post_status'  => 'publish',
+			'post_title'   => $seed['title'],
+			'post_name'    => $seed['slug'],
+			'post_excerpt' => $seed['excerpt'],
+			'post_content' => $post_content,
+			'post_date'    => $post_date,
+			'post_date_gmt'=> get_gmt_from_date( $post_date ),
+		), true );
+
+		if ( is_wp_error( $post_id ) || ! $post_id ) {
+			$failed++;
+			continue;
+		}
+
+		// Category — create if missing, then assign.
+		if ( ! empty( $seed['tag'] ) ) {
+			$term = term_exists( $seed['tag'], 'category' );
+			if ( ! $term ) {
+				$term = wp_insert_term( $seed['tag'], 'category' );
+			}
+			if ( ! is_wp_error( $term ) && isset( $term['term_id'] ) ) {
+				wp_set_post_categories( $post_id, array( (int) $term['term_id'] ) );
+			}
+		}
+
+		// Featured image — sideload Unsplash URL into media library.
+		if ( ! empty( $seed['img'] ) && ! has_post_thumbnail( $post_id ) ) {
+			$attach_id = nyas_seed_sideload_image( $seed['img'], $post_id, $seed['title'] );
+			if ( $attach_id && ! is_wp_error( $attach_id ) ) {
+				set_post_thumbnail( $post_id, $attach_id );
+			}
+		}
+
+		$created++;
+	}
+
+	if ( $created > 0 ) {
+		update_option( NYAS_SEED_POSTS_OPTION, time() );
+	}
+
+	$msg = sprintf(
+		/* translators: 1: number created, 2: number skipped, 3: link to insights archive. */
+		__( 'Imported %1$d sample posts (%2$d already existed). View them on your <a href="%3$s">Insights page</a>.', 'nyas' ),
+		$created,
+		$skipped,
+		esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/' ) )
+	);
+	if ( $failed > 0 ) {
+		$msg .= ' ' . sprintf( __( '%d failed (check error log).', 'nyas' ), $failed );
+	}
+
+	set_transient(
+		'nyas_seed_posts_flash',
+		array(
+			'type'    => $failed > 0 ? 'error' : 'success',
+			'message' => $msg,
+		),
+		MINUTE_IN_SECONDS
+	);
+
+	wp_safe_redirect( admin_url( 'edit.php' ) );
+	exit;
+}
+add_action( 'admin_post_' . NYAS_SEED_POSTS_ACTION, 'nyas_seed_posts_handle_run' );
+
+/**
+ * Sideload an image from a URL into the media library and attach it to a post.
+ * Returns attachment ID on success or 0 on failure.
+ */
+function nyas_seed_sideload_image( $url, $post_id, $alt = '' ) {
+	if ( empty( $url ) ) {
+		return 0;
+	}
+
+	$tmp = download_url( $url, 30 );
+	if ( is_wp_error( $tmp ) ) {
+		return 0;
+	}
+
+	// Use a stable filename derived from the URL path.
+	$path = parse_url( $url, PHP_URL_PATH );
+	$ext  = pathinfo( $path, PATHINFO_EXTENSION );
+	if ( ! $ext ) {
+		$ext = 'jpg';
+	}
+	$file_array = array(
+		'name'     => sanitize_title_with_dashes( $alt ?: 'nyas-seed' ) . '.' . $ext,
+		'tmp_name' => $tmp,
+	);
+
+	$attach_id = media_handle_sideload( $file_array, $post_id, $alt );
+
+	// Clean up tmp file if sideload didn't.
+	if ( file_exists( $tmp ) ) {
+		@unlink( $tmp ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+	}
+
+	if ( is_wp_error( $attach_id ) ) {
+		return 0;
+	}
+
+	if ( $alt ) {
+		update_post_meta( $attach_id, '_wp_attachment_image_alt', $alt );
+	}
+
+	return $attach_id;
+}
 
 /**
  * Manual dismiss handler — sets the done flag without running the wizard.
