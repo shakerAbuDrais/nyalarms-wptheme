@@ -100,6 +100,7 @@ require_once NYAS_DIR . 'inc/icons.php';
 require_once NYAS_DIR . 'inc/template-helpers.php';
 require_once NYAS_DIR . 'inc/customizer.php';
 require_once NYAS_DIR . 'inc/data.php';
+require_once NYAS_DIR . 'inc/setup-wizard.php';
 
 /**
  * Add a body class for the active page so we can target sticky-header tweaks.
