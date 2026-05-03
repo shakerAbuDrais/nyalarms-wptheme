@@ -36,7 +36,7 @@ get_header();
 
 <section class="section-paper">
 	<div class="container">
-		<div class="nyas-about-story" style="display:grid;grid-template-columns:1fr 2fr;gap:64px">
+		<div class="nyas-about-story nyas-2col" style="display:grid;grid-template-columns:1fr 2fr;gap:64px">
 			<div>
 				<?php nyas_eyebrow( __( 'Our story', 'nyas' ), true, 'margin-bottom:16px' ); ?>
 				<h2 class="display-lg"><?php esc_html_e( 'A different kind of alarm company.', 'nyas' ); ?></h2>

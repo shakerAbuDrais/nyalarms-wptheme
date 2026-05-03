@@ -1,0 +1,386 @@
+/* ─────────────────────────────────────────────────────────────
+   NYAS — Comprehensive responsive overhaul.
+   Loaded LAST so these rules win.
+
+   Strategy:
+   1. Single, large mobile breakpoint at 980px collapses every two-column
+      grid in the theme to a single column. Three-column grids collapse
+      to two on tablet, one on phone.
+   2. Defensive attribute selectors catch inline-styled grids without
+      requiring every PHP template to adopt a class.
+   3. Compare table + scenario tabs get horizontal-scroll wrappers.
+   4. Hero variants and prose scale via clamp() rules.
+   5. Typography scales down sensibly at 720px and 480px.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Menu (desktop ≥981px) ─────────────────────────────────── */
+.nav .nav-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 4px;
+	flex-wrap: wrap;
+}
+.nav .nav-menu li {
+	margin: 0;
+	list-style: none;
+}
+.nav .nav-menu a {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--fg);
+	padding: 9px 14px;
+	border-radius: 10px;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	white-space: nowrap;
+	transition: all var(--dur-base, 200ms) var(--ease-out, ease);
+}
+.nav .nav-menu a:hover { background: var(--n-100); text-decoration: none; }
+.nav .nav-menu .current-menu-item > a,
+.nav .nav-menu .current_page_item > a,
+.nav .nav-menu .current-menu-parent > a,
+.nav .nav-menu .current-menu-ancestor > a { color: var(--brand-signal); }
+.site-header.ink .nav .nav-menu a { color: rgba(255,255,255,0.78); }
+.site-header.ink .nav .nav-menu a:hover,
+.site-header.ink .nav .nav-menu .current-menu-item > a { color: #fff; background: rgba(255,255,255,0.08); }
+
+/* Footer menu output */
+.site-footer .menu,
+.site-footer ul.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.site-footer .menu li { display: block; }
+
+/* ── Big collapse: <=980px ─────────────────────────────────── */
+@media (max-width: 980px) {
+
+	/* Hide desktop nav, show burger (already in responsive.css but force here) */
+	.nav { display: none !important; }
+	.nav-burger { display: inline-flex !important; }
+
+	/* All known wrapper classes → 1 column */
+	.nyas-services-head,
+	.nyas-cases-head,
+	.nyas-blog-head,
+	.nyas-feat-case,
+	.nyas-coverage,
+	.nyas-faq-grid,
+	.nyas-feat-post,
+	.nyas-included,
+	.nyas-service-hero,
+	.nyas-case-hero,
+	.nyas-case-cta,
+	.nyas-post-cta,
+	.nyas-newsletter,
+	.nyas-why-head,
+	.nyas-about-story,
+	.nyas-about-mosaic,
+	.nyas-final-cta,
+	.nyas-trust-strip,
+	.nyas-scenario-body,
+	.nyas-feat-case-stats,
+	.nyas-2col,
+	.nyas-3col {
+		grid-template-columns: 1fr !important;
+		gap: 32px !important;
+	}
+
+	/* Catch-all: any inline 2-column grid pattern collapses */
+	[style*="grid-template-columns: 1.3fr 1fr"],
+	[style*="grid-template-columns:1.3fr 1fr"],
+	[style*="grid-template-columns: 1.2fr 1fr"],
+	[style*="grid-template-columns:1.2fr 1fr"],
+	[style*="grid-template-columns: 1.5fr 1fr"],
+	[style*="grid-template-columns:1.5fr 1fr"],
+	[style*="grid-template-columns: 1.6fr 1fr"],
+	[style*="grid-template-columns:1.6fr 1fr"],
+	[style*="grid-template-columns: 1.1fr 1fr"],
+	[style*="grid-template-columns:1.1fr 1fr"],
+	[style*="grid-template-columns: 1fr 1.1fr"],
+	[style*="grid-template-columns:1fr 1.1fr"],
+	[style*="grid-template-columns: 1fr 2fr"],
+	[style*="grid-template-columns:1fr 2fr"],
+	[style*="grid-template-columns: 2fr 1fr"],
+	[style*="grid-template-columns:2fr 1fr"],
+	[style*="grid-template-columns: 1fr 1.5fr"],
+	[style*="grid-template-columns:1fr 1.5fr"],
+	[style*="grid-template-columns: 1fr 1.4fr"],
+	[style*="grid-template-columns:1fr 1.4fr"],
+	[style*="grid-template-columns: 1fr 1.6fr"],
+	[style*="grid-template-columns:1fr 1.6fr"],
+	[style*="grid-template-columns: 1fr 1fr"],
+	[style*="grid-template-columns:1fr 1fr"] {
+		grid-template-columns: 1fr !important;
+		gap: 32px !important;
+	}
+
+	/* Sticky service-hero form should not stay sticky on mobile */
+	.nyas-service-hero [style*="position:sticky"],
+	.nyas-service-hero [style*="position: sticky"] {
+		position: static !important;
+	}
+
+	/* Section padding tightens */
+	section { padding: 56px 0 !important; }
+	.section-tight { padding: 40px 0 !important; }
+	.section-loose { padding: 72px 0 !important; }
+
+	.container, .container-narrow, .container-wide { padding: 0 20px !important; }
+}
+
+/* ── Tighter phone breakpoint: <=720px ─────────────────────── */
+@media (max-width: 720px) {
+
+	/* Three-column lists → 2 columns where it makes sense, else 1 */
+	.grid-3 { grid-template-columns: 1fr !important; gap: 16px !important; }
+	.grid-4 { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+	.grid-5 { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+	.grid-2 { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+	.hero-specsheet-cards { grid-template-columns: 1fr 1fr !important; }
+	.hero-edit-tiles      { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+	.hero-center-strip    { grid-template-columns: 1fr 1fr !important; padding-top: 32px !important; margin-top: 32px !important; }
+
+	/* Featured case-study stat row stacks */
+	[style*="grid-template-columns: repeat(3, 1fr)"],
+	[style*="grid-template-columns:repeat(3, 1fr)"],
+	[style*="grid-template-columns: repeat(3,1fr)"],
+	[style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr 1fr !important; }
+
+	[style*="grid-template-columns: repeat(4, 1fr)"],
+	[style*="grid-template-columns:repeat(4, 1fr)"],
+	[style*="grid-template-columns: repeat(4,1fr)"],
+	[style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr 1fr !important; }
+
+	/* Scenario tabs scroll horizontally */
+	.scenario-tabs {
+		flex-wrap: nowrap !important;
+		overflow-x: auto !important;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		margin-bottom: 24px !important;
+	}
+	.scenario-tabs::-webkit-scrollbar { display: none; }
+	.scenario-tab {
+		flex-shrink: 0 !important;
+		padding: 14px 18px !important;
+		font-size: 14px !important;
+		white-space: nowrap;
+	}
+	[data-scenario-body] { grid-template-columns: 1fr !important; gap: 24px !important; }
+	[data-scenario-body] > div:last-child { min-height: 280px !important; }
+
+	/* Compare table — let it scroll and shrink type */
+	.compare-table { font-size: 13px; }
+	.compare-table th, .compare-table td { padding: 12px 10px !important; font-size: 12px !important; }
+	.compare-table thead th { padding: 14px 10px !important; }
+
+	/* Hero stats stack vertically already handled in app.css; ensure number sizes shrink */
+	.hero-cream-stats .num,
+	.hero-edit-tile-num,
+	.hero-specsheet-title { font-size: clamp(36px, 9vw, 56px) !important; }
+
+	/* Quote section form padding */
+	.quote-section-form { padding: 24px !important; }
+
+	/* About mosaic stacks pretty */
+	.about-mosaic {
+		grid-template-columns: 1fr 1fr !important;
+		grid-template-rows: 200px 200px 200px !important;
+	}
+	.about-mosaic > :first-child {
+		grid-column: span 2 !important;
+		grid-row: span 1 !important;
+	}
+
+	/* Services preview switches to image-first stack */
+	.services-stage { grid-template-columns: 1fr !important; gap: 16px !important; }
+	.services-preview { min-height: 360px !important; }
+	.services-preview-body h3 { font-size: clamp(24px, 7vw, 36px) !important; }
+
+	/* Quiz card */
+	.quiz-shell { grid-template-columns: 1fr !important; gap: 24px !important; }
+	.quiz-grid  { grid-template-columns: 1fr !important; }
+	.quiz-card  { padding: 24px !important; }
+	.quiz-q     { font-size: clamp(20px, 5.5vw, 28px) !important; }
+
+	/* How-it-works rail */
+	.how-rail { grid-template-columns: 1fr !important; gap: 32px !important; padding-top: 24px !important; }
+	.how-line { display: none !important; }
+
+	/* Testimonials tighten */
+	.testimonial-card { padding: 24px !important; }
+
+	/* Pillar pages: hero + form unstick + reflow */
+	.nyas-service-hero { grid-template-columns: 1fr !important; gap: 32px !important; }
+	.nyas-service-hero > div[style*="position:sticky"],
+	.nyas-service-hero > div[style*="position: sticky"] { position: static !important; }
+
+	/* Topbar reduces */
+	.topbar { font-size: 11px !important; padding: 6px 0 !important; }
+	.topbar .container { gap: 8px !important; }
+
+	/* Display-xl on phones (homepage hero) */
+	.display-xl { font-size: clamp(36px, 9vw, 56px) !important; }
+	.display-lg { font-size: clamp(28px, 7vw, 40px) !important; }
+	.display-md { font-size: clamp(24px, 6vw, 32px) !important; }
+
+	/* Lede copy size */
+	.lede { font-size: clamp(15px, 4vw, 18px) !important; }
+
+	/* Footer columns stack to 2 */
+	.footer-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+
+	/* Newsletter form stacks */
+	[data-nyas-newsletter] { flex-direction: column !important; }
+	[data-nyas-newsletter] .input { width: 100% !important; min-width: 0 !important; }
+	[data-nyas-newsletter] .btn  { width: 100% !important; justify-content: center !important; }
+
+	/* Filter bars (services / cases / blog) */
+	[data-nyas-filter] .container,
+	.nyas-filter-bar .container {
+		flex-wrap: nowrap !important;
+		overflow-x: auto !important;
+		scrollbar-width: none;
+	}
+	[data-nyas-filter] .container::-webkit-scrollbar,
+	.nyas-filter-bar .container::-webkit-scrollbar { display: none; }
+
+	/* Comments section narrower */
+	.comment-form input,
+	.comment-form textarea { padding: 12px 14px !important; }
+}
+
+/* ── Ultra-small: <=480px ──────────────────────────────────── */
+@media (max-width: 480px) {
+
+	/* Footer stacks fully */
+	.footer-grid { grid-template-columns: 1fr !important; }
+
+	/* All grids single column */
+	.grid-4, .grid-5, .grid-3, .grid-2 { grid-template-columns: 1fr !important; }
+	.hero-specsheet-cards,
+	.hero-edit-tiles,
+	.hero-center-strip { grid-template-columns: 1fr !important; }
+
+	/* Even tighter section padding */
+	section { padding: 48px 0 !important; }
+	.container, .container-narrow, .container-wide { padding: 0 16px !important; }
+
+	/* Display sizes */
+	.display-xl { font-size: clamp(32px, 9vw, 44px) !important; }
+	.display-lg { font-size: clamp(26px, 7.5vw, 36px) !important; }
+	.display-md { font-size: clamp(22px, 6.5vw, 28px) !important; }
+
+	/* Buttons fit */
+	.btn-lg { padding: 14px 24px !important; font-size: 15px !important; }
+	.btn-md { padding: 11px 20px !important; font-size: 13px !important; }
+
+	/* Topbar — only show monitoring pill, hide license + call wording */
+	.topbar .container > div:nth-child(2) > span:first-child { display: none !important; }
+	.topbar .container > div:nth-child(2) > a { font-size: 11px !important; }
+
+	/* About mosaic — single column */
+	.about-mosaic {
+		grid-template-columns: 1fr !important;
+		grid-template-rows: repeat(5, 180px) !important;
+	}
+	.about-mosaic > :first-child {
+		grid-column: span 1 !important;
+		grid-row: span 1 !important;
+	}
+
+	/* Featured posts / cards: shrink padding */
+	.card { padding: 20px !important; }
+
+	/* Quote-section bullet list sized down */
+	.quote-bullets li { font-size: 14px !important; }
+
+	/* Compare table — show only first 3 columns by toggling */
+	.compare-table th:nth-child(4),
+	.compare-table th:nth-child(5),
+	.compare-table td:nth-child(4),
+	.compare-table td:nth-child(5) { display: none; }
+	.compare-table th, .compare-table td { padding: 10px 8px !important; font-size: 11.5px !important; }
+}
+
+/* ── Cross-breakpoint quality fixes ────────────────────────── */
+
+/* Compare table always needs horizontal scroll capability */
+.compare-table {
+	min-width: 600px;
+}
+
+/* Make sure inline-grid sections can shrink to viewport (no overflow) */
+section,
+.container,
+.container-narrow,
+.container-wide { min-width: 0; }
+
+img, video, iframe { max-width: 100%; height: auto; }
+
+/* Drawer: ensure it sits above sticky filter bars */
+.mobile-drawer { z-index: 999 !important; }
+.site-header { z-index: 100 !important; }
+
+/* Sticky filter bars under header should account for header height */
+[data-nyas-filter],
+.nyas-filter-bar {
+	top: 64px !important;
+}
+@media (max-width: 980px) {
+	[data-nyas-filter],
+	.nyas-filter-bar { top: 56px !important; }
+}
+
+/* Long titles in cards don't overflow */
+.card h3,
+.testimonial-card blockquote { word-break: break-word; }
+
+/* Code/pre wrap on mobile */
+pre, code { white-space: pre-wrap; word-break: break-word; }
+
+/* Forms on iOS — ensure 16px font to prevent zoom-on-focus */
+@media (max-width: 720px) {
+	.input, .select, .textarea,
+	.comment-form input, .comment-form textarea { font-size: 16px !important; }
+}
+
+/* Make sticky service-form not overlap header on smaller desktops */
+@media (max-width: 1240px) and (min-width: 981px) {
+	.nyas-service-hero > div[style*="position:sticky"],
+	.nyas-service-hero > div[style*="position: sticky"] { top: 90px !important; }
+}
+
+/* Map: shrink height on mobile */
+@media (max-width: 720px) {
+	.ny-map-wrap { aspect-ratio: 4/3 !important; }
+}
+
+/* Borough table on homepage Coverage: tighten on tiny phones */
+@media (max-width: 480px) {
+	[style*="grid-template-columns: 1.5fr 0.5fr 2fr"],
+	[style*="grid-template-columns:1.5fr 0.5fr 2fr"] {
+		grid-template-columns: 1fr !important;
+		gap: 4px !important;
+	}
+	[style*="grid-template-columns: 1.5fr 0.5fr 2fr"] > span,
+	[style*="grid-template-columns:1.5fr 0.5fr 2fr"] > span {
+		text-align: left !important;
+	}
+}
+
+/* Final-CTA / dark sections — ensure form card fits */
+@media (max-width: 720px) {
+	[id="cta-form"] { padding: 20px !important; }
+}
+
+/* Headline em color stays brand on the "ink" green-em variant in dark sections */
+.section-ink em,
+.section-ink h2 em,
+.section-ink h1 em { color: #3CD68C; }

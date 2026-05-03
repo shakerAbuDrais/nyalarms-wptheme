@@ -90,7 +90,7 @@ $scenarios = array(
 		</div>
 
 		<?php foreach ( $scenarios as $key => $d ) : ?>
-			<div class="scenario-body" data-scenario-body="<?php echo esc_attr( $key ); ?>" style="display:<?php echo 'home' === $key ? 'grid' : 'none'; ?>;grid-template-columns:1.1fr 1fr;gap:48px;align-items:stretch">
+			<div class="scenario-body nyas-scenario-body" data-scenario-body="<?php echo esc_attr( $key ); ?>" style="display:<?php echo 'home' === $key ? 'grid' : 'none'; ?>;grid-template-columns:1.1fr 1fr;gap:48px;align-items:stretch">
 				<div>
 					<h3 style="font-family:var(--ff-display);font-weight:800;font-size:32px;letter-spacing:-0.02em;margin-bottom:16px"><?php echo esc_html( $d['title'] ); ?></h3>
 					<p style="font-size:16px;line-height:1.6;color:var(--fg-2);margin-bottom:28px;max-width:520px"><?php echo esc_html( $d['story'] ); ?></p>

@@ -60,17 +60,16 @@ if ( is_front_page() ) {
 			<?php
 			if ( has_nav_menu( 'primary' ) ) {
 				wp_nav_menu( array(
-					'theme_location' => 'primary',
-					'container'      => false,
-					'menu_class'     => 'nav-menu',
-					'items_wrap'     => '%3$s',
-					'fallback_cb'    => false,
-					'walker'         => null,
-					'link_before'    => '',
-					'link_after'     => '',
-					'depth'          => 1,
+					'theme_location'  => 'primary',
+					'container'       => false,
+					'menu_class'      => 'nav-menu',
+					'fallback_cb'     => false,
+					'depth'           => 1,
+					'link_before'     => '',
+					'link_after'      => '',
 				) );
 			} else {
+				echo '<ul class="nav-menu">';
 				$links = array(
 					array( 'home',     home_url( '/' ),                  __( 'Home', 'nyas' ) ),
 					array( 'services', home_url( '/services/' ),         __( 'Services', 'nyas' ) ),
@@ -80,9 +79,10 @@ if ( is_front_page() ) {
 				);
 				foreach ( $links as $link ) {
 					list( $id, $href, $label ) = $link;
-					$class = 'nav-link' . ( $active === $id ? ' active' : '' );
-					echo '<a class="' . esc_attr( $class ) . '" href="' . esc_url( $href ) . '">' . esc_html( $label ) . '</a>';
+					$cls = 'menu-item' . ( $active === $id ? ' current-menu-item' : '' );
+					echo '<li class="' . esc_attr( $cls ) . '"><a href="' . esc_url( $href ) . '">' . esc_html( $label ) . '</a></li>';
 				}
+				echo '</ul>';
 			}
 			?>
 		</nav>

@@ -74,7 +74,7 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 <?php // ─── 2. Trust strip ─── ?>
 <section style="padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--brand-paper)">
 	<div class="container">
-		<div class="featured-in" style="display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center">
+		<div class="featured-in nyas-trust-strip" style="display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center">
 			<div class="eyebrow" style="white-space:nowrap"><?php esc_html_e( 'As featured in', 'nyas' ); ?></div>
 			<div class="featured-in-logos" style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;opacity:0.62">
 				<?php

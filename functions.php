@@ -58,10 +58,11 @@ function nyas_enqueue_assets() {
 	wp_enqueue_style( 'nyas-tokens',     NYAS_URI . 'assets/css/tokens.css',     array( 'nyas-fonts' ), NYAS_VERSION );
 	wp_enqueue_style( 'nyas-app',        NYAS_URI . 'assets/css/app.css',        array( 'nyas-tokens' ), NYAS_VERSION );
 	wp_enqueue_style( 'nyas-responsive', NYAS_URI . 'assets/css/responsive.css', array( 'nyas-app' ), NYAS_VERSION );
-	wp_enqueue_style( 'nyas-overrides',  NYAS_URI . 'assets/css/nyas.css',       array( 'nyas-responsive' ), NYAS_VERSION );
+	wp_enqueue_style( 'nyas-overrides',     NYAS_URI . 'assets/css/nyas.css',            array( 'nyas-responsive' ), NYAS_VERSION );
+	wp_enqueue_style( 'nyas-responsive-2',  NYAS_URI . 'assets/css/nyas-responsive.css', array( 'nyas-overrides' ), NYAS_VERSION );
 
 	// Theme stylesheet (style.css) — keep loaded so child themes / plugins behave.
-	wp_enqueue_style( 'nyas-style', get_stylesheet_uri(), array( 'nyas-overrides' ), NYAS_VERSION );
+	wp_enqueue_style( 'nyas-style', get_stylesheet_uri(), array( 'nyas-responsive-2' ), NYAS_VERSION );
 
 	// Leaflet on the homepage only.
 	if ( is_front_page() ) {

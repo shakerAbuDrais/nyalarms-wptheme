@@ -185,7 +185,7 @@ function nyas_final_cta( $args = array() ) {
 	?>
 	<section style="padding:96px 0;background:var(--brand-ink);color:var(--fg-on-ink);position:relative;overflow:hidden">
 		<div style="position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px);background-size:32px 32px"></div>
-		<div class="container" style="position:relative;display:grid;grid-template-columns:<?php echo $args['show_form'] ? '1.2fr 1fr' : '1fr'; ?>;gap:64px;align-items:center">
+		<div class="container nyas-final-cta" style="position:relative;display:grid;grid-template-columns:<?php echo $args['show_form'] ? '1.2fr 1fr' : '1fr'; ?>;gap:64px;align-items:center">
 			<div>
 				<div class="eyebrow" style="color:rgba(246,243,236,0.55);margin-bottom:20px"><?php echo wp_kses_post( $args['eyebrow'] ); ?></div>
 				<h2 class="display-lg" style="color:var(--fg-on-ink);margin-bottom:24px"><?php echo wp_kses_post( $args['heading'] ); ?></h2>
