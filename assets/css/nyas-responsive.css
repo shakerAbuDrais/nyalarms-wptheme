@@ -341,12 +341,57 @@ img, video, iframe { max-width: 100%; height: auto; }
 .mobile-drawer-panel { z-index: 10000 !important; }
 .site-header { z-index: 100 !important; }
 
-/* Belt-and-suspenders: when .open is added by JS, force visibility even
-   if responsive.css's display:block @media rule didn't apply. */
-.mobile-drawer.open { display: block !important; }
+/* ─────────────────────────────────────────────────────────────
+   Mobile drawer — bulletproof.
+   The drawer markup lives outside <header> (anchored to body) so
+   position:fixed works against the viewport regardless of any
+   ancestor's transform/filter/backdrop-filter.
+   ───────────────────────────────────────────────────────────── */
+.mobile-drawer {
+	position: fixed !important;
+	inset: 0 !important;
+	z-index: 9999 !important;
+	background: rgba(14, 23, 38, 0);
+	pointer-events: none;
+	display: block !important;          /* always in flow; visibility-controlled */
+	transition: background 320ms ease;
+	visibility: hidden;
+}
+.mobile-drawer.open {
+	background: rgba(14, 23, 38, 0.55) !important;
+	pointer-events: auto !important;
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	visibility: visible !important;
+}
+.mobile-drawer-panel {
+	position: absolute !important;
+	top: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	width: min(360px, 92vw) !important;
+	max-width: 360px;
+	background: #FFFFFF !important;     /* literal — never depends on --bg cascade */
+	color: #0E1116 !important;
+	display: flex !important;
+	flex-direction: column !important;
+	transform: translateX(100%);
+	transition: transform 360ms cubic-bezier(0.2, 0.85, 0.2, 1);
+	overflow-y: auto;
+	z-index: 10000 !important;
+	box-shadow: -20px 0 60px rgba(0,0,0,0.25);
+}
 .mobile-drawer.open .mobile-drawer-panel {
 	transform: translateX(0) !important;
-	pointer-events: auto !important;
+}
+/* Make sure interior text is visible no matter what cascades through */
+.mobile-drawer .mobile-nav-link,
+.mobile-drawer .drawer-brand,
+.mobile-drawer .mobile-phone-card-num,
+.mobile-drawer .mobile-phone-card-eyebrow,
+.mobile-drawer .pill {
+	visibility: visible !important;
+	opacity: 1 !important;
 }
 
 /* Sticky filter bars under header should account for header height */

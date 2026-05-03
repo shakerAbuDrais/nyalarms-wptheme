@@ -97,62 +97,64 @@ if ( is_front_page() ) {
 			</button>
 		</div>
 	</div>
+</header>
 
-	<div class="mobile-drawer" data-nyas-drawer style="display:block">
-		<div class="mobile-drawer-panel">
-			<div class="mobile-drawer-head">
-				<div style="display:flex;align-items:center;gap:12px">
-					<span class="logo-mark">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-							<path d="M12 21s7-3.5 7-8.5V5l-7-2.5L5 5v7.5C5 17.5 12 21 12 21z" stroke="white" stroke-width="2.2" fill="none" stroke-linejoin="round" />
-							<path d="m9 12 2 2 4-4" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-						</svg>
-					</span>
-					<span class="drawer-brand">newyork<em>alarm</em>systems</span>
-				</div>
-				<button type="button" class="drawer-close" aria-label="<?php esc_attr_e( 'Close menu', 'nyas' ); ?>" data-nyas-drawer-close>
-					<?php nyas_icon( 'close', 18 ); ?>
-				</button>
+<?php // Drawer lives OUTSIDE <header> so position:fixed anchors to the viewport, ?>
+<?php // not to a header that has backdrop-filter (which can create a containing block). ?>
+<div class="mobile-drawer" data-nyas-drawer aria-hidden="true">
+	<div class="mobile-drawer-panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Site navigation', 'nyas' ); ?>">
+		<div class="mobile-drawer-head">
+			<div style="display:flex;align-items:center;gap:12px">
+				<span class="logo-mark">
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path d="M12 21s7-3.5 7-8.5V5l-7-2.5L5 5v7.5C5 17.5 12 21 12 21z" stroke="white" stroke-width="2.2" fill="none" stroke-linejoin="round" />
+						<path d="m9 12 2 2 4-4" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+					</svg>
+				</span>
+				<span class="drawer-brand">newyork<em>alarm</em>systems</span>
 			</div>
+			<button type="button" class="drawer-close" aria-label="<?php esc_attr_e( 'Close menu', 'nyas' ); ?>" data-nyas-drawer-close>
+				<?php nyas_icon( 'close', 18 ); ?>
+			</button>
+		</div>
 
-			<nav class="mobile-nav" aria-label="<?php esc_attr_e( 'Mobile primary', 'nyas' ); ?>">
-				<?php
-				$mlinks = array(
-					array( 'home',     home_url( '/' ),                  __( 'Home', 'nyas' ) ),
-					array( 'services', home_url( '/services/' ),         __( 'Services', 'nyas' ) ),
-					array( 'cases',    home_url( '/cases/' ),            __( 'Case studies', 'nyas' ) ),
-					array( 'blog',     get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ), __( 'Insights', 'nyas' ) ),
-					array( 'about',    home_url( '/about/' ),            __( 'About', 'nyas' ) ),
-				);
-				foreach ( $mlinks as $link ) {
-					list( $id, $href, $label ) = $link;
-					$class = 'mobile-nav-link' . ( $active === $id ? ' active' : '' );
-					echo '<a class="' . esc_attr( $class ) . '" href="' . esc_url( $href ) . '"><span>' . esc_html( $label ) . '</span>';
-					echo '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>';
-					echo '</a>';
-				}
-				?>
-			</nav>
+		<nav class="mobile-nav" aria-label="<?php esc_attr_e( 'Mobile primary', 'nyas' ); ?>">
+			<?php
+			$mlinks = array(
+				array( 'home',     home_url( '/' ),                  __( 'Home', 'nyas' ) ),
+				array( 'services', home_url( '/services/' ),         __( 'Services', 'nyas' ) ),
+				array( 'cases',    home_url( '/cases/' ),            __( 'Case studies', 'nyas' ) ),
+				array( 'blog',     get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ), __( 'Insights', 'nyas' ) ),
+				array( 'about',    home_url( '/about/' ),            __( 'About', 'nyas' ) ),
+			);
+			foreach ( $mlinks as $link ) {
+				list( $id, $href, $label ) = $link;
+				$class = 'mobile-nav-link' . ( $active === $id ? ' active' : '' );
+				echo '<a class="' . esc_attr( $class ) . '" href="' . esc_url( $href ) . '"><span>' . esc_html( $label ) . '</span>';
+				echo '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>';
+				echo '</a>';
+			}
+			?>
+		</nav>
 
-			<div class="mobile-drawer-foot">
-				<a href="tel:<?php echo esc_attr( nyas_phone_tel() ); ?>" class="mobile-phone-card">
-					<span class="mobile-phone-icon"><?php nyas_icon( 'phone', 18 ); ?></span>
-					<div style="flex:1">
-						<div class="mobile-phone-card-eyebrow"><?php esc_html_e( '24/7 monitoring · NY', 'nyas' ); ?></div>
-						<div class="mobile-phone-card-num"><?php echo esc_html( nyas_phone() ); ?></div>
-					</div>
-				</a>
-				<a href="#quote" class="btn btn-lg btn-signal" style="width:100%;justify-content:center">
-					<?php esc_html_e( 'Free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?>
-				</a>
-				<div class="mobile-drawer-meta">
-					<span class="pill"><?php esc_html_e( 'UL-listed', 'nyas' ); ?></span>
-					<span class="pill"><?php echo esc_html( get_theme_mod( 'nyas_license', 'NY License #12B-0049281' ) ); ?></span>
+		<div class="mobile-drawer-foot">
+			<a href="tel:<?php echo esc_attr( nyas_phone_tel() ); ?>" class="mobile-phone-card">
+				<span class="mobile-phone-icon"><?php nyas_icon( 'phone', 18 ); ?></span>
+				<div style="flex:1">
+					<div class="mobile-phone-card-eyebrow"><?php esc_html_e( '24/7 monitoring · NY', 'nyas' ); ?></div>
+					<div class="mobile-phone-card-num"><?php echo esc_html( nyas_phone() ); ?></div>
 				</div>
+			</a>
+			<a href="#quote" class="btn btn-lg btn-signal" style="width:100%;justify-content:center">
+				<?php esc_html_e( 'Free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?>
+			</a>
+			<div class="mobile-drawer-meta">
+				<span class="pill"><?php esc_html_e( 'UL-listed', 'nyas' ); ?></span>
+				<span class="pill"><?php echo esc_html( get_theme_mod( 'nyas_license', 'NY License #12B-0049281' ) ); ?></span>
 			</div>
 		</div>
 	</div>
-</header>
+</div>
 
 <script>
 /* Drawer failsafe — runs immediately so the burger works even if app.js
