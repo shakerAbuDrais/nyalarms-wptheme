@@ -88,35 +88,8 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 	</div>
 </section>
 
-<?php // ─── 3. Quote section ─── ?>
-<section class="quote-section section-paper">
-	<div class="container quote-section-inner">
-		<div class="quote-section-copy">
-			<?php nyas_eyebrow( __( 'Get started', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg" style="margin-bottom:20px"><?php esc_html_e( 'Free quote in', 'nyas' ); ?> <em><?php esc_html_e( '15 minutes.', 'nyas' ); ?></em></h2>
-			<p style="font-size:17px;line-height:1.6;color:var(--fg-2);margin-bottom:28px;max-width:480px">
-				<?php esc_html_e( 'Tell us about the space. A licensed NY consultant calls or texts you back today — no high-pressure sales, no obligation.', 'nyas' ); ?>
-			</p>
-			<ul class="quote-bullets">
-				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Free site walk within 48 hours', 'nyas' ); ?></li>
-				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'One-page proposal, no bundles', 'nyas' ); ?></li>
-				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Equipment you own, monitoring month-to-month', 'nyas' ); ?></li>
-				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Insurance-discount certificate included', 'nyas' ); ?></li>
-			</ul>
-		</div>
-		<div id="quote" class="quote-section-form">
-			<div style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:var(--brand-signal-soft);color:var(--brand-signal-2);font-size:11px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;margin-bottom:16px">
-				<span style="width:6px;height:6px;border-radius:50%;background:var(--brand-signal)"></span>
-				<?php esc_html_e( 'Free, no-obligation', 'nyas' ); ?>
-			</div>
-			<h3 style="font-family:var(--ff-display);font-size:28px;font-weight:800;line-height:1.05;margin-bottom:8px;letter-spacing:-0.02em">
-				<?php esc_html_e( 'Get my quote', 'nyas' ); ?>
-			</h3>
-			<p style="font-size:14px;color:var(--fg-2);margin:0 0 22px"><?php esc_html_e( 'Licensed NY consultant calls within 15 min.', 'nyas' ); ?></p>
-			<?php nyas_lead_form(); ?>
-		</div>
-	</div>
-</section>
+<?php // ─── 3. Quote wizard (replaces simple LeadForm) ─── ?>
+<?php get_template_part( 'template-parts/section', 'quote-wizard' ); ?>
 
 <?php // ─── 4. Services grid (asymmetric) ─── ?>
 <section class="services-modern">

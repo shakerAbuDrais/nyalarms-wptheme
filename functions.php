@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NYAS_VERSION', '1.0.5' );
+define( 'NYAS_VERSION', '1.0.6' );
 define( 'NYAS_DIR', trailingslashit( get_template_directory() ) );
 define( 'NYAS_URI', trailingslashit( get_template_directory_uri() ) );
 
@@ -85,6 +85,8 @@ function nyas_enqueue_assets() {
 	wp_enqueue_script( 'nyas-carousel', NYAS_URI . 'assets/js/carousel-dots.js', array(), NYAS_VERSION, true );
 
 	if ( is_front_page() ) {
+		wp_enqueue_style( 'nyas-quote-wizard', NYAS_URI . 'assets/css/quote-wizard.css', array( 'nyas-overrides' ), NYAS_VERSION );
+		wp_enqueue_script( 'nyas-quote-wizard', NYAS_URI . 'assets/js/quote-wizard.js', array(), NYAS_VERSION, true );
 		wp_enqueue_script( 'nyas-map', NYAS_URI . 'assets/js/map.js', array( 'leaflet', 'nyas-app' ), NYAS_VERSION, true );
 	}
 
@@ -102,6 +104,8 @@ require_once NYAS_DIR . 'inc/template-helpers.php';
 require_once NYAS_DIR . 'inc/customizer.php';
 require_once NYAS_DIR . 'inc/data.php';
 require_once NYAS_DIR . 'inc/setup-wizard.php';
+require_once NYAS_DIR . 'inc/leads.php';
+require_once NYAS_DIR . 'inc/admin-settings.php';
 
 /**
  * Add a body class for the active page so we can target sticky-header tweaks.
