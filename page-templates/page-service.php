@@ -154,6 +154,189 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 	</div>
 </section>
 
+<?php // ── Why NYC is different ── ?>
+<section class="section-paper" id="why-nyc">
+	<div class="container">
+		<div style="display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start">
+			<div>
+				<?php nyas_eyebrow( __( 'Why NYC is different', 'nyas' ), true, 'margin-bottom:16px' ); ?>
+				<h2 class="display-lg"><?php esc_html_e( 'A New York property isn\'t a', 'nyas' ); ?> <em><?php esc_html_e( 'suburban', 'nyas' ); ?></em> <?php esc_html_e( 'property.', 'nyas' ); ?></h2>
+			</div>
+			<div class="seo-prose">
+				<p><?php esc_html_e( 'Most national alarm companies sell a kit designed for a 2,400-square-foot ranch in Plano, Texas. Then they ship it to a fourth-floor walk-up in Hell\'s Kitchen and wonder why the install takes two days and the customer has questions the technician can\'t answer.', 'nyas' ); ?></p>
+				<p><?php esc_html_e( 'We\'ve been wiring brownstones, pre-war co-ops, condos, lofts, warehouses, and storefronts across the five boroughs since 2009. Every build is shaped by what NYC actually is: lath-and-plaster walls, vintage wiring, board approvals, party walls, fire escapes, alley cameras, and the inescapable fact that your neighbor is two inches away.', 'nyas' ); ?></p>
+				<p><?php esc_html_e( 'The result is a system specified for the property — not pulled off a shelf. Wireless mesh panels for buildings where you can\'t open a wall. Glass-break sensors tuned for the high-frequency signature of bay-window panes. Door contacts low-profile enough that your co-op board will never write you a letter about them.', 'nyas' ); ?></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<?php // ── By property type ── ?>
+<section>
+	<div class="container">
+		<div style="margin-bottom:48px;max-width:720px">
+			<?php nyas_eyebrow( __( 'By property type', 'nyas' ), true, 'margin-bottom:16px' ); ?>
+			<h2 class="display-lg"><?php esc_html_e( 'A different system for', 'nyas' ); ?> <em><?php esc_html_e( 'each kind of property.', 'nyas' ); ?></em></h2>
+			<p class="muted" style="font-size:16px;margin-top:12px">
+				<?php esc_html_e( 'What we install depends on what you live or work in. Here\'s how the build changes across the most common NYC property types — and the gotchas we plan around.', 'nyas' ); ?>
+			</p>
+		</div>
+		<div class="grid grid-3">
+			<?php
+			$ptypes = array(
+				array(
+					'tag'    => __( 'Brownstone / townhouse', 'nyas' ),
+					'title'  => __( 'Three to five floors, often pre-war', 'nyas' ),
+					'body'   => __( 'Wired runs through the cellar; wireless above. We protect the parlor-level windows, the kitchen door to the garden, and the cellar hatch. Glass-break for bay windows. Smoke + heat for the kitchen and top-floor mechanical room.', 'nyas' ),
+					'points' => array( __( 'Parlor + garden access', 'nyas' ), __( 'Cellar hatch / coal chute', 'nyas' ), __( 'Roof bulkhead door', 'nyas' ) ),
+				),
+				array(
+					'tag'    => __( 'Pre-war co-op or condo', 'nyas' ),
+					'title'  => __( 'Plaster walls, board approval', 'nyas' ),
+					'body'   => __( 'Wireless-only, no chases. We supply the certificate of insurance and ACR forms before the install, so your super and management never need to chase paperwork. Lithium battery sensors run five years; no drilling for power.', 'nyas' ),
+					'points' => array( __( 'Front-door + service-door contacts', 'nyas' ), __( 'In-unit motion + window protection', 'nyas' ), __( 'Board paperwork pre-filed', 'nyas' ) ),
+				),
+				array(
+					'tag'    => __( 'Modern condo / new construction', 'nyas' ),
+					'title'  => __( 'Pre-wired, smart-home ready', 'nyas' ),
+					'body'   => __( 'Often we integrate with what the developer roughed in — Brilliant, Lutron, Nest, Ecobee, Ring. We run the alarm core, then bridge to your existing devices. Cellular backup is mandatory; building Wi-Fi can\'t be trusted.', 'nyas' ),
+					'points' => array( __( 'Smart-home integration', 'nyas' ), __( 'Garage + parking-level monitoring', 'nyas' ), __( 'Two-way audio at the buzzer', 'nyas' ) ),
+				),
+				array(
+					'tag'    => __( 'Single-family detached', 'nyas' ),
+					'title'  => __( 'Queens, Bronx, Staten Island', 'nyas' ),
+					'body'   => __( 'These look most like a national-spec install — but with NYC twists. We add yard-perimeter motion, driveway cameras, and outdoor sirens that don\'t spook the neighbors at 3 a.m. Outdoor-rated cabling, every joint sealed.', 'nyas' ),
+					'points' => array( __( 'Yard + driveway cameras', 'nyas' ), __( 'Outdoor sirens & strobes', 'nyas' ), __( 'Detached garage protection', 'nyas' ) ),
+				),
+				array(
+					'tag'    => __( 'Loft / converted industrial', 'nyas' ),
+					'title'  => __( 'High ceilings, big windows', 'nyas' ),
+					'body'   => __( 'Long-range PIR + microwave dual-tech to clear 18-foot ceilings. Glass-break for the inevitable warehouse windows. Cameras mounted on column braces. We map the freight-elevator hatch — a frequent blind spot.', 'nyas' ),
+					'points' => array( __( 'High-ceiling motion coverage', 'nyas' ), __( 'Freight-elevator zone', 'nyas' ), __( 'Roof-deck access', 'nyas' ) ),
+				),
+				array(
+					'tag'    => __( 'Rental — owner-permitted', 'nyas' ),
+					'title'  => __( 'Wireless, removable, lease-friendly', 'nyas' ),
+					'body'   => __( 'For renters with a written landlord OK. Everything is peel-and-stick or magnetic mount. No drilling. When you move, the whole system comes with you — or transfers to the next address for a flat fee.', 'nyas' ),
+					'points' => array( __( 'No-drill install', 'nyas' ), __( 'Transfers when you move', 'nyas' ), __( 'Landlord-letter included', 'nyas' ) ),
+				),
+			);
+			foreach ( $ptypes as $p ) : ?>
+				<div class="card" style="padding:28px;display:flex;flex-direction:column;gap:12px">
+					<span class="eyebrow" style="color:var(--brand-signal-2)"><?php echo esc_html( $p['tag'] ); ?></span>
+					<h3 style="font-family:var(--ff-display);font-weight:800;font-size:22px;letter-spacing:-0.01em;line-height:1.15"><?php echo esc_html( $p['title'] ); ?></h3>
+					<p style="margin:0;font-size:14px;line-height:1.55;color:var(--fg-2)"><?php echo esc_html( $p['body'] ); ?></p>
+					<ul style="list-style:none;padding:14px 0 0;margin:8px 0 0;display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--border)">
+						<?php foreach ( $p['points'] as $pt ) : ?>
+							<li style="display:flex;gap:8px;font-size:13px;color:var(--fg-2)">
+								<span style="color:var(--brand-signal-2);flex-shrink:0;margin-top:2px"><?php nyas_icon( 'check', 14 ); ?></span>
+								<?php echo esc_html( $pt ); ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+
+<?php // ── Neighborhoods served ── ?>
+<section>
+	<div class="container">
+		<div style="display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start">
+			<div>
+				<?php nyas_eyebrow( __( 'Where we install', 'nyas' ), true, 'margin-bottom:16px' ); ?>
+				<h2 class="display-lg" style="margin-bottom:16px"><?php esc_html_e( 'All five boroughs.', 'nyas' ); ?> <em><?php esc_html_e( 'One number.', 'nyas' ); ?></em></h2>
+				<p style="font-size:16px;line-height:1.6;color:var(--fg-2);max-width:380px">
+					<?php esc_html_e( 'Same-week site walks across NYC. Most properties are visited within 48 hours of the first call. We dispatch from three depots: Long Island City, the South Bronx, and Sunset Park.', 'nyas' ); ?>
+				</p>
+			</div>
+			<div class="grid grid-2" style="gap:16px">
+				<?php
+				$regions = array(
+					array( 'Manhattan',     'Upper East Side · Upper West Side · Hell\'s Kitchen · Tribeca · West Village · East Village · Harlem · Washington Heights · Inwood · Murray Hill' ),
+					array( 'Brooklyn',      'Park Slope · Brooklyn Heights · Cobble Hill · Carroll Gardens · Williamsburg · Greenpoint · Bed-Stuy · Crown Heights · Prospect Heights · Bay Ridge' ),
+					array( 'Queens',        'Astoria · Long Island City · Forest Hills · Sunnyside · Jackson Heights · Bayside · Flushing · Rego Park · Forest Park · Howard Beach' ),
+					array( 'The Bronx',     'Riverdale · Kingsbridge · Pelham Bay · Throggs Neck · Country Club · Fieldston · Morris Park · Pelham Gardens · Schuylerville' ),
+					array( 'Staten Island', 'St. George · Tottenville · Great Kills · Eltingville · Annadale · Westerleigh · Dongan Hills · New Springville · Todt Hill' ),
+					array( 'Beyond NYC',    'Yonkers · Mount Vernon · Hoboken · Jersey City · Edgewater · Greenwich (limited) · Larchmont · Pelham · Bronxville · Scarsdale' ),
+				);
+				foreach ( $regions as $r ) : ?>
+					<div style="padding:20px 0;border-top:1px solid var(--border-strong)">
+						<h3 style="font-family:var(--ff-display);font-weight:800;font-size:17px;margin-bottom:8px"><?php echo esc_html( $r[0] ); ?></h3>
+						<p style="margin:0;font-size:13px;color:var(--fg-2);line-height:1.5"><?php echo esc_html( $r[1] ); ?></p>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</div>
+</section>
+
+<?php // ── Mistakes we see ── ?>
+<section class="section-paper">
+	<div class="container">
+		<div style="margin-bottom:48px;max-width:720px">
+			<?php nyas_eyebrow( __( 'Mistakes we see', 'nyas' ), true, 'margin-bottom:16px' ); ?>
+			<h2 class="display-lg"><?php esc_html_e( 'Five mistakes NYC buyers make', 'nyas' ); ?> <em><?php esc_html_e( 'before they call us.', 'nyas' ); ?></em></h2>
+		</div>
+		<div class="grid grid-2" style="gap:24px">
+			<?php
+			$mistakes = array(
+				array( '01', __( 'Buying a national kit off Amazon', 'nyas' ),         __( 'Most consumer kits depend on Wi-Fi, ship without a cellular module, and use sensors tuned for new-construction drywall. They miss glass-break events on bay windows and cry false-alarm on every steam-radiator click.', 'nyas' ) ),
+				array( '02', __( 'Skipping the cellular backup', 'nyas' ),             __( 'If your alarm reports over Wi-Fi only, a thief who unplugs the router has just disarmed your property. Every NYAS install ships with an LTE-M cellular module that runs even when power and internet are down.', 'nyas' ) ),
+				array( '03', __( 'Locking into a 36-month contract', 'nyas' ),         __( 'National companies subsidize the hardware in exchange for a long-term monitoring contract. The math only works for them. Hardware should be one-time. Monitoring should be month-to-month. Period.', 'nyas' ) ),
+				array( '04', __( 'Forgetting the cellar hatch', 'nyas' ),              __( 'In brownstones, the cellar hatch is the most-broken-in entry point in the city — and the most-overlooked on a self-installed system. Same goes for fire escapes, garden gates, and roof bulkheads.', 'nyas' ) ),
+				array( '05', __( 'Ignoring the insurance discount', 'nyas' ),          __( 'Most NYC insurers (Chubb, Travelers, Liberty, Pure) discount 5–20% on premiums for a centrally-monitored system with a stamped certificate. Over a decade, the discount typically pays for the entire monitoring fee.', 'nyas' ) ),
+				array( '06', __( 'Not telling the co-op board', 'nyas' ),              __( 'Some boards require notification (or pre-approval) before any device is installed. We pre-file ACR forms, supply the cert of insurance, and brief the super before we arrive. It\'s the difference between an install and a stop-work order.', 'nyas' ) ),
+			);
+			foreach ( $mistakes as $m ) : ?>
+				<div style="padding:28px;background:var(--n-0);border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;gap:10px">
+					<span style="font-family:var(--ff-mono);font-size:12px;letter-spacing:0.12em;color:var(--brand-signal-2)"><?php
+						/* translators: %s: zero-padded mistake number. */
+						printf( esc_html__( 'MISTAKE %s', 'nyas' ), esc_html( $m[0] ) );
+					?></span>
+					<h3 style="font-family:var(--ff-display);font-weight:800;font-size:20px;letter-spacing:-0.01em"><?php echo esc_html( $m[1] ); ?></h3>
+					<p style="margin:0;font-size:14px;line-height:1.55;color:var(--fg-2)"><?php echo esc_html( $m[2] ); ?></p>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+
+<?php // ── Glossary ── ?>
+<section>
+	<div class="container">
+		<div style="display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start">
+			<div>
+				<?php nyas_eyebrow( __( 'Glossary', 'nyas' ), true, 'margin-bottom:16px' ); ?>
+				<h2 class="display-lg"><?php esc_html_e( 'Plain English on', 'nyas' ); ?> <em><?php esc_html_e( 'alarm jargon.', 'nyas' ); ?></em></h2>
+				<p style="font-size:15px;line-height:1.6;color:var(--fg-2);margin-top:12px;max-width:320px">
+					<?php esc_html_e( 'Most quotes you\'ll receive from competitors are written to confuse. Here\'s what each term actually means.', 'nyas' ); ?>
+				</p>
+			</div>
+			<div>
+				<?php
+				$glossary = array(
+					array( __( 'UL-listed monitoring', 'nyas' ),    __( 'Underwriters Laboratories certifies central stations that meet operational and physical-security standards (UL 827). Insurers usually require it for premium discounts. Ours is in Long Island City.', 'nyas' ) ),
+					array( __( 'LTE-M / cellular backup', 'nyas' ), __( 'A small cellular radio inside the panel that reports alarms even when your internet, Wi-Fi, or power is out. Non-negotiable in NYC.', 'nyas' ) ),
+					array( __( 'Glass-break sensor', 'nyas' ),      __( 'A microphone tuned to the high-frequency signature of breaking glass. Catches break-ins before the intruder reaches the window contact.', 'nyas' ) ),
+					array( __( 'Dual-tech motion', 'nyas' ),        __( 'A motion sensor that requires both passive infrared (PIR) and microwave to trigger together. Cuts false alarms from steam radiators, sun, and pets.', 'nyas' ) ),
+					array( __( 'Verified video', 'nyas' ),          __( 'Before we dispatch police, our operator opens the camera feed and confirms a real event. Verified video drops false dispatches by 91% — saving you fines and saving the NYPD trips.', 'nyas' ) ),
+					array( __( 'Two-way audio', 'nyas' ),           __( 'Speaker + mic at the panel and at the doorbell. Operators can challenge an intruder by name — which usually ends the encounter on its own.', 'nyas' ) ),
+					array( __( 'ACR / building work permit', 'nyas' ), __( 'New York-specific paperwork some co-ops or condos require before any wall penetration. We handle it for you.', 'nyas' ) ),
+					array( __( 'Month-to-month', 'nyas' ),          __( 'You can cancel monitoring with 30 days\' written notice. No early-termination fee. Hardware stays yours.', 'nyas' ) ),
+				);
+				foreach ( $glossary as $g ) : ?>
+					<div style="padding:18px 0;border-top:1px solid var(--border)">
+						<h3 style="font-family:var(--ff-display);font-weight:700;font-size:17px;margin-bottom:6px"><?php echo esc_html( $g[0] ); ?></h3>
+						<p style="margin:0;font-size:14px;line-height:1.55;color:var(--fg-2)"><?php echo esc_html( $g[1] ); ?></p>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</div>
+</section>
+
 <?php // Related services. ?>
 <section>
 	<div class="container">

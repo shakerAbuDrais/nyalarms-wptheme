@@ -22,17 +22,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="container">
 		<div class="quiz-shell">
 			<div class="quiz-side">
-				<?php nyas_eyebrow( __( 'Instant quote', 'nyas' ), true, 'margin-bottom:16px;color:rgba(246,243,236,0.55)' ); ?>
 				<h2 class="display-lg" style="color:var(--fg-on-ink)">
-					<?php esc_html_e( 'Sixty seconds.', 'nyas' ); ?> <em><?php esc_html_e( 'Real number.', 'nyas' ); ?></em>
+					<?php esc_html_e( 'An', 'nyas' ); ?> <em><?php esc_html_e( 'Itemized Quote', 'nyas' ); ?></em> <?php esc_html_e( 'in 60 Seconds.', 'nyas' ); ?>
 				</h2>
-				<p style="color:rgba(246,243,236,0.78);font-size:16px;line-height:1.6;margin-top:16px;max-width:420px">
-					<?php esc_html_e( 'Answer four quick questions and see an itemized estimate right here — no email required to see the price. A licensed NY consultant follows up to confirm.', 'nyas' ); ?>
+				<p style="color:rgba(246,243,236,0.78);font-size:17px;line-height:1.6;margin-top:16px;max-width:380px">
+					<?php esc_html_e( 'Tell us about the property and the protection you need. We\'ll calculate hardware and monitoring on the spot — no phone call required.', 'nyas' ); ?>
 				</p>
 				<div class="quiz-meta">
-					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( 'Itemized breakdown, not a vague range', 'nyas' ); ?></span></div>
-					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( 'Free site walk within 48 hours', 'nyas' ); ?></span></div>
-					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( 'Equipment you own, monitoring month-to-month', 'nyas' ); ?></span></div>
+					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( 'Real numbers, not "starting from" gimmicks', 'nyas' ); ?></span></div>
+					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( '4 quick steps · about 60 seconds', 'nyas' ); ?></span></div>
+					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( 'A specialist follows up to schedule the free site walk', 'nyas' ); ?></span></div>
 				</div>
 			</div>
 

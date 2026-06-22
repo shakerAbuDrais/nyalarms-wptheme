@@ -13,6 +13,7 @@ $scenarios = array(
 	'home' => array(
 		'label'  => __( 'At home', 'nyas' ),
 		'icon'   => 'home',
+		'live'   => __( 'Brooklyn', 'nyas' ),
 		'title'  => 'Park Slope brownstone, 2:14 a.m.',
 		'story'  => 'Glass-break sensor on the parlor-floor bay window picks up a high-frequency signature. Within four seconds, the panel sends an encrypted alarm over LTE-M cellular — bypassing your Wi-Fi entirely.',
 		'events' => array(
@@ -27,6 +28,7 @@ $scenarios = array(
 	'business' => array(
 		'label'  => __( 'At your business', 'nyas' ),
 		'icon'   => 'shop',
+		'live'   => __( 'Manhattan', 'nyas' ),
 		'title'  => 'Madison Ave. retail, after close',
 		'story'  => 'A motion sensor in the stockroom triggers ten minutes after the last employee badged out. Our station verifies through the camera before any dispatch — cutting false alarms by 91%.',
 		'events' => array(
@@ -41,7 +43,8 @@ $scenarios = array(
 	'site' => array(
 		'label'  => __( 'On-site', 'nyas' ),
 		'icon'   => 'hardhat',
-		'title'  => 'LIC construction site, Sunday',
+		'live'   => __( 'Brooklyn', 'nyas' ),
+		'title'  => 'Brooklyn construction site, Sunday',
 		'story'  => 'Temporary tower with 360° thermal cameras detects a person climbing the perimeter fence. AI verifies humans (not animals or shadows), and the speakerphone issues a live warning.',
 		'events' => array(
 			array( '00:00', 'Thermal AI flags human-shape at perimeter.' ),
@@ -55,6 +58,7 @@ $scenarios = array(
 	'fire' => array(
 		'label'  => __( 'When fire strikes', 'nyas' ),
 		'icon'   => 'fire',
+		'live'   => __( 'Queens', 'nyas' ),
 		'title'  => 'Astoria three-family, 4:09 a.m.',
 		'story'  => 'Photoelectric smoke + heat-rate sensors in the basement trigger together. Fire alarms are dispatched without operator delay — FDNY rolls before the family is fully awake.',
 		'events' => array(
@@ -114,7 +118,10 @@ $scenarios = array(
 					<div style="position:absolute;top:20px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center">
 						<span style="background:rgba(11,18,32,0.85);backdrop-filter:blur(8px);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px">
 							<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#3CD68C;margin-right:8px;vertical-align:middle"></span>
-							<?php esc_html_e( 'Live · Long Island City', 'nyas' ); ?>
+							<?php
+							/* translators: %s: borough name. */
+							printf( esc_html__( 'Live · %s', 'nyas' ), esc_html( $d['live'] ) );
+							?>
 						</span>
 						<span style="background:rgba(11,18,32,0.85);backdrop-filter:blur(8px);color:#fff;font-size:11px;font-weight:700;padding:6px 12px;border-radius:999px;font-family:var(--ff-mono)">
 							<?php esc_html_e( 'Avg dispatch · 28s', 'nyas' ); ?>

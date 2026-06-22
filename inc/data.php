@@ -26,7 +26,7 @@ function nyas_services() {
 			'short' => 'Residential',
 			'desc'  => 'Brownstones, condos, single-family. Wired or wireless installations with 24/7 monitoring.',
 			'feats' => array( 'Door & window sensors', 'Motion detection', 'Mobile app', 'Cellular backup' ),
-			'img'   => 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80',
+			'img'   => NYAS_URI . 'assets/img/brooklyn-brownstone-home.jpg',
 		),
 		array(
 			'id'    => 'commercial',
@@ -36,7 +36,7 @@ function nyas_services() {
 			'short' => 'Commercial',
 			'desc'  => 'Multi-tenant, mixed-use, industry-grade panels rated for 24/7 commercial use.',
 			'feats' => array( 'Panel + zoning', 'Access control', 'Multi-site dashboard', 'Insurance certs' ),
-			'img'   => 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80',
+			'img'   => 'https://images.unsplash.com/photo-1665852444247-b094252e722a?w=900&q=80&auto=format&fit=crop',
 		),
 		array(
 			'id'    => 'warehouse',
@@ -66,7 +66,7 @@ function nyas_services() {
 			'short' => 'Retail',
 			'desc'  => 'POS-integrated, after-hours coverage, smash-and-grab response.',
 			'feats' => array( 'Glass-break sensors', 'POS panic buttons', 'Loss-prevention cams', 'After-hours arming' ),
-			'img'   => 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80',
+			'img'   => 'https://images.unsplash.com/photo-1710781189469-55afea4e6bcd?w=900&q=80&auto=format&fit=crop',
 		),
 		array(
 			'id'    => 'office',
@@ -76,7 +76,7 @@ function nyas_services() {
 			'short' => 'Offices',
 			'desc'  => 'Access control, after-hours coverage, tenant integration for offices and co-working.',
 			'feats' => array( 'Badge access', 'Visitor management', 'After-hours arming', 'Tenant portal' ),
-			'img'   => 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',
+			'img'   => 'https://images.unsplash.com/photo-1739131936348-aa227601f140?w=900&q=80&auto=format&fit=crop',
 		),
 		array(
 			'id'    => 'school',

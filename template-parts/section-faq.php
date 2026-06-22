@@ -10,12 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $items = array(
-	array( 'q' => 'How fast can you install?',                              'a' => 'Most residential installs are scheduled within 5 business days of signed quote. Commercial timelines depend on scope — small offices in 3 days, multi-floor in 2–3 weeks.' ),
-	array( 'q' => 'Do I have to sign a long-term contract?',                'a' => 'No. Hardware is purchased one-time. Monitoring is month-to-month with 30-day cancel notice. We don\'t do 36-month bundles.' ),
-	array( 'q' => 'Will my homeowner\'s insurance discount apply?',         'a' => 'Yes — we provide a stamped certificate of installation and central-station monitoring credentials. Most NY insurers (Chubb, Travelers, Liberty) discount 5–20%.' ),
-	array( 'q' => 'What happens if my internet goes down?',                 'a' => 'Every system ships with a cellular backup module (LTE-M / NB-IoT). The alarm reports to the central station even with no Wi-Fi or power.' ),
-	array( 'q' => 'Can I integrate with my existing cameras?',              'a' => 'Most likely yes. We support ONVIF-compliant IP cameras and the major consumer brands (Ring, Nest, Arlo). Our consultant will inventory your hardware on the site walk.' ),
-	array( 'q' => 'Do you service co-ops and condos?',                      'a' => 'Frequently. We work directly with super and management; we\'ll handle ACR forms and board insurance certs. Common in pre-war Manhattan and Park Slope.' ),
+	array( 'q' => 'How much does a home security system cost in NYC?',                  'a' => 'For a typical NYC apartment or brownstone, equipment runs about $500&ndash;$1,500 one-time depending on the number of doors, windows, and cameras, plus monitoring from $29&ndash;$55/month. Our instant-quote tool gives you an itemized estimate in about 60 seconds — no phone call required.' ),
+	array( 'q' => 'Do I need a permit for a burglar or fire alarm in New York City?',   'a' => 'Yes. NYC requires an alarm permit, and FDNY filings are required for most commercial fire systems. We handle the paperwork for you — permits, ACR forms, and FDNY filings are included with every install.' ),
+	array( 'q' => 'What is the best alarm system for a NYC apartment or co-op?',        'a' => 'A wireless, cellular-backed system is usually best for apartments and pre-war co-ops — no drilling through plaster or running wires past board approval. We work directly with your super and management and provide the certificates your board needs.' ),
+	array( 'q' => 'Will a security system lower my home or renters insurance?',         'a' => 'Usually, yes. We issue a UL-listed central-station monitoring certificate that most NY insurers (Chubb, Travelers, Liberty) accept for premium discounts of 5&ndash;20%. We send it to you and your agent after install.' ),
+	array( 'q' => 'Does the alarm still work if the Wi-Fi or power goes out?',          'a' => 'Yes. Every system ships with a cellular backup module (LTE-M / NB-IoT) and a battery, so it keeps reporting to our monitoring station even with no internet or power — common during NYC outages.' ),
+	array( 'q' => 'How fast do police respond to a monitored alarm in NYC?',            'a' => 'Our UL-listed station makes a dispatch decision in a median of 28 seconds and uses verified response (camera or two-way audio) to prioritize real events with NYPD, which cuts false-alarm fines.' ),
+	array( 'q' => 'Can I keep my existing cameras and equipment?',                      'a' => 'Most likely yes. We support ONVIF-compliant IP cameras and the major consumer brands (Ring, Nest, Arlo). Your consultant inventories what you have during the free site walk and reuses whatever makes sense.' ),
+	array( 'q' => 'Is there a long-term contract, or can I cancel anytime?',            'a' => 'No long-term trap. You own the hardware outright, and monitoring is month-to-month or annual — cancel with 30 days\' notice. We don\'t do 36- or 60-month bundles.' ),
 );
 ?>
 
@@ -23,8 +25,7 @@ $items = array(
 	<div class="container">
 		<div class="nyas-faq-grid" style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start">
 			<div>
-				<?php nyas_eyebrow( __( 'FAQ', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="margin-bottom:16px"><?php esc_html_e( 'Questions,', 'nyas' ); ?> <em><?php esc_html_e( 'answered.', 'nyas' ); ?></em></h2>
+				<h2 class="display-lg" style="margin-bottom:16px"><?php esc_html_e( 'Questions,', 'nyas' ); ?> <em><?php esc_html_e( 'Answered.', 'nyas' ); ?></em></h2>
 				<p style="font-size:15px;color:var(--fg-2);max-width:320px">
 					<?php
 					printf(

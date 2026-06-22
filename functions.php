@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NYAS_VERSION', '1.0.7' );
+define( 'NYAS_VERSION', '1.1.1' );
 define( 'NYAS_DIR', trailingslashit( get_template_directory() ) );
 define( 'NYAS_URI', trailingslashit( get_template_directory_uri() ) );
 
@@ -86,7 +86,9 @@ function nyas_enqueue_assets() {
 
 	if ( is_front_page() ) {
 		wp_enqueue_style( 'nyas-quote-wizard', NYAS_URI . 'assets/css/quote-wizard.css', array( 'nyas-overrides' ), NYAS_VERSION );
+		wp_enqueue_style( 'nyas-home2', NYAS_URI . 'assets/css/home2.css', array( 'nyas-responsive-2' ), NYAS_VERSION );
 		wp_enqueue_script( 'nyas-quote-wizard', NYAS_URI . 'assets/js/quote-wizard.js', array(), NYAS_VERSION, true );
+		wp_enqueue_script( 'nyas-home2', NYAS_URI . 'assets/js/home2.js', array(), NYAS_VERSION, true );
 		wp_enqueue_script( 'nyas-map', NYAS_URI . 'assets/js/map.js', array( 'leaflet', 'nyas-app' ), NYAS_VERSION, true );
 	}
 

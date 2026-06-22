@@ -170,14 +170,48 @@ function nyas_topbar() {
 }
 
 /**
- * Render the bottom CTA band ("Tell us about the space. We do the rest.").
+ * Render a soft "seam" between two sections — wavy SVG of the LOWER section's
+ * background colour overlapping the previous section by `height` px.
+ *
+ * @param string $bottom  Colour key for the next section: paper|cream|mist|sunk|ink|navy.
+ * @param string $label   Optional pill label centered on the seam.
+ * @param int    $height  Overlap height in px (default 80).
+ */
+function nyas_seam( $bottom = 'paper', $label = '', $height = 80 ) {
+	$palette = array(
+		'paper' => '#FFFFFF',
+		'cream' => '#F7F4ED',
+		'mist'  => '#F1F4F8',
+		'sunk'  => '#F1F4F8',
+		'ink'   => '#0E1116',
+		'navy'  => '#14264D',
+	);
+	$bg      = isset( $palette[ $bottom ] ) ? $palette[ $bottom ] : $palette['paper'];
+	$is_dark = in_array( $bottom, array( 'ink', 'navy' ), true );
+	$h       = (int) $height;
+	?>
+	<div class="seam<?php echo $is_dark ? ' seam-ink' : ''; ?>"
+	     style="height:<?php echo esc_attr( $h ); ?>px;margin-top:-<?php echo esc_attr( $h ); ?>px"
+	     <?php echo $label ? '' : 'aria-hidden="true"'; ?>>
+		<svg viewBox="0 0 1200 80" preserveAspectRatio="none" class="seam-svg">
+			<path d="M0,40 Q300,10 600,32 T1200,22 L1200,80 L0,80 Z" fill="<?php echo esc_attr( $bg ); ?>"/>
+		</svg>
+		<?php if ( $label ) : ?>
+			<div class="seam-chip"><span class="seam-chip-dot"></span><?php echo esc_html( $label ); ?></div>
+		<?php endif; ?>
+	</div>
+	<?php
+}
+
+/**
+ * Render the bottom CTA band ("Tell Us About the Space. We Do the Rest.").
  *
  * @param array $args
  */
 function nyas_final_cta( $args = array() ) {
 	$args = wp_parse_args( $args, array(
 		'eyebrow'   => __( 'Ready when you are', 'nyas' ),
-		'heading'   => __( 'Tell us about the space. <em>We do the rest.</em>', 'nyas' ),
+		'heading'   => __( 'Tell Us About the Space. <em>We Do the Rest.</em>', 'nyas' ),
 		'lede'      => __( 'Free site walk, written quote, no high-pressure sales. Most NYC homeowners and operators have a working system within ten business days of first call.', 'nyas' ),
 		'cta_label' => __( 'Schedule my site walk', 'nyas' ),
 		'show_form' => true,

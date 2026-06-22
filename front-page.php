@@ -27,49 +27,11 @@ get_header();
 $services = nyas_services();
 ?>
 
-<?php
-// ─── 1. Hero — Variant D (spec sheet) ───
-$hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=80';
-?>
-<section class="hero-specsheet">
-	<div class="container hero-specsheet-inner">
-		<div class="hero-specsheet-left">
-			<h1 class="hero-specsheet-title">
-				<?php esc_html_e( 'One system.', 'nyas' ); ?><br /><em><?php esc_html_e( 'Every entry point.', 'nyas' ); ?></em>
-			</h1>
-			<p class="hero-cream-lede">
-				<?php esc_html_e( 'Alarm panel, perimeter sensors, AI cameras, and 24/7 NYC monitoring — engineered to work as one.', 'nyas' ); ?>
-			</p>
-			<div class="hero-fb-cta">
-				<a href="#quote" class="btn btn-lg btn-signal"><?php esc_html_e( 'Free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
-				<a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="btn btn-lg btn-ghost"><?php esc_html_e( 'View specs', 'nyas' ); ?></a>
-			</div>
-		</div>
-		<div class="hero-specsheet-right">
-			<div class="hero-specsheet-stage">
-				<img src="<?php echo esc_url( $hw_panel ); ?>" alt="<?php esc_attr_e( 'System hardware', 'nyas' ); ?>" />
-			</div>
-			<div class="hero-specsheet-cards">
-				<?php
-				$spec_cards = array(
-					array( 'icon' => 'sensor',  'n' => '01', 't' => __( 'Sensor', 'nyas' ),   's' => __( 'Door, window, glass-break, motion', 'nyas' ) ),
-					array( 'icon' => 'cam',     'n' => '02', 't' => __( 'Camera', 'nyas' ),   's' => __( '4K, AI verify, two-way audio', 'nyas' ) ),
-					array( 'icon' => 'monitor', 'n' => '03', 't' => __( 'Monitor', 'nyas' ),  's' => __( 'UL-listed, in Long Island City', 'nyas' ) ),
-					array( 'icon' => 'bell',    'n' => '04', 't' => __( 'Dispatch', 'nyas' ), 's' => __( '28s median to NYPD/FDNY', 'nyas' ) ),
-				);
-				foreach ( $spec_cards as $c ) :
-					?>
-					<div class="hero-specsheet-card">
-						<div class="hero-specsheet-card-icon"><?php nyas_icon( $c['icon'], 20 ); ?></div>
-						<div class="hero-specsheet-card-meta"><?php echo esc_html( $c['n'] ); ?></div>
-						<div class="hero-specsheet-card-title"><?php echo esc_html( $c['t'] ); ?></div>
-						<div class="hero-specsheet-card-sub"><?php echo esc_html( $c['s'] ); ?></div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	</div>
-</section>
+<?php // ─── 1. Hero — full-bleed video (home2 canonical) ─── ?>
+<?php get_template_part( 'template-parts/section', 'hero-video' ); ?>
+
+<?php // ─── 1b. Hero spec strip ─── ?>
+<?php get_template_part( 'template-parts/section', 'hero-spec-cards' ); ?>
 
 <?php // ─── 2. Trust strip ─── ?>
 <section style="padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--brand-paper)">
@@ -93,7 +55,7 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 	<div class="container quote-section-inner">
 		<div class="quote-section-copy">
 			<?php nyas_eyebrow( __( 'Get started', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg" style="margin-bottom:20px"><?php esc_html_e( 'Free quote in', 'nyas' ); ?> <em><?php esc_html_e( '15 minutes.', 'nyas' ); ?></em></h2>
+			<h2 class="display-lg" style="margin-bottom:20px"><?php esc_html_e( 'Free Quote,', 'nyas' ); ?> <em><?php esc_html_e( '15 Minutes Flat.', 'nyas' ); ?></em></h2>
 			<p style="font-size:17px;line-height:1.6;color:var(--fg-2);margin-bottom:28px;max-width:480px">
 				<?php esc_html_e( 'Tell us about the space. A licensed NY consultant calls or texts you back today — no high-pressure sales, no obligation.', 'nyas' ); ?>
 			</p>
@@ -118,13 +80,20 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 	</div>
 </section>
 
+<?php nyas_seam( 'ink', __( 'Limited offer', 'nyas' ) ); ?>
+
+<?php // ─── 3b. Offer banner — 3 months free monitoring ─── ?>
+<?php get_template_part( 'template-parts/section', 'offer' ); ?>
+
+<?php nyas_seam( 'paper' ); ?>
+
 <?php // ─── 4. Services grid (asymmetric) ─── ?>
 <section class="services-modern">
 	<div class="container">
 		<div class="services-header">
 			<div>
 				<?php nyas_eyebrow( __( 'Services', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg"><?php esc_html_e( 'Ten ways we keep', 'nyas' ); ?> <em><?php esc_html_e( 'watch.', 'nyas' ); ?></em></h2>
+				<h2 class="display-lg"><?php esc_html_e( 'Ten Ways We Keep', 'nyas' ); ?> <em><?php esc_html_e( 'Watch.', 'nyas' ); ?></em></h2>
 			</div>
 			<p class="muted" style="max-width:380px;margin:0">
 				<?php esc_html_e( 'One installer, one number to call, one app for every property you own — from a Park Slope walk-up to a fleet of Bronx warehouses.', 'nyas' ); ?>
@@ -173,8 +142,15 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 	</div>
 </section>
 
+<?php // ─── 4b. Hardware showcase ─── ?>
+<?php get_template_part( 'template-parts/section', 'hardware' ); ?>
+
+<?php nyas_seam( 'ink', __( 'Find your fit', 'nyas' ) ); ?>
+
 <?php // ─── 5. Quote wizard (replaces the old Find-my-fit quiz) ─── ?>
 <?php get_template_part( 'template-parts/section', 'quote-wizard' ); ?>
+
+<?php nyas_seam( 'paper' ); ?>
 
 <?php // ─── 6. How it works ─── ?>
 <section class="how-modern">
@@ -182,7 +158,7 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 		<div class="how-header">
 			<div>
 				<?php nyas_eyebrow( __( 'How it works', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( 'Four steps. No', 'nyas' ); ?> <em><?php esc_html_e( 'upsell.', 'nyas' ); ?></em></h2>
+				<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( 'From First Call to', 'nyas' ); ?> <em><?php esc_html_e( 'Fully Armed.', 'nyas' ); ?></em></h2>
 			</div>
 			<p class="muted" style="max-width:420px;margin:0">
 				<?php esc_html_e( 'From the first call to the day we go live — here\'s what every NYAS install looks like.', 'nyas' ); ?>
@@ -223,7 +199,7 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 		<div class="nyas-why-head">
 			<div class="nyas-why-head-text">
 				<?php nyas_eyebrow( __( 'Why us', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="text-wrap:balance"><?php esc_html_e( 'Six reasons', 'nyas' ); ?> <em><?php esc_html_e( 'NY chooses us.', 'nyas' ); ?></em></h2>
+				<h2 class="display-lg" style="text-wrap:balance"><?php esc_html_e( 'Why New Yorkers', 'nyas' ); ?> <em><?php esc_html_e( 'Choose Us.', 'nyas' ); ?></em></h2>
 			</div>
 			<p class="nyas-why-head-lede">
 				<?php esc_html_e( 'Most national alarm companies sell hardware. We sell response time, accountability, and a phone number that gets answered the first ring — even at 3 a.m. on a Tuesday.', 'nyas' ); ?>
@@ -256,10 +232,9 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 <section>
 	<div class="container">
 		<div style="margin-bottom:40px;max-width:720px">
-			<?php nyas_eyebrow( __( 'How we compare', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg"><?php esc_html_e( 'Same alarm category.', 'nyas' ); ?> <em><?php esc_html_e( 'Different company.', 'nyas' ); ?></em></h2>
-			<p class="muted" style="font-size:16px;margin-top:12px">
-				<?php esc_html_e( 'We\'re an independent NYC operator. Here\'s how we stack up against the three biggest national names you\'ve probably called.', 'nyas' ); ?>
+			<h2 class="display-lg"><?php esc_html_e( 'A Different', 'nyas' ); ?> <em><?php esc_html_e( 'Approach.', 'nyas' ); ?></em></h2>
+			<p class="muted" style="font-size:17px;line-height:1.6;margin-top:12px">
+				<?php esc_html_e( 'We\'re an independent NYC operator. Here\'s how we compare against the three names New Yorkers ask about most — ADT, DGA, and SimpliSafe.', 'nyas' ); ?>
 			</p>
 		</div>
 		<div style="overflow-x:auto">
@@ -268,22 +243,25 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 					<tr>
 						<th></th>
 						<th class="us">NYAS</th>
-						<th>NationalCo A</th>
-						<th>NationalCo B</th>
-						<th>NationalCo C</th>
+						<th>ADT</th>
+						<th>DGA</th>
+						<th>SimpliSafe</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
 					$rows = array(
-						array( 'Equipment ownership',     'You own it',         'Leased',          'Leased',         'You own it' ),
-						array( 'Contract length',         'Month-to-month',     '36-month',        '60-month',       '12-month' ),
-						array( 'Monitoring location',     'Long Island City',   'Texas / Manila',  'Texas',          'Indiana' ),
-						array( 'In-house technicians',    'yes',                'partial',         'no',             'partial' ),
-						array( 'Avg dispatch time',       '28 seconds',         '~3 minutes',      '~4 minutes',     '~2 minutes' ),
-						array( 'Insurance discount cert.','yes',                'yes',             'partial',        'yes' ),
-						array( 'NYC permit handling',     'yes',                'no',              'no',             'no' ),
-						array( 'Cancel notice',           '30 days',            'Full term',       'Full term',      '90 days' ),
+						array( 'Monitoring location',      'Long Island, NY',           'Texas / Colorado',   'New York City',          'Rapid Response (3rd-party)' ),
+						array( 'Contract length',          'Month-to-month or annual',  '36-month',           'Multi-year (commercial)','Month-to-month' ),
+						array( 'Equipment ownership',      'You own it',                'Leased',             'Proprietary',            'You own it' ),
+						array( 'In-house W-2 technicians', 'yes',                       'partial',            'yes',                    'no' ),
+						array( 'Avg dispatch time',        '28 seconds',                '~60 seconds',        'UL-rated',               '~90 seconds' ),
+						array( 'Avg service response time','1.5 days',                  '7–8 days',           '4.5 days',               'None' ),
+						array( 'UL monitoring certificate','yes',                       'yes',                'yes',                    'partial' ),
+						array( 'NYC permits & FDNY filings','yes',                      'no',                 'yes',                    'no' ),
+						array( 'Residential + commercial', 'yes',                       'yes',                'yes',                    'residential only' ),
+						array( 'Free in-person site survey','yes',                      'partial',            'yes',                    'no' ),
+						array( 'Cancel terms',             '30-day notice',             '75% of balance',     'Full term',              'Anytime' ),
 					);
 					foreach ( $rows as $r ) {
 						echo '<tr>';
@@ -315,8 +293,15 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 			</table>
 		</div>
 		<p class="muted" style="font-size:12px;margin-top:16px;text-align:center">
-			<?php esc_html_e( 'Comparison based on publicly available info (April 2026). Competitor names withheld; happy to share specifics on request.', 'nyas' ); ?>
+			<?php esc_html_e( 'Comparison based on each company\'s published terms and third-party reviews as of April 2026. Trademarks belong to their respective owners.', 'nyas' ); ?>
 		</p>
+		<div class="compare-cta">
+			<div class="compare-cta-text">
+				<span class="compare-cta-eyebrow"><?php esc_html_e( 'Independent. Local. Accountable.', 'nyas' ); ?></span>
+				<h3 class="compare-cta-title"><?php esc_html_e( 'See what an honest quote looks like.', 'nyas' ); ?></h3>
+			</div>
+			<a href="#quote" class="btn btn-lg btn-signal"><?php esc_html_e( 'Get my free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
+		</div>
 	</div>
 </section>
 
@@ -327,7 +312,7 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 			<div>
 				<?php nyas_eyebrow( __( 'Case study · 12 retail locations · Manhattan + Brooklyn', 'nyas' ), false, 'color:rgba(246,243,236,0.55);margin-bottom:16px' ); ?>
 				<h2 class="display-lg" style="color:var(--fg-on-ink);margin-bottom:24px">
-					<?php esc_html_e( 'How', 'nyas' ); ?> <em style="color:#3CD68C"><?php esc_html_e( 'Maman', 'nyas' ); ?></em> <?php esc_html_e( 'cut shrinkage 41% in a year.', 'nyas' ); ?>
+					<?php esc_html_e( 'How', 'nyas' ); ?> <em style="color:#3CD68C"><?php esc_html_e( 'Maman', 'nyas' ); ?></em> <?php esc_html_e( 'Cut Shrinkage 41% in a Year.', 'nyas' ); ?>
 				</h2>
 				<p style="color:rgba(246,243,236,0.78);font-size:17px;line-height:1.6;margin-bottom:32px;max-width:520px">
 					<?php esc_html_e( 'When the SoHo bakery chain expanded to twelve locations, after-hours theft was costing $180k a year. We replaced four alarm vendors with one integrated stack — cameras, panic buttons, and a single dashboard.', 'nyas' ); ?>
@@ -351,36 +336,15 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 	</div>
 </section>
 
-<?php // ─── 11. Testimonials ─── ?>
-<section>
-	<div class="container">
-		<div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:48px;gap:32px;flex-wrap:wrap">
-			<div>
-				<?php nyas_eyebrow( __( 'What our customers say', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( '4.9 stars across', 'nyas' ); ?> <em><?php esc_html_e( '2,100 reviews.', 'nyas' ); ?></em></h2>
-			</div>
-			<div style="display:flex;gap:4px;align-items:center;color:var(--brand-signal)">
-				<?php for ( $i = 0; $i < 5; $i++ ) { nyas_icon( 'star', 20 ); } ?>
-				<span style="margin-left:10px;font-family:var(--ff-mono);font-size:13px;color:var(--fg-2)"><?php esc_html_e( '4.94 avg.', 'nyas' ); ?></span>
-			</div>
-		</div>
-		<div class="grid grid-3">
-			<?php foreach ( nyas_testimonials() as $t ) : ?>
-				<figure style="margin:0;padding:32px;background:var(--brand-paper);border:1px solid var(--border);border-radius:14px;display:flex;flex-direction:column;gap:20px">
-					<div style="color:var(--brand-signal-2)"><?php nyas_icon( 'quote', 28 ); ?></div>
-					<blockquote style="margin:0;font-family:var(--ff-display);font-weight:700;font-size:20px;line-height:1.4;color:var(--fg)">&ldquo;<?php echo esc_html( $t['quote'] ); ?>&rdquo;</blockquote>
-					<figcaption style="display:flex;gap:12px;align-items:center;margin-top:auto;padding-top:16px;border-top:1px solid var(--border)">
-						<img src="<?php echo esc_url( $t['img'] ); ?>" alt="<?php echo esc_attr( $t['name'] ); ?>" style="width:44px;height:44px;border-radius:50%;object-fit:cover" />
-						<div>
-							<div style="font-weight:600;font-size:14px"><?php echo esc_html( $t['name'] ); ?></div>
-							<div style="font-size:12px;color:var(--fg-3)"><?php echo esc_html( $t['role'] ); ?></div>
-						</div>
-					</figcaption>
-				</figure>
-			<?php endforeach; ?>
-		</div>
-	</div>
-</section>
+<?php nyas_seam( 'navy', __( 'Real story', 'nyas' ) ); ?>
+
+<?php // ─── 10b. Response timeline (animated 5-step) ─── ?>
+<?php get_template_part( 'template-parts/section', 'response-timeline' ); ?>
+
+<?php nyas_seam( 'paper', __( 'Avg arrival 11 min', 'nyas' ) ); ?>
+
+<?php // ─── 11. Reviews carousel ─── ?>
+<?php get_template_part( 'template-parts/section', 'reviews' ); ?>
 
 <?php // ─── 12. Coverage map ─── ?>
 <section class="section-paper">
@@ -388,7 +352,7 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 		<div class="nyas-coverage" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center">
 			<div>
 				<?php nyas_eyebrow( __( 'Coverage', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="margin-bottom:24px"><?php esc_html_e( 'All five boroughs.', 'nyas' ); ?> <em><?php esc_html_e( 'One number.', 'nyas' ); ?></em></h2>
+				<h2 class="display-lg" style="margin-bottom:24px"><?php esc_html_e( 'All Five Boroughs.', 'nyas' ); ?> <em><?php esc_html_e( 'One Number.', 'nyas' ); ?></em></h2>
 				<p style="font-size:17px;line-height:1.6;color:var(--fg-2);max-width:480px;margin-bottom:32px">
 					<?php esc_html_e( 'We don\'t outsource installation, monitoring, or service calls. Every technician dispatches from one of three NYC depots: Long Island City, the South Bronx, or Sunset Park.', 'nyas' ); ?>
 				</p>
@@ -429,7 +393,7 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 		<div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:48px;gap:32px;flex-wrap:wrap">
 			<div>
 				<?php nyas_eyebrow( __( 'Insights', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg"><?php esc_html_e( 'Field notes from the', 'nyas' ); ?> <em><?php esc_html_e( 'monitoring desk.', 'nyas' ); ?></em></h2>
+				<h2 class="display-lg"><?php esc_html_e( 'Field Notes From the', 'nyas' ); ?> <em><?php esc_html_e( 'Monitoring Desk.', 'nyas' ); ?></em></h2>
 			</div>
 			<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="btn btn-md btn-ghost"><?php esc_html_e( 'All posts', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 14 ); ?></a>
 		</div>
@@ -486,6 +450,8 @@ $hw_panel = 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=
 		</div>
 	</div>
 </section>
+
+<?php nyas_seam( 'ink', __( 'Get protected', 'nyas' ) ); ?>
 
 <?php // ─── 15. Final CTA ─── ?>
 <?php nyas_final_cta(); ?>
