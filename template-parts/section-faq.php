@@ -26,7 +26,7 @@ $items = array(
 		<div class="nyas-faq-grid" style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start">
 			<div>
 				<h2 class="display-lg" style="margin-bottom:16px"><?php esc_html_e( 'Questions,', 'nyas' ); ?> <em><?php esc_html_e( 'Answered.', 'nyas' ); ?></em></h2>
-				<p style="font-size:15px;color:var(--fg-2);max-width:320px">
+				<p style="font-size:17px;line-height:1.6;color:var(--fg-2);max-width:380px">
 					<?php
 					printf(
 						/* translators: %s: phone link. */

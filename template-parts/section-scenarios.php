@@ -78,7 +78,7 @@ $scenarios = array(
 		<div style="margin-bottom:32px;max-width:720px">
 			<?php nyas_eyebrow( __( 'What happens when', 'nyas' ), false, 'margin-bottom:16px' ); ?>
 			<h2 class="display-lg"><?php esc_html_e( 'A real alarm. A real response.', 'nyas' ); ?> <em><?php esc_html_e( 'In under a minute.', 'nyas' ); ?></em></h2>
-			<p class="muted" style="font-size:16px;margin-top:12px">
+			<p class="muted" style="font-size:17px;line-height:1.6;margin-top:12px">
 				<?php esc_html_e( 'See exactly what our monitoring station does the moment a sensor trips — at home, at your business, on a construction site, or during a fire.', 'nyas' ); ?>
 			</p>
 		</div>

@@ -233,7 +233,7 @@ $services = nyas_services();
 						array( 'Contract length',          'Month-to-month or annual',  '36-month',           'Multi-year (commercial)','Month-to-month' ),
 						array( 'Equipment ownership',      'You own it',                'Leased',             'Proprietary',            'You own it' ),
 						array( 'In-house W-2 technicians', 'yes',                       'partial',            'yes',                    'no' ),
-						array( 'Avg dispatch time',        '28 seconds',                '~60 seconds',        'UL-rated',               '~90 seconds' ),
+						array( 'Avg dispatch time',        '28 seconds',                '~60 seconds',        'Residential + Commercial', '~90 seconds' ),
 						array( 'Avg service response time','1.5 days',                  '7–8 days',           '4.5 days',               'None' ),
 						array( 'UL monitoring certificate','yes',                       'yes',                'yes',                    'partial' ),
 						array( 'NYC permits & FDNY filings','yes',                      'no',                 'yes',                    'no' ),
@@ -323,6 +323,23 @@ $services = nyas_services();
 
 <?php // ─── 11. Reviews carousel ─── ?>
 <?php get_template_part( 'template-parts/section', 'reviews' ); ?>
+
+<?php // ─── 11b. Mid-page CTA — breaks up the Reviews → Coverage → FAQ → Insights stretch ─── ?>
+<section class="midpage-cta-section">
+	<div class="container">
+		<div class="midpage-cta">
+			<div class="midpage-cta-text">
+				<span class="midpage-cta-eyebrow"><?php esc_html_e( 'Ready when you are', 'nyas' ); ?></span>
+				<h2 class="midpage-cta-title"><?php esc_html_e( 'Free Site Walk', 'nyas' ); ?> <em><?php esc_html_e( 'Within 48 Hours.', 'nyas' ); ?></em></h2>
+				<p class="midpage-cta-sub"><?php esc_html_e( 'Anywhere in the five boroughs. One licensed NY consultant. One written quote. Zero high-pressure sales.', 'nyas' ); ?></p>
+			</div>
+			<div class="midpage-cta-actions">
+				<a href="#quote" class="btn btn-lg btn-signal"><?php esc_html_e( 'Get my free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
+				<a href="tel:<?php echo esc_attr( nyas_phone_tel() ); ?>" class="btn btn-lg btn-ghost"><?php nyas_icon( 'phone', 14 ); ?> <?php echo esc_html( nyas_phone() ); ?></a>
+			</div>
+		</div>
+	</div>
+</section>
 
 <?php // ─── 12. Coverage map ─── ?>
 <section class="section-paper">
