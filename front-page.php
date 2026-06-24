@@ -33,56 +33,9 @@ $services = nyas_services();
 <?php // ─── 1b. Hero spec strip ─── ?>
 <?php get_template_part( 'template-parts/section', 'hero-spec-cards' ); ?>
 
-<?php // ─── 2. Trust strip ─── ?>
-<section style="padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--brand-paper)">
-	<div class="container">
-		<div class="featured-in nyas-trust-strip" style="display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center">
-			<div class="eyebrow" style="white-space:nowrap"><?php esc_html_e( 'As featured in', 'nyas' ); ?></div>
-			<div class="featured-in-logos" style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;opacity:0.62">
-				<?php
-				$pubs = array( 'New York Times', 'Crain&rsquo;s', 'Brick Underground', 'Time Out NY', 'amNewYork', 'Brooklyn Eagle' );
-				foreach ( $pubs as $p ) {
-					echo '<span style="font-family:var(--ff-display);font-weight:800;font-size:22px;color:var(--fg);letter-spacing:-0.01em">' . wp_kses_post( $p ) . '</span>';
-				}
-				?>
-			</div>
-		</div>
-	</div>
-</section>
-
-<?php // ─── 3. Quote section (simple LeadForm) ─── ?>
-<section class="quote-section section-paper">
-	<div class="container quote-section-inner">
-		<div class="quote-section-copy">
-			<?php nyas_eyebrow( __( 'Get started', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg" style="margin-bottom:20px"><?php esc_html_e( 'Free Quote,', 'nyas' ); ?> <em><?php esc_html_e( '15 Minutes Flat.', 'nyas' ); ?></em></h2>
-			<p style="font-size:17px;line-height:1.6;color:var(--fg-2);margin-bottom:28px;max-width:480px">
-				<?php esc_html_e( 'Tell us about the space. A licensed NY consultant calls or texts you back today — no high-pressure sales, no obligation.', 'nyas' ); ?>
-			</p>
-			<ul class="quote-bullets">
-				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Free site walk within 48 hours', 'nyas' ); ?></li>
-				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'One-page proposal, no bundles', 'nyas' ); ?></li>
-				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Equipment you own, monitoring month-to-month', 'nyas' ); ?></li>
-				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Insurance-discount certificate included', 'nyas' ); ?></li>
-			</ul>
-		</div>
-		<div id="quote" class="quote-section-form">
-			<div style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:var(--brand-signal-soft);color:var(--brand-signal-2);font-size:11px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;margin-bottom:16px">
-				<span style="width:6px;height:6px;border-radius:50%;background:var(--brand-signal)"></span>
-				<?php esc_html_e( 'Free, no-obligation', 'nyas' ); ?>
-			</div>
-			<h3 style="font-family:var(--ff-display);font-size:28px;font-weight:800;line-height:1.05;margin-bottom:8px;letter-spacing:-0.02em">
-				<?php esc_html_e( 'Get my quote', 'nyas' ); ?>
-			</h3>
-			<p style="font-size:14px;color:var(--fg-2);margin:0 0 22px"><?php esc_html_e( 'Licensed NY consultant calls within 15 min.', 'nyas' ); ?></p>
-			<?php nyas_lead_form(); ?>
-		</div>
-	</div>
-</section>
-
 <?php nyas_seam( 'ink', __( 'Limited offer', 'nyas' ) ); ?>
 
-<?php // ─── 3b. Offer banner — 3 months free monitoring ─── ?>
+<?php // ─── 2. Offer banner — 3 months free monitoring ─── ?>
 <?php get_template_part( 'template-parts/section', 'offer' ); ?>
 
 <?php nyas_seam( 'paper' ); ?>
@@ -228,6 +181,37 @@ $services = nyas_services();
 	</div>
 </section>
 
+<?php nyas_seam( 'paper', __( 'Free quote', 'nyas' ) ); ?>
+
+<?php // ─── 8b. Quote section (simple LeadForm) ─── ?>
+<section class="quote-section section-paper">
+	<div class="container quote-section-inner">
+		<div class="quote-section-copy">
+			<h2 class="display-lg" style="margin-bottom:20px"><?php esc_html_e( 'Free Quote,', 'nyas' ); ?> <em><?php esc_html_e( '15 Minutes Flat.', 'nyas' ); ?></em></h2>
+			<p style="font-size:17px;line-height:1.6;color:var(--fg-2);margin-bottom:28px;max-width:480px">
+				<?php esc_html_e( 'Tell us about the space. A licensed NY consultant calls or texts you back today — no high-pressure sales, no obligation.', 'nyas' ); ?>
+			</p>
+			<ul class="quote-bullets">
+				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Free site walk within 48 hours', 'nyas' ); ?></li>
+				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'One-page proposal, no bundles', 'nyas' ); ?></li>
+				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Equipment you own, monitoring month-to-month', 'nyas' ); ?></li>
+				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Insurance-discount certificate included', 'nyas' ); ?></li>
+			</ul>
+		</div>
+		<div id="quote" class="quote-section-form">
+			<div style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:var(--brand-signal-soft);color:var(--brand-signal-2);font-size:11px;font-weight:800;letter-spacing:0.10em;text-transform:uppercase;margin-bottom:16px">
+				<span style="width:6px;height:6px;border-radius:50%;background:var(--brand-signal)"></span>
+				<?php esc_html_e( 'Free, no-obligation', 'nyas' ); ?>
+			</div>
+			<h3 style="font-family:var(--ff-display);font-size:28px;font-weight:800;line-height:1.05;margin-bottom:8px;letter-spacing:-0.02em">
+				<?php esc_html_e( 'Get my quote', 'nyas' ); ?>
+			</h3>
+			<p style="font-size:14px;color:var(--fg-2);margin:0 0 22px"><?php esc_html_e( 'Licensed NY consultant calls within 15 min.', 'nyas' ); ?></p>
+			<?php nyas_lead_form(); ?>
+		</div>
+	</div>
+</section>
+
 <?php // ─── 9. Compare ─── ?>
 <section>
 	<div class="container">
@@ -306,30 +290,30 @@ $services = nyas_services();
 </section>
 
 <?php // ─── 10. Featured case study ─── ?>
-<section class="section-ink" style="padding:96px 0;position:relative;overflow:hidden">
+<section style="background:var(--brand-paper);padding:96px 0;position:relative;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
 	<div class="container">
 		<div class="nyas-feat-case" style="display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center">
 			<div>
-				<?php nyas_eyebrow( __( 'Case study · 12 retail locations · Manhattan + Brooklyn', 'nyas' ), false, 'color:rgba(246,243,236,0.55);margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="color:var(--fg-on-ink);margin-bottom:24px">
-					<?php esc_html_e( 'How', 'nyas' ); ?> <em style="color:#3CD68C"><?php esc_html_e( 'Maman', 'nyas' ); ?></em> <?php esc_html_e( 'Cut Shrinkage 41% in a Year.', 'nyas' ); ?>
+				<?php nyas_eyebrow( __( 'Case study · 12 retail locations · Manhattan + Brooklyn', 'nyas' ), false, 'color:var(--brand-signal);margin-bottom:16px' ); ?>
+				<h2 class="display-lg" style="color:var(--fg);margin-bottom:24px">
+					<?php esc_html_e( 'How', 'nyas' ); ?> <em style="color:var(--brand-signal)"><?php esc_html_e( 'Maman', 'nyas' ); ?></em> <?php esc_html_e( 'Cut Shrinkage 41% in a Year.', 'nyas' ); ?>
 				</h2>
-				<p style="color:rgba(246,243,236,0.78);font-size:17px;line-height:1.6;margin-bottom:32px;max-width:520px">
+				<p style="color:var(--fg-2);font-size:17px;line-height:1.6;margin-bottom:32px;max-width:520px">
 					<?php esc_html_e( 'When the SoHo bakery chain expanded to twelve locations, after-hours theft was costing $180k a year. We replaced four alarm vendors with one integrated stack — cameras, panic buttons, and a single dashboard.', 'nyas' ); ?>
 				</p>
-				<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:32px;padding-top:28px;border-top:1px solid rgba(246,243,236,0.12)">
-					<div class="stat"><span class="stat-num" style="color:var(--fg-on-ink)"><em style="color:#3CD68C">41%</em></span><span class="stat-lbl" style="color:rgba(246,243,236,0.55)"><?php esc_html_e( 'Shrinkage drop', 'nyas' ); ?></span></div>
-					<div class="stat"><span class="stat-num" style="color:var(--fg-on-ink)">$73k</span><span class="stat-lbl" style="color:rgba(246,243,236,0.55)"><?php esc_html_e( 'Annual savings', 'nyas' ); ?></span></div>
-					<div class="stat"><span class="stat-num" style="color:var(--fg-on-ink)">14 days</span><span class="stat-lbl" style="color:rgba(246,243,236,0.55)"><?php esc_html_e( 'Full rollout', 'nyas' ); ?></span></div>
+				<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:32px;padding-top:28px;border-top:1px solid var(--border)">
+					<div class="stat"><span class="stat-num" style="color:var(--fg)"><em style="color:var(--brand-signal)">41%</em></span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Shrinkage drop', 'nyas' ); ?></span></div>
+					<div class="stat"><span class="stat-num" style="color:var(--fg)">$73k</span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Annual savings', 'nyas' ); ?></span></div>
+					<div class="stat"><span class="stat-num" style="color:var(--fg)">14 days</span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Full rollout', 'nyas' ); ?></span></div>
 				</div>
 				<a href="<?php echo esc_url( home_url( '/cases/maman/' ) ); ?>" class="btn btn-lg btn-signal"><?php esc_html_e( 'Read the case study', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
 			</div>
 			<div style="position:relative">
 				<?php nyas_photo( 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80', 'Retail interior at night', 'aspect-ratio:4/5;border-radius:16px' ); ?>
-				<div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(11,18,32,0.85);backdrop-filter:blur(8px);border:1px solid rgba(246,243,236,0.12);border-radius:12px;padding:20px;color:var(--fg-on-ink)">
-					<div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(246,243,236,0.55);margin-bottom:8px"><?php esc_html_e( 'Live · 02:14 a.m.', 'nyas' ); ?></div>
-					<div style="font-family:var(--ff-mono);font-size:13px;color:rgba(246,243,236,0.78);margin-bottom:4px"><?php esc_html_e( 'Maman · Spring St — Zone 4 motion', 'nyas' ); ?></div>
-					<div style="font-family:var(--ff-mono);font-size:13px;color:#3CD68C"><?php esc_html_e( 'Verified false (cleaning crew). NYPD not dispatched.', 'nyas' ); ?></div>
+				<div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:12px;padding:20px;color:var(--fg)">
+					<div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-3);margin-bottom:8px"><?php esc_html_e( 'Live · 02:14 a.m.', 'nyas' ); ?></div>
+					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--fg-2);margin-bottom:4px"><?php esc_html_e( 'Maman · Spring St — Zone 4 motion', 'nyas' ); ?></div>
+					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--brand-signal)"><?php esc_html_e( 'Verified false (cleaning crew). NYPD not dispatched.', 'nyas' ); ?></div>
 				</div>
 			</div>
 		</div>
