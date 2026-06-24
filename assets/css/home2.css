@@ -11,6 +11,9 @@
      6. Reviews carousel       (.reviews-carousel)
    ───────────────────────────────────────────────── */
 
+/* Hide the utility topbar on the homepage (home2 design ships without it). */
+body.nyas-home .topbar { display: none; }
+
 /* ─── 1) Full-bleed video hero ─── */
 .hero-videobg {
 	position: relative;
@@ -708,6 +711,203 @@
 		text-align: left;
 	}
 	.compare-cta .btn { justify-self: start; }
+}
+
+/* ─── 6c) Italic em on display headlines (home2 parity) ─── */
+.hero-videobg-title em,
+.display-xl em,
+.display-lg em,
+.display-md em,
+section h2 em,
+section h1 em,
+.h2 em,
+.h1 em {
+	font-style: italic !important;
+	color: var(--brand-signal);
+}
+.section-ink .display-lg em,
+.section-ink .display-md em,
+.section-ink h2 em,
+.response-timeline h2 em,
+.offer-title em,
+.hero-videobg-title em { color: #7AA0FF; }
+
+/* ─── 6d) Services modern v2 — image thumbs in tile rail ─── */
+.services-modern-v2 {
+	background: var(--brand-cream);
+	padding: 110px 0 120px !important;
+}
+.services-header-v2 {
+	display: flex !important; flex-direction: column !important;
+	align-items: flex-start !important;
+	gap: 14px;
+	margin-bottom: 56px;
+	max-width: 760px;
+}
+.services-header-v2 .eyebrow { margin-bottom: 4px; }
+.services-header-v2 .display-lg { margin: 0; }
+.services-header-intro {
+	font-size: 17px; line-height: 1.6;
+	color: var(--fg-2);
+	max-width: 640px;
+	margin: 6px 0 0;
+}
+.services-modern-v2 .services-preview-num {
+	display: inline-flex; align-items: center;
+	font-family: var(--ff-sans) !important; font-weight: 700;
+	text-transform: none !important;
+	letter-spacing: 0.02em !important;
+	font-size: 13px !important;
+}
+.services-list-v2 {
+	background: transparent !important;
+	border-radius: 18px !important;
+	display: flex; flex-direction: column;
+	gap: 10px;
+	border: 0 !important;
+	overflow: visible !important;
+}
+.services-list-v2 li { border-bottom: 0 !important; }
+.services-tile-v2 {
+	display: grid !important;
+	grid-template-columns: 60px 36px 1fr 24px !important;
+	align-items: center;
+	gap: 16px;
+	padding: 12px 18px 12px 12px !important;
+	background: var(--brand-paper);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+	transition: all var(--dur-base) var(--ease-out);
+}
+.services-tile-v2::before {
+	content: '';
+	position: absolute; left: 0; top: 0; bottom: 0;
+	width: 3px;
+	background: var(--brand-signal);
+	transform: scaleY(0);
+	transform-origin: bottom;
+	transition: transform var(--dur-base) var(--ease-out);
+}
+.services-tile-v2:hover,
+.services-tile-v2.on {
+	border-color: var(--brand-ink);
+	box-shadow: 0 12px 28px -16px rgba(14,17,22,0.22);
+	transform: translateX(2px);
+}
+.services-tile-v2.on::before,
+.services-tile-v2:hover::before {
+	transform: scaleY(1); transform-origin: top;
+}
+.services-tile-thumb {
+	width: 60px; height: 60px;
+	border-radius: 10px;
+	background-size: cover; background-position: center;
+	border: 1px solid var(--border);
+	flex-shrink: 0;
+	filter: saturate(0.95) brightness(0.96);
+	transition: filter var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+}
+.services-tile-v2:hover .services-tile-thumb,
+.services-tile-v2.on .services-tile-thumb {
+	filter: saturate(1.1) brightness(1.0);
+	transform: scale(1.04);
+}
+.services-tile-v2 .services-tile-icon {
+	width: 36px !important; height: 36px !important;
+	border-radius: 10px !important;
+	background: var(--brand-signal-soft) !important;
+	color: var(--brand-signal-2) !important;
+	display: inline-flex; align-items: center; justify-content: center;
+	border: 1px solid transparent;
+	transition: all var(--dur-base) var(--ease-out);
+}
+.services-tile-v2.on .services-tile-icon,
+.services-tile-v2:hover .services-tile-icon {
+	background: var(--brand-signal) !important;
+	color: white !important;
+}
+.services-tile-text {
+	display: flex; flex-direction: column;
+	gap: 2px; min-width: 0;
+}
+.services-tile-v2 .services-tile-name {
+	font-family: var(--ff-display) !important; font-weight: 700 !important;
+	font-size: 17px !important; letter-spacing: -0.01em !important;
+	color: var(--fg);
+	line-height: 1.2;
+}
+.services-tile-sub {
+	font-size: 13px; line-height: 1.4;
+	color: var(--fg-2);
+	white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.services-tile-v2 .services-tile-arrow {
+	color: var(--fg-3);
+	transition: all var(--dur-base) var(--ease-out);
+	display: inline-flex; align-items: center; justify-content: center;
+}
+.services-tile-v2:hover .services-tile-arrow,
+.services-tile-v2.on .services-tile-arrow {
+	color: var(--brand-signal-2);
+	transform: translateX(4px);
+}
+@media (max-width: 960px) {
+	.services-tile-v2 { grid-template-columns: 56px 32px 1fr 20px !important; gap: 12px; }
+	.services-tile-thumb { width: 56px; height: 56px; }
+	.services-tile-sub { white-space: normal; }
+}
+
+/* ─── 6e) Why-us — clean light grid with bigger cards ─── */
+.section-sunk.nyas-why { background: var(--brand-cream); }
+.why-grid {
+	display: grid; grid-template-columns: repeat(3, 1fr);
+	gap: 1px; background: var(--border-strong);
+	border: 1px solid var(--border-strong); border-radius: 18px; overflow: hidden;
+	margin-bottom: 0;
+}
+.why-cell {
+	background: var(--n-0); padding: 36px 32px;
+	display: flex; flex-direction: column; gap: 14px;
+	transition: all var(--dur-base) var(--ease-out);
+}
+.why-cell:hover { background: var(--brand-cream); }
+.why-cell-icon {
+	width: 52px; height: 52px; border-radius: 12px;
+	background: var(--brand-ink); color: var(--brand-signal);
+	display: inline-flex; align-items: center; justify-content: center;
+}
+.why-cell h3 {
+	font-family: var(--ff-display); font-size: 26px; font-weight: 700;
+	letter-spacing: -0.01em; line-height: 1.15; margin: 0;
+}
+.why-cell p {
+	margin: 0; font-size: 15px; line-height: 1.55; color: var(--fg-2);
+}
+@media (max-width: 900px) {
+	.why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+	.why-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── 6f) HowItWorks — stacked header (home2 v2) ─── */
+.how-header-stacked {
+	display: flex !important; flex-direction: column !important;
+	align-items: flex-start !important;
+	gap: 0 !important;
+}
+.how-header-stacked > * { max-width: 760px; }
+.how-modern { background: var(--brand-cream); }
+.how-card .how-when {
+	order: 2;
+	font-family: var(--ff-display) !important;
+	font-size: 12px !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.01em !important;
+	text-transform: none !important;
 }
 
 /* ─── 7) SeamBlend — soft wave bridging adjacent sections ─── */

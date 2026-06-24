@@ -40,28 +40,25 @@ $services = nyas_services();
 
 <?php nyas_seam( 'paper' ); ?>
 
-<?php // ─── 4. Services grid (asymmetric) ─── ?>
-<section class="services-modern">
+<?php // ─── 4. Services grid (v2 asymmetric — image thumbs on tiles) ─── ?>
+<section class="services-modern services-modern-v2">
 	<div class="container">
-		<div class="services-header">
-			<div>
-				<?php nyas_eyebrow( __( 'Services', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg"><?php esc_html_e( 'Ten Ways We Keep', 'nyas' ); ?> <em><?php esc_html_e( 'Watch.', 'nyas' ); ?></em></h2>
-			</div>
-			<p class="muted" style="max-width:380px;margin:0">
-				<?php esc_html_e( 'One installer, one number to call, one app for every property you own — from a Park Slope walk-up to a fleet of Bronx warehouses.', 'nyas' ); ?>
+		<div class="services-header services-header-v2">
+			<div class="eyebrow services-header-eyebrow"><?php esc_html_e( 'What we protect', 'nyas' ); ?></div>
+			<h2 class="display-lg"><?php esc_html_e( 'Ten Ways We Keep', 'nyas' ); ?> <em><?php esc_html_e( 'Watch.', 'nyas' ); ?></em></h2>
+			<p class="services-header-intro">
+				<?php esc_html_e( 'One installer, one number to call, one app for every property you own — from a Park Slope walk-up to a fleet of Bronx warehouses. Every system is licensed, UL-listed, and monitored from our Long Island central station.', 'nyas' ); ?>
 			</p>
 		</div>
 
 		<div class="services-stage">
-			<?php $featured = $services[0]; ?>
 			<div class="services-preview" data-nyas-services-preview>
 				<?php foreach ( $services as $idx => $svc ) : ?>
 					<div class="services-preview-img" data-services-preview-id="<?php echo esc_attr( $svc['id'] ); ?>"<?php echo $idx === 0 ? '' : ' hidden'; ?>>
 						<?php nyas_photo( $svc['img'], $svc['name'], 'position:absolute;inset:0;border-radius:0' ); ?>
 						<div class="services-preview-overlay"></div>
 						<div class="services-preview-meta">
-							<span class="services-preview-num"><?php echo esc_html( str_pad( (string) ( $idx + 1 ), 2, '0', STR_PAD_LEFT ) . ' / ' . count( $services ) ); ?></span>
+							<span class="services-preview-num"><?php nyas_icon( $svc['icon'], 14, 'margin-right:8px;vertical-align:middle' ); ?> <?php echo esc_html( $svc['short'] ); ?></span>
 							<span class="services-preview-icon"><?php nyas_icon( $svc['icon'], 18 ); ?></span>
 						</div>
 						<div class="services-preview-body">
@@ -79,13 +76,16 @@ $services = nyas_services();
 				<?php endforeach; ?>
 			</div>
 
-			<ul class="services-list">
+			<ul class="services-list services-list-v2">
 				<?php foreach ( $services as $idx => $svc ) : ?>
 					<li>
-						<a href="<?php echo esc_url( home_url( '/services/' . $svc['id'] . '/' ) ); ?>" class="services-tile<?php echo $idx === 0 ? ' on' : ''; ?>" data-services-tile="<?php echo esc_attr( $svc['id'] ); ?>">
-							<span class="services-tile-num"><?php echo esc_html( str_pad( (string) ( $idx + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
-							<span class="services-tile-icon"><?php nyas_icon( $svc['icon'], 20 ); ?></span>
-							<span class="services-tile-name"><?php echo esc_html( $svc['short'] ); ?></span>
+						<a href="<?php echo esc_url( home_url( '/services/' . $svc['id'] . '/' ) ); ?>" class="services-tile services-tile-v2<?php echo $idx === 0 ? ' on' : ''; ?>" data-services-tile="<?php echo esc_attr( $svc['id'] ); ?>">
+							<span class="services-tile-thumb" style="background-image:url('<?php echo esc_url( $svc['img'] ); ?>')" aria-hidden="true"></span>
+							<span class="services-tile-icon"><?php nyas_icon( $svc['icon'], 18 ); ?></span>
+							<span class="services-tile-text">
+								<span class="services-tile-name"><?php echo esc_html( $svc['short'] ); ?></span>
+								<span class="services-tile-sub"><?php echo esc_html( $svc['desc'] ); ?></span>
+							</span>
 							<span class="services-tile-arrow"><?php nyas_icon( 'arrow-right', 16 ); ?></span>
 						</a>
 					</li>
@@ -108,13 +108,10 @@ $services = nyas_services();
 <?php // ─── 6. How it works ─── ?>
 <section class="how-modern">
 	<div class="container">
-		<div class="how-header">
-			<div>
-				<?php nyas_eyebrow( __( 'How it works', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( 'From First Call to', 'nyas' ); ?> <em><?php esc_html_e( 'Fully Armed.', 'nyas' ); ?></em></h2>
-			</div>
-			<p class="muted" style="max-width:420px;margin:0">
-				<?php esc_html_e( 'From the first call to the day we go live — here\'s what every NYAS install looks like.', 'nyas' ); ?>
+		<div class="how-header how-header-stacked">
+			<h2 class="display-lg" style="max-width:720px;margin-bottom:14px"><?php esc_html_e( 'From First Call to', 'nyas' ); ?> <em><?php esc_html_e( 'Fully Armed.', 'nyas' ); ?></em></h2>
+			<p class="muted" style="font-size:17px;line-height:1.6;max-width:620px;margin:0">
+				<?php esc_html_e( 'Four stages, no surprises. Here\'s exactly what every NYAS install looks like, from the consultant\'s first visit to the day your system goes live.', 'nyas' ); ?>
 			</p>
 		</div>
 
@@ -149,32 +146,29 @@ $services = nyas_services();
 <?php // ─── 8. Why us ─── ?>
 <section class="section-sunk nyas-why">
 	<div class="container">
-		<div class="nyas-why-head">
-			<div class="nyas-why-head-text">
-				<?php nyas_eyebrow( __( 'Why us', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="text-wrap:balance"><?php esc_html_e( 'Why New Yorkers', 'nyas' ); ?> <em><?php esc_html_e( 'Choose Us.', 'nyas' ); ?></em></h2>
-			</div>
-			<p class="nyas-why-head-lede">
+		<div style="margin-bottom:48px;max-width:640px">
+			<h2 class="display-lg" style="margin-bottom:14px"><?php esc_html_e( 'Why New Yorkers', 'nyas' ); ?> <em><?php esc_html_e( 'Choose Us.', 'nyas' ); ?></em></h2>
+			<p style="font-size:17px;line-height:1.6;color:var(--fg-2);max-width:580px">
 				<?php esc_html_e( 'Most national alarm companies sell hardware. We sell response time, accountability, and a phone number that gets answered the first ring — even at 3 a.m. on a Tuesday.', 'nyas' ); ?>
 			</p>
 		</div>
-		<div class="nyas-why-grid">
+		<div class="why-grid">
 			<?php
 			$why = array(
-				array( 'icon' => 'zap',          'title' => '30-second dispatch', 'desc' => 'We measure every alarm. Our 12-month rolling median is 28 seconds, station to officer.' ),
-				array( 'icon' => 'users',        'title' => 'No subcontractors', 'desc' => 'Every technician on your property is a W-2 employee, background-checked, and badge-carrying.' ),
-				array( 'icon' => 'pin',          'title' => 'Local monitoring',   'desc' => 'Your alarm is watched from Long Island City — not a third-party center in Texas or Manila.' ),
-				array( 'icon' => 'lock',         'title' => 'Equipment you own',  'desc' => 'No leases. No predatory 5-year contracts. Cancel monitoring with 30 days\' notice, anytime.' ),
-				array( 'icon' => 'award',        'title' => 'UL & FM listed',     'desc' => 'Our central station carries UL 827, FM 3010, and NYPD-recognized burglar response certifications.' ),
-				array( 'icon' => 'shield-check', 'title' => 'Insurance-grade',    'desc' => 'Direct integration with Chubb, Travelers, and most NY commercial insurers for premium discounts.' ),
+				array( 'icon' => 'zap',          'title' => __( '30-second dispatch', 'nyas' ), 'desc' => __( 'We measure every alarm. Our 12-month rolling median is 28 seconds, station to officer.', 'nyas' ) ),
+				array( 'icon' => 'users',        'title' => __( 'No subcontractors', 'nyas' ),  'desc' => __( 'Every technician on your property is a W-2 employee, background-checked, and badge-carrying.', 'nyas' ) ),
+				array( 'icon' => 'pin',          'title' => __( 'Local monitoring', 'nyas' ),   'desc' => __( 'Your alarm is watched from our UL-listed station in Long Island, NY — not an out-of-state call center in Texas, or an overseas one in Manila.', 'nyas' ) ),
+				array( 'icon' => 'lock',         'title' => __( 'Equipment you own', 'nyas' ),  'desc' => __( 'No leases. No predatory 5-year contracts. Cancel monitoring with 30 days\' notice, anytime.', 'nyas' ) ),
+				array( 'icon' => 'award',        'title' => __( 'UL listed', 'nyas' ),          'desc' => __( 'Our central station carries UL 827 and NYPD-recognized burglar response certifications.', 'nyas' ) ),
+				array( 'icon' => 'shield-check', 'title' => __( 'Insurance-grade', 'nyas' ),    'desc' => __( 'We issue a UL-listed monitoring certificate accepted by major NY insurers — qualifying you for premium discounts and policy preferences.', 'nyas' ) ),
 			);
 			foreach ( $why as $it ) : ?>
-				<div class="nyas-why-card">
-					<div class="nyas-why-icon">
+				<div class="why-cell">
+					<div class="why-cell-icon">
 						<?php nyas_icon( $it['icon'], 22 ); ?>
 					</div>
-					<h3 class="nyas-why-title"><?php echo esc_html( $it['title'] ); ?></h3>
-					<p class="nyas-why-desc"><?php echo esc_html( $it['desc'] ); ?></p>
+					<h3><?php echo esc_html( $it['title'] ); ?></h3>
+					<p><?php echo esc_html( $it['desc'] ); ?></p>
 				</div>
 			<?php endforeach; ?>
 		</div>
