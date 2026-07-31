@@ -130,7 +130,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 	<div class="container">
 		<div style="margin-bottom:32px;max-width:720px">
 			<?php nyas_eyebrow( __( 'Specs at a glance', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg"><?php esc_html_e( 'What ships in the box.', 'nyas' ); ?></h2>
+			<h2 class="display-lg"><?php esc_html_e( 'The System', 'nyas' ); ?> <em><?php esc_html_e( 'We Install.', 'nyas' ); ?></em></h2>
 		</div>
 		<div class="grid grid-2" style="gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--brand-paper)">
 			<?php
@@ -164,7 +164,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 			</div>
 			<div class="seo-prose">
 				<p><?php esc_html_e( 'Most national alarm companies sell a kit designed for a 2,400-square-foot ranch in Plano, Texas. Then they ship it to a fourth-floor walk-up in Hell\'s Kitchen and wonder why the install takes two days and the customer has questions the technician can\'t answer.', 'nyas' ); ?></p>
-				<p><?php esc_html_e( 'We\'ve been wiring brownstones, pre-war co-ops, condos, lofts, warehouses, and storefronts across the five boroughs since 2009. Every build is shaped by what NYC actually is: lath-and-plaster walls, vintage wiring, board approvals, party walls, fire escapes, alley cameras, and the inescapable fact that your neighbor is two inches away.', 'nyas' ); ?></p>
+				<p><?php esc_html_e( 'We\'ve spent twelve years wiring brownstones, pre-war co-ops, condos, lofts, warehouses, and storefronts across the New York area. Every build is shaped by what NYC actually is: lath-and-plaster walls, vintage wiring, board approvals, party walls, fire escapes, alley cameras, and the inescapable fact that your neighbor is two inches away.', 'nyas' ); ?></p>
 				<p><?php esc_html_e( 'The result is a system specified for the property — not pulled off a shelf. Wireless mesh panels for buildings where you can\'t open a wall. Glass-break sensors tuned for the high-frequency signature of bay-window panes. Door contacts low-profile enough that your co-op board will never write you a letter about them.', 'nyas' ); ?></p>
 			</div>
 		</div>

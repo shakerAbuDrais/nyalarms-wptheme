@@ -21,7 +21,7 @@
 					<span class="logo-txt" style="color:#fff">newyork<em>alarm</em>systems</span>
 				</a>
 				<p style="color:rgba(255,255,255,0.65);font-size:14px;margin-top:16px;max-width:340px;line-height:1.65">
-					<?php esc_html_e( 'Independent, locally-owned alarm and monitoring company protecting homes and businesses across the five boroughs since 2009.', 'nyas' ); ?>
+					<?php esc_html_e( 'Independent, locally-owned alarm and monitoring company protecting homes and businesses across the New York area for over twelve years.', 'nyas' ); ?>
 				</p>
 				<div style="display:flex;gap:8px;margin-top:20px;flex-wrap:wrap">
 					<span class="pill" style="background:rgba(255,255,255,0.10);color:#fff"><?php esc_html_e( 'UL-listed', 'nyas' ); ?></span>

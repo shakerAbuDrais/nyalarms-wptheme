@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NYAS_VERSION', '1.1.5' );
+define( 'NYAS_VERSION', '1.1.6' );
 define( 'NYAS_DIR', trailingslashit( get_template_directory() ) );
 define( 'NYAS_URI', trailingslashit( get_template_directory_uri() ) );
 

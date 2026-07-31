@@ -17,7 +17,7 @@ get_header();
 			<?php esc_html_e( 'Born in', 'nyas' ); ?> <em><?php esc_html_e( 'Brooklyn.', 'nyas' ); ?></em> <?php esc_html_e( 'Built for the five boroughs.', 'nyas' ); ?>
 		</h1>
 		<p class="lede" style="max-width:680px;margin:0 auto">
-			<?php esc_html_e( 'Two founders, one Long Island City monitoring station, and 9,400 NYC properties under our watch — every day of the year.', 'nyas' ); ?>
+			<?php esc_html_e( 'Twelve years of alarm and camera installations for homes and businesses across the New York area — with every system watched every day of the year.', 'nyas' ); ?>
 		</p>
 	</div>
 </section>
@@ -42,16 +42,9 @@ get_header();
 				<h2 class="display-lg"><?php esc_html_e( 'A different kind of alarm company.', 'nyas' ); ?></h2>
 			</div>
 			<div style="font-size:17px;line-height:1.7;color:var(--fg-2)">
-				<p style="margin-top:0"><?php esc_html_e( 'In 2009, Diana Velez was running operations for a national alarm company in midtown. She watched her best customers — landlords, restauranteurs, small medical practices — get locked into 60-month contracts they couldn\'t escape, with response times that drifted north of four minutes.', 'nyas' ); ?></p>
-				<p><?php esc_html_e( 'That December, Diana and Marcus Tan rented a basement in Greenpoint, hired one technician, and answered every call themselves. Sixteen years later, we still answer every call ourselves — just from a slightly larger room in Long Island City, with twenty-two technicians and a UL-listed central station.', 'nyas' ); ?></p>
+				<p style="margin-top:0"><?php esc_html_e( 'New York Alarm Systems has spent the last twelve years designing, installing, and monitoring alarm and camera systems for residential and commercial customers across the New York area. Every job — from a single-family home to a multi-site business — is handled by our own team, from the first site visit to the day the system goes live.', 'nyas' ); ?></p>
+				<p><?php esc_html_e( 'That focus on professional installation is the whole business. We don\'t ship kits and wish you luck. We walk the property, design a system around how the building is actually used, install it ourselves, and stand behind it with 24/7 monitoring.', 'nyas' ); ?></p>
 				<p><?php esc_html_e( 'We don\'t sell hardware bundles. We don\'t lock contracts. We don\'t outsource. The day we have to do any of those things to grow is the day we\'ll have stopped being the company we set out to build.', 'nyas' ); ?></p>
-				<div style="display:flex;gap:18px;margin-top:32px;align-items:center">
-					<img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&q=80" alt="" style="width:56px;height:56px;border-radius:50%;object-fit:cover" />
-					<div>
-						<div style="font-family:var(--ff-display);font-weight:700;font-size:22px;letter-spacing:-0.01em">Diana Velez</div>
-						<div style="font-size:13px;color:var(--fg-3)"><?php esc_html_e( 'Co-founder · Operations', 'nyas' ); ?></div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -61,7 +54,7 @@ get_header();
 	<div class="container">
 		<div style="margin-bottom:48px">
 			<?php nyas_eyebrow( __( 'By the numbers', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( 'Sixteen years,', 'nyas' ); ?> <em><?php esc_html_e( 'quietly counted.', 'nyas' ); ?></em></h2>
+			<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( 'Twelve Years,', 'nyas' ); ?> <em><?php esc_html_e( 'Quietly Counted.', 'nyas' ); ?></em></h2>
 		</div>
 		<div class="grid grid-4" style="border-top:1px solid var(--border-strong)">
 			<?php
@@ -85,26 +78,40 @@ get_header();
 <section class="section-sunk">
 	<div class="container">
 		<div style="margin-bottom:48px">
-			<?php nyas_eyebrow( __( 'The people', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg"><?php esc_html_e( 'Whose name is', 'nyas' ); ?> <em><?php esc_html_e( 'actually', 'nyas' ); ?></em> <?php esc_html_e( 'on the door.', 'nyas' ); ?></h2>
+			<?php nyas_eyebrow( __( 'The owner', 'nyas' ), true, 'margin-bottom:16px' ); ?>
+			<h2 class="display-lg"><?php esc_html_e( 'The Name', 'nyas' ); ?> <em><?php esc_html_e( 'on the Door.', 'nyas' ); ?></em></h2>
 		</div>
-		<div class="grid grid-4">
-			<?php
-			$team = array(
-				array( 'Diana Velez',   'Co-founder / Operations', 'Brooklyn native. 18 years in commercial security, formerly at Stanley.', 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80' ),
-				array( 'Marcus Tan',    'Co-founder / CTO',        'NYU. Built the original monitoring platform; ex-Verisure engineer.',     'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80' ),
-				array( 'Priya Iyer',    'Director, Monitoring',    'Runs the LIC central station. UL 827 certified for 12 years.',          'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80' ),
-				array( 'Rashaan Cole',  'Field Operations Lead',   'Leads our 22 in-house technicians. Bronx, born and raised.',            'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80' ),
-			);
-			foreach ( $team as $p ) :
+		<div class="nyas-2col" style="display:grid;grid-template-columns:1fr 1.6fr;gap:56px;align-items:start">
+			<div>
+				<?php
+				// Owner portrait — swap in the real photo via the `nyas_owner_photo`
+				// filter or the `nyas_owner_photo` theme mod once the client provides it.
+				$owner_photo = apply_filters( 'nyas_owner_photo', get_theme_mod( 'nyas_owner_photo', '' ) );
+				if ( $owner_photo ) {
+					nyas_photo( $owner_photo, 'Yonatan Yekutiel', 'aspect-ratio:4/5;border-radius:14px' );
+				} else {
+					?>
+					<div style="aspect-ratio:4/5;border-radius:14px;background:var(--brand-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff">
+						<span style="width:72px;height:72px;border-radius:18px;background:var(--brand-signal);display:inline-flex;align-items:center;justify-content:center">
+							<svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+								<path d="M12 21s7-3.5 7-8.5V5l-7-2.5L5 5v7.5C5 17.5 12 21 12 21z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round" />
+								<path d="m9 12 2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+							</svg>
+						</span>
+						<span style="font-family:var(--ff-display);font-weight:800;font-size:22px;letter-spacing:-0.01em">Yonatan Yekutiel</span>
+					</div>
+					<?php
+				}
 				?>
-				<div>
-					<?php nyas_photo( $p[3], $p[0], 'aspect-ratio:4/5;border-radius:12px;margin-bottom:16px' ); ?>
-					<h3 style="font-family:var(--ff-display);font-weight:700;font-size:22px;letter-spacing:-0.01em;margin-bottom:4px"><?php echo esc_html( $p[0] ); ?></h3>
-					<div style="font-size:12px;color:var(--fg-3);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:8px"><?php echo esc_html( $p[1] ); ?></div>
-					<p style="margin:0;font-size:14px"><?php echo esc_html( $p[2] ); ?></p>
+			</div>
+			<div>
+				<h3 style="font-family:var(--ff-display);font-weight:800;font-size:32px;letter-spacing:-0.015em;margin-bottom:4px"><?php esc_html_e( 'Yonatan Yekutiel', 'nyas' ); ?></h3>
+				<div style="font-size:12px;color:var(--fg-3);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:20px"><?php esc_html_e( 'Owner', 'nyas' ); ?></div>
+				<div style="font-size:17px;line-height:1.7;color:var(--fg-2)">
+					<p style="margin-top:0"><?php esc_html_e( 'Yonatan has spent twelve years building New York Alarm Systems into a trusted name for residential and commercial security across the New York area. He stays personally involved in the work — from how a system is designed for a specific building to how it\'s installed and monitored once it goes live.', 'nyas' ); ?></p>
+					<p style="margin-bottom:0"><?php esc_html_e( 'The business runs on a simple standard: professional installation, honest advice, and systems that respond the moment they\'re needed. When you call, you\'re dealing with the person whose name is on the work.', 'nyas' ); ?></p>
 				</div>
-			<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 </section>
