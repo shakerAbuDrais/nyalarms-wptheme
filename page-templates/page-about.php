@@ -29,7 +29,7 @@ get_header();
 			<?php nyas_photo( 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80', 'Brownstone' ); ?>
 			<?php nyas_photo( 'https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80', 'Camera' ); ?>
 			<?php nyas_photo( 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80', 'Team' ); ?>
-			<?php nyas_photo( 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80', 'Office' ); ?>
+			<?php nyas_photo( NYAS_URI . 'assets/img/office.webp', 'Office' ); ?>
 		</div>
 	</div>
 </section>
@@ -127,7 +127,6 @@ get_header();
 				$right = 0 === $i % 2 ? '1px solid var(--border)' : 'none';
 				?>
 				<div style="padding:36px;border-top:1px solid var(--border-strong);border-right:<?php echo esc_attr( $right ); ?>">
-					<div style="font-family:var(--ff-mono);font-size:12px;color:var(--brand-signal-2);margin-bottom:12px">0<?php echo (int) ( $i + 1 ); ?></div>
 					<h3 style="font-family:var(--ff-display);font-weight:800;font-size:32px;letter-spacing:-0.015em;margin-bottom:12px"><?php echo esc_html( $v[0] ); ?></h3>
 					<p style="margin:0;font-size:15px"><?php echo esc_html( $v[1] ); ?></p>
 				</div>

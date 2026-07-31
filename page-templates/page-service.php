@@ -291,10 +291,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 			);
 			foreach ( $mistakes as $m ) : ?>
 				<div style="padding:28px;background:var(--n-0);border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;gap:10px">
-					<span style="font-family:var(--ff-mono);font-size:12px;letter-spacing:0.12em;color:var(--brand-signal-2)"><?php
-						/* translators: %s: zero-padded mistake number. */
-						printf( esc_html__( 'MISTAKE %s', 'nyas' ), esc_html( $m[0] ) );
-					?></span>
+					<span style="font-family:var(--ff-mono);font-size:12px;letter-spacing:0.12em;color:var(--brand-signal-2)"><?php esc_html_e( 'MISTAKE', 'nyas' ); ?></span>
 					<h3 style="font-family:var(--ff-display);font-weight:800;font-size:20px;letter-spacing:-0.01em"><?php echo esc_html( $m[1] ); ?></h3>
 					<p style="margin:0;font-size:14px;line-height:1.55;color:var(--fg-2)"><?php echo esc_html( $m[2] ); ?></p>
 				</div>

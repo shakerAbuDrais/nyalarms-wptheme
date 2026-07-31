@@ -45,9 +45,9 @@ $services = nyas_services();
 	<div class="container">
 		<div class="services-header services-header-v2">
 			<div class="eyebrow services-header-eyebrow"><?php esc_html_e( 'What we protect', 'nyas' ); ?></div>
-			<h2 class="display-lg"><?php esc_html_e( 'Ten Ways We Keep', 'nyas' ); ?> <em><?php esc_html_e( 'Watch.', 'nyas' ); ?></em></h2>
+			<h2 class="display-lg"><?php esc_html_e( 'Different Properties.', 'nyas' ); ?> <em><?php esc_html_e( 'Different Security Needs.', 'nyas' ); ?></em></h2>
 			<p class="services-header-intro">
-				<?php esc_html_e( 'One installer, one number to call, one app for every property you own — from a Park Slope walk-up to a fleet of Bronx warehouses. Every system is licensed, UL-listed, and monitored from our Long Island central station.', 'nyas' ); ?>
+				<?php esc_html_e( 'From private homes and retail stores to schools, clinics, offices, and construction sites, we design and install alarm systems around the way each property is used.', 'nyas' ); ?>
 			</p>
 		</div>
 
@@ -119,10 +119,10 @@ $services = nyas_services();
 			<div class="how-line"></div>
 			<?php
 			$steps = array(
-				array( 'n' => '01', 'icon' => 'pin',          'title' => 'Free site walk',     'when' => 'Within 48 hours', 'body' => 'A licensed NY consultant visits your property — usually within 48 hours — to map entry points, blind spots, and risk vectors.' ),
-				array( 'n' => '02', 'icon' => 'briefcase',    'title' => 'Right-sized quote',  'when' => 'Same week',       'body' => 'You get a one-page proposal with hardware, monitoring, and labor itemized. No bundles. No "starter" gimmicks.' ),
-				array( 'n' => '03', 'icon' => 'shield-check', 'title' => 'Clean installation', 'when' => '1 – 2 days on site', 'body' => 'In-house technicians (no subcontractors) wire and configure your system, typically in a day for a home, two for a small business.' ),
-				array( 'n' => '04', 'icon' => 'monitor',      'title' => 'We watch, you live', 'when' => '24 / 7 / 365',    'body' => 'Our UL-listed station in Long Island City confirms alarms, calls 911, and reaches you — every day of the year.' ),
+				array( 'icon' => 'pin',          'title' => 'Free site walk',     'when' => 'Within 48 hours', 'body' => 'A licensed NY consultant visits your property — usually within 48 hours — to map entry points, blind spots, and risk vectors.' ),
+				array( 'icon' => 'briefcase',    'title' => 'Right-sized quote',  'when' => 'Same week',       'body' => 'You get a one-page proposal with hardware, monitoring, and labor itemized. No bundles. No "starter" gimmicks.' ),
+				array( 'icon' => 'shield-check', 'title' => 'Clean installation', 'when' => '1 – 2 days on site', 'body' => 'In-house technicians (no subcontractors) wire and configure your system, typically in a day for a home, two for a small business.' ),
+				array( 'icon' => 'monitor',      'title' => 'We watch, you live', 'when' => '24 / 7 / 365',    'body' => 'Our UL-listed station in Long Island City confirms alarms, calls 911, and reaches you — every day of the year.' ),
 			);
 			foreach ( $steps as $s ) : ?>
 				<div class="how-card">
@@ -131,7 +131,6 @@ $services = nyas_services();
 						<div class="how-node-icon"><?php nyas_icon( $s['icon'], 22 ); ?></div>
 					</div>
 					<div class="how-when"><?php echo esc_html( $s['when'] ); ?></div>
-					<div class="how-num"><?php echo esc_html( $s['n'] ); ?></div>
 					<h3 class="how-title"><?php echo esc_html( $s['title'] ); ?></h3>
 					<p class="how-body"><?php echo esc_html( $s['body'] ); ?></p>
 				</div>

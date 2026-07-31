@@ -42,10 +42,10 @@ $poster = apply_filters(
 				<?php esc_html_e( 'Live monitoring · 24/7 on Long Island', 'nyas' ); ?>
 			</div>
 			<h1 class="hero-videobg-title">
-				<?php esc_html_e( 'One System.', 'nyas' ); ?><br /><em><?php esc_html_e( 'Every Entry Point.', 'nyas' ); ?></em>
+				<?php esc_html_e( 'One System.', 'nyas' ); ?><br /><em><?php esc_html_e( 'Local Team. Max Results.', 'nyas' ); ?></em>
 			</h1>
 			<p class="hero-videobg-lede">
-				<?php esc_html_e( 'Alarm panel, perimeter sensors, AI cameras, and 24/7 NYC monitoring — engineered to work as one.', 'nyas' ); ?>
+				<?php esc_html_e( 'Protect homes, businesses, and job sites across New York City with professionally installed alarm systems, real-time alerts, and a local monitoring team ready to respond when it matters most.', 'nyas' ); ?>
 			</p>
 			<div class="hero-fb-cta">
 				<a href="#quote" class="btn btn-lg btn-signal"><?php esc_html_e( 'Free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>

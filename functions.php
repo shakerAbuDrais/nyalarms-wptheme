@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NYAS_VERSION', '1.1.4' );
+define( 'NYAS_VERSION', '1.1.5' );
 define( 'NYAS_DIR', trailingslashit( get_template_directory() ) );
 define( 'NYAS_URI', trailingslashit( get_template_directory_uri() ) );
 
@@ -108,6 +108,19 @@ require_once NYAS_DIR . 'inc/data.php';
 require_once NYAS_DIR . 'inc/setup-wizard.php';
 require_once NYAS_DIR . 'inc/leads.php';
 require_once NYAS_DIR . 'inc/admin-settings.php';
+
+/**
+ * Favicon — shield mark on brand blue. Defers to a Customizer Site Icon
+ * when one is set (WP outputs that itself).
+ */
+function nyas_favicon() {
+	if ( function_exists( 'has_site_icon' ) && has_site_icon() ) {
+		return;
+	}
+	echo '<link rel="icon" type="image/svg+xml" href="' . esc_url( NYAS_URI . 'assets/img/favicon.svg?v=' . NYAS_VERSION ) . '" />' . "\n";
+}
+add_action( 'wp_head', 'nyas_favicon', 5 );
+add_action( 'admin_head', 'nyas_favicon', 5 );
 
 /**
  * Add a body class for the active page so we can target sticky-header tweaks.

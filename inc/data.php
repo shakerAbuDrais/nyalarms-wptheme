@@ -76,7 +76,7 @@ function nyas_services() {
 			'short' => 'Offices',
 			'desc'  => 'Access control, after-hours coverage, tenant integration for offices and co-working.',
 			'feats' => array( 'Badge access', 'Visitor management', 'After-hours arming', 'Tenant portal' ),
-			'img'   => 'https://images.unsplash.com/photo-1739131936348-aa227601f140?w=900&q=80&auto=format&fit=crop',
+			'img'   => NYAS_URI . 'assets/img/office.webp',
 		),
 		array(
 			'id'    => 'school',

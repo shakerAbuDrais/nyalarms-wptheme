@@ -53,8 +53,8 @@ $current = $items[0];
 		<div class="hardware-v2-header">
 			<div>
 				<div class="eyebrow" style="margin-bottom:14px"><?php esc_html_e( 'The hardware', 'nyas' ); ?></div>
-				<h2 class="h2" style="margin-bottom:16px;max-width:680px"><?php esc_html_e( 'Engineered', 'nyas' ); ?> <em><?php esc_html_e( 'for the Building', 'nyas' ); ?></em>, <?php esc_html_e( 'Not the Demo.', 'nyas' ); ?></h2>
-				<p class="lede" style="font-size:17px;line-height:1.6;max-width:540px"><?php esc_html_e( 'Every part of the stack is chosen because it survives the actual conditions of NYC: brick walls, cellular dead spots, freezing fire-escapes, sub-basements without Wi-Fi.', 'nyas' ); ?></p>
+				<h2 class="h2" style="margin-bottom:16px;max-width:680px"><?php esc_html_e( 'Alarm Hardware', 'nyas' ); ?> <em><?php esc_html_e( 'That Works', 'nyas' ); ?></em> <?php esc_html_e( 'When It Matters.', 'nyas' ); ?></h2>
+				<p class="lede" style="font-size:17px;line-height:1.6;max-width:540px"><?php esc_html_e( 'We use professional-grade alarm equipment selected for reliability, durability, and real-world performance, not the cheapest hardware that looks good in a demo but fails when you need it most.', 'nyas' ); ?></p>
 			</div>
 			<a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="btn btn-lg btn-ink hardware-v2-cta"><?php esc_html_e( 'See full equipment list', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 14 ); ?></a>
 		</div>
@@ -62,7 +62,6 @@ $current = $items[0];
 		<div class="hardware-v2-grid">
 			<div class="hardware-v2-feature">
 				<div class="hardware-v2-feature-img" data-hw-feature-img style="background-image:url('<?php echo esc_url( $current['img'] ); ?>')">
-					<span class="hardware-v2-feature-code" data-hw-feature-code><?php echo esc_html( $current['code'] ); ?></span>
 					<div class="hardware-v2-feature-pulse"></div>
 				</div>
 				<div class="hardware-v2-feature-meta">
@@ -84,7 +83,6 @@ $current = $items[0];
 					>
 						<span class="hardware-v2-row-thumb" style="background-image:url('<?php echo esc_url( $it['img'] ); ?>')" aria-hidden="true"></span>
 						<span class="hardware-v2-row-text">
-							<span class="hardware-v2-row-code"><?php echo esc_html( $it['code'] ); ?></span>
 							<span class="hardware-v2-row-name"><?php echo esc_html( $it['name'] ); ?></span>
 							<span class="hardware-v2-row-spec"><?php echo esc_html( $it['spec'] ); ?></span>
 						</span>

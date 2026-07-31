@@ -10,10 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $cards = array(
-	array( 'icon' => 'sensor',  'n' => '01', 't' => __( 'Sensor', 'nyas' ),   's' => __( 'Door, window, glass-break, motion', 'nyas' ) ),
-	array( 'icon' => 'cam',     'n' => '02', 't' => __( 'Camera', 'nyas' ),   's' => __( '4K, AI verify, two-way audio', 'nyas' ) ),
-	array( 'icon' => 'monitor', 'n' => '03', 't' => __( 'Monitor', 'nyas' ),  's' => __( 'UL-listed, on Long Island', 'nyas' ) ),
-	array( 'icon' => 'bell',    'n' => '04', 't' => __( 'Dispatch', 'nyas' ), 's' => __( '28s median to NYPD/FDNY', 'nyas' ) ),
+	array( 'icon' => 'sensor',  't' => __( 'Sensor', 'nyas' ),   's' => __( 'Door, window, glass-break, motion', 'nyas' ) ),
+	array( 'icon' => 'cam',     't' => __( 'Camera', 'nyas' ),   's' => __( '4K, AI verify, two-way audio', 'nyas' ) ),
+	array( 'icon' => 'monitor', 't' => __( 'Monitor', 'nyas' ),  's' => __( 'UL-listed, on Long Island', 'nyas' ) ),
+	array( 'icon' => 'bell',    't' => __( 'Dispatch', 'nyas' ), 's' => __( '28s median to NYPD/FDNY', 'nyas' ) ),
 );
 ?>
 <section class="hero-spec-strip">
@@ -22,7 +22,6 @@ $cards = array(
 			<?php foreach ( $cards as $c ) : ?>
 				<div class="hero-spec-strip-card">
 					<div class="hero-spec-strip-card-icon"><?php nyas_icon( $c['icon'], 22 ); ?></div>
-					<div class="hero-spec-strip-card-meta"><?php echo esc_html( $c['n'] ); ?></div>
 					<div class="hero-spec-strip-card-title"><?php echo esc_html( $c['t'] ); ?></div>
 					<div class="hero-spec-strip-card-sub"><?php echo esc_html( $c['s'] ); ?></div>
 				</div>
