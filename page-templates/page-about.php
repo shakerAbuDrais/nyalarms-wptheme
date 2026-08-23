@@ -84,9 +84,9 @@ get_header();
 		<div class="nyas-2col" style="display:grid;grid-template-columns:1fr 1.6fr;gap:56px;align-items:start">
 			<div>
 				<?php
-				// Owner portrait — swap in the real photo via the `nyas_owner_photo`
-				// filter or the `nyas_owner_photo` theme mod once the client provides it.
-				$owner_photo = apply_filters( 'nyas_owner_photo', get_theme_mod( 'nyas_owner_photo', '' ) );
+				// Owner portrait — bundled photo by default; overridable via the
+				// `nyas_owner_photo` theme mod or filter.
+				$owner_photo = apply_filters( 'nyas_owner_photo', get_theme_mod( 'nyas_owner_photo', NYAS_URI . 'assets/img/owner-yonatan.jpg' ) );
 				if ( $owner_photo ) {
 					nyas_photo( $owner_photo, 'Yonatan Yekutiel', 'aspect-ratio:4/5;border-radius:14px' );
 				} else {
