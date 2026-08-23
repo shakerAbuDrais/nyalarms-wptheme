@@ -18,10 +18,10 @@ $scenarios = array(
 		'story'  => 'Glass-break sensor on the parlor-floor bay window picks up a high-frequency signature. Within four seconds, the panel sends an encrypted alarm over LTE-M cellular — bypassing your Wi-Fi entirely.',
 		'events' => array(
 			array( '00:00', 'Glass-break detected on Zone 3 (parlor window).' ),
-			array( '00:04', 'Cellular alarm received at LIC monitoring station.' ),
+			array( '00:04', 'Cellular alarm received at the Long Island monitoring station.' ),
 			array( '00:18', 'Operator calls the homeowner. No answer.' ),
 			array( '00:28', 'NYPD dispatched. Officers en route.' ),
-			array( '00:46', 'Camera clips packaged and texted to homeowner.' ),
+			array( '00:46', 'Dispatcher shares live video with NYPD.' ),
 		),
 		'img'    => 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80',
 	),
@@ -29,7 +29,7 @@ $scenarios = array(
 		'label'  => __( 'At your business', 'nyas' ),
 		'icon'   => 'shop',
 		'live'   => __( 'Manhattan', 'nyas' ),
-		'title'  => 'Madison Ave. retail, after close',
+		'title'  => 'Madison Ave. storefront, after close',
 		'story'  => 'A motion sensor in the stockroom triggers ten minutes after the last employee badged out. Our station verifies through the camera before any dispatch — cutting false alarms by 91%.',
 		'events' => array(
 			array( '00:00', 'Stockroom motion + door contact disagree.' ),
@@ -58,17 +58,17 @@ $scenarios = array(
 	'fire' => array(
 		'label'  => __( 'When fire strikes', 'nyas' ),
 		'icon'   => 'fire',
-		'live'   => __( 'Queens', 'nyas' ),
-		'title'  => 'Astoria three-family, 4:09 a.m.',
-		'story'  => 'Photoelectric smoke + heat-rate sensors in the basement trigger together. Fire alarms are dispatched without operator delay — FDNY rolls before the family is fully awake.',
+		'live'   => __( 'Manhattan', 'nyas' ),
+		'title'  => 'Upper East Side townhouse, 4:09 a.m.',
+		'story'  => 'Photoelectric smoke + heat-rate sensors in the basement trigger together. The local siren and strobes fire instantly — waking the family with enough time to evacuate — while alarms auto-dispatch to FDNY without operator delay.',
 		'events' => array(
-			array( '00:00', 'Smoke + 12°/min heat rise on Zone 7.' ),
-			array( '00:02', 'Auto-dispatch to FDNY (no callback delay).' ),
-			array( '00:08', 'Audio sirens + strobes engage in all units.' ),
-			array( '00:14', 'Family voice-line to operator opens.' ),
-			array( '04:30', 'FDNY arrives. Damage limited to basement.' ),
+			array( '00:00', 'Smoke + 12°/min heat rise detected on Zone 7 (basement).' ),
+			array( '00:02', 'Local sirens + strobes wake the family — evacuation underway.' ),
+			array( '00:04', 'Auto-dispatch to FDNY (no callback delay).' ),
+			array( '00:14', 'Family voice-line opens; head-count confirmed safe outside.' ),
+			array( '04:30', 'FDNY arrives. Family already evacuated; damage limited to basement.' ),
 		),
-		'img'    => 'https://images.unsplash.com/photo-1601132359864-c974e79890ac?w=900&q=80',
+		'img'    => 'https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=900&q=80',
 	),
 );
 ?>
@@ -77,7 +77,7 @@ $scenarios = array(
 	<div class="container">
 		<div style="margin-bottom:32px;max-width:720px">
 			<?php nyas_eyebrow( __( 'What happens when', 'nyas' ), false, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg"><?php esc_html_e( 'A real alarm. A real response.', 'nyas' ); ?> <em><?php esc_html_e( 'In under a minute.', 'nyas' ); ?></em></h2>
+			<h2 class="display-lg"><?php esc_html_e( 'A Real Alarm. A Real Response.', 'nyas' ); ?> <em><?php esc_html_e( 'In Under a Minute.', 'nyas' ); ?></em></h2>
 			<p class="muted" style="font-size:17px;line-height:1.6;margin-top:12px">
 				<?php esc_html_e( 'See exactly what our monitoring station does the moment a sensor trips — at home, at your business, on a construction site, or during a fire.', 'nyas' ); ?>
 			</p>

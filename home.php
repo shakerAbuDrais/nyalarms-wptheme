@@ -28,8 +28,11 @@ $featured_query = new WP_Query( array(
 	'no_found_rows'  => true,
 ) );
 
+$featured_id = 0;
+
 if ( ! is_paged() && $featured_query->have_posts() ) :
 	$featured_query->the_post();
+	$featured_id = get_the_ID();
 	?>
 	<section style="padding:32px 0 64px">
 		<div class="container">
@@ -79,15 +82,14 @@ if ( ! empty( $categories ) ) : ?>
 <section style="padding:64px 0 96px">
 	<div class="container">
 		<?php
-		// Skip the featured post (first one) on the front of page 1.
-		$paged       = max( 1, get_query_var( 'paged' ) );
-		$skip_first  = ( 1 === $paged && $featured_query->have_posts() );
+		// Exclude the featured post from the grid so pages stay consistent.
+		$paged = max( 1, (int) get_query_var( 'paged' ) );
 
 		$grid_query = new WP_Query( array(
-			'posts_per_page' => $skip_first ? 5 : 6,
-			'offset'         => $skip_first ? 1 : 0,
+			'posts_per_page' => 6,
 			'paged'          => $paged,
 			'post_status'    => 'publish',
+			'post__not_in'   => $featured_id ? array( $featured_id ) : array(),
 		) );
 
 		if ( $grid_query->have_posts() ) : ?>
@@ -125,22 +127,7 @@ if ( ! empty( $categories ) ) : ?>
 				?>
 			</div>
 		<?php else : ?>
-			<div class="grid grid-3">
-				<?php foreach ( array_slice( nyas_seed_posts(), 1 ) as $p ) : ?>
-					<a href="<?php echo esc_url( home_url( '/blog/' . $p['slug'] . '/' ) ); ?>" class="card" style="text-decoration:none;color:inherit;padding:0;overflow:hidden;display:flex;flex-direction:column">
-						<?php nyas_photo( $p['img'], $p['title'], 'aspect-ratio:4/3;border-radius:0;border-bottom:1px solid var(--border)' ); ?>
-						<div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex:1">
-							<div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-								<span class="pill pill-paper"><?php echo esc_html( $p['tag'] ); ?></span>
-								<span style="font-size:12px;color:var(--fg-3)"><?php echo esc_html( $p['read'] ); ?></span>
-							</div>
-							<h3 style="font-family:var(--ff-display);font-weight:800;font-size:22px;line-height:1.15;letter-spacing:-0.01em"><?php echo esc_html( $p['title'] ); ?></h3>
-							<p style="margin:0;font-size:14px;color:var(--fg-2)"><?php echo esc_html( $p['excerpt'] ); ?></p>
-							<div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--fg-3);font-family:var(--ff-mono)"><?php echo esc_html( $p['date'] . ' · ' . $p['author'] ); ?></div>
-						</div>
-					</a>
-				<?php endforeach; ?>
-			</div>
+			<p class="muted" style="font-size:18px;text-align:center;padding:48px"><?php esc_html_e( 'Nothing here yet.', 'nyas' ); ?></p>
 		<?php endif; wp_reset_postdata(); ?>
 	</div>
 </section>

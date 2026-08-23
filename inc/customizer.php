@@ -36,13 +36,14 @@ function nyas_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'nyas_address', array(
-		'default'           => '188 Lafayette St, NYC',
+		'default'           => '',
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'nyas_address', array(
-		'label'   => __( 'Headquarters address', 'nyas' ),
-		'section' => 'nyas_company',
-		'type'    => 'text',
+		'label'       => __( 'Headquarters address', 'nyas' ),
+		'description' => __( 'Leave blank to hide the address line in the footer until the real address is confirmed.', 'nyas' ),
+		'section'     => 'nyas_company',
+		'type'        => 'text',
 	) );
 
 	$wp_customize->add_setting( 'nyas_license', array(

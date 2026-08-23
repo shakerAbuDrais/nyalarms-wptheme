@@ -14,7 +14,7 @@ get_header();
 	<div class="container-narrow" style="text-align:center">
 		<?php nyas_eyebrow( __( 'About us', 'nyas' ), false, 'margin-bottom:20px;justify-content:center;display:flex' ); ?>
 		<h1 class="display-xl" style="margin-bottom:28px">
-			<?php esc_html_e( 'Born in', 'nyas' ); ?> <em><?php esc_html_e( 'Brooklyn.', 'nyas' ); ?></em> <?php esc_html_e( 'Built for the five boroughs.', 'nyas' ); ?>
+			<?php esc_html_e( 'Born in', 'nyas' ); ?> <em><?php esc_html_e( 'Brooklyn.', 'nyas' ); ?></em> <?php esc_html_e( 'Built for the Five Boroughs.', 'nyas' ); ?>
 		</h1>
 		<p class="lede" style="max-width:680px;margin:0 auto">
 			<?php esc_html_e( 'Twelve years of alarm and camera installations for homes and businesses across the New York area — with every system watched every day of the year.', 'nyas' ); ?>
@@ -39,7 +39,7 @@ get_header();
 		<div class="nyas-about-story nyas-2col" style="display:grid;grid-template-columns:1fr 2fr;gap:64px">
 			<div>
 				<?php nyas_eyebrow( __( 'Our story', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg"><?php esc_html_e( 'A different kind of alarm company.', 'nyas' ); ?></h2>
+				<h2 class="display-lg"><?php esc_html_e( 'A Different Kind of', 'nyas' ); ?> <em><?php esc_html_e( 'Alarm Company.', 'nyas' ); ?></em></h2>
 			</div>
 			<div style="font-size:17px;line-height:1.7;color:var(--fg-2)">
 				<p style="margin-top:0"><?php esc_html_e( 'New York Alarm Systems has spent the last twelve years designing, installing, and monitoring alarm and camera systems for residential and commercial customers across the New York area. Every job — from a single-family home to a multi-site business — is handled by our own team, from the first site visit to the day the system goes live.', 'nyas' ); ?></p>
@@ -120,7 +120,7 @@ get_header();
 	<div class="container">
 		<div style="margin-bottom:48px">
 			<?php nyas_eyebrow( __( 'What we believe', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( 'Four', 'nyas' ); ?> <em><?php esc_html_e( 'simple', 'nyas' ); ?></em> <?php esc_html_e( 'commitments.', 'nyas' ); ?></h2>
+			<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( 'Four', 'nyas' ); ?> <em><?php esc_html_e( 'Simple', 'nyas' ); ?></em> <?php esc_html_e( 'Commitments.', 'nyas' ); ?></h2>
 		</div>
 		<div class="grid grid-2" style="gap:0">
 			<?php
@@ -128,7 +128,7 @@ get_header();
 				array( 'No subcontractors, ever.',     'Every technician on your property is a W-2 employee, background-checked, and badge-carrying. We don\'t rent labor.' ),
 				array( 'You own your hardware.',       'No leased equipment. No surprise removals. The system you bought is yours, including if you cancel monitoring.' ),
 				array( 'Month-to-month monitoring.',   'Cancel anytime with 30 days\' notice. We earn your business in 30-day increments, not 60-month contracts.' ),
-				array( 'A real human picks up.',       'No phone trees, no overseas call centers. The first ring goes to a New Yorker in Long Island City.' ),
+				array( 'A real human picks up.',       'No phone trees, no overseas call centers. The first ring goes to a New Yorker on Long Island.' ),
 			);
 			foreach ( $values as $i => $v ) :
 				$right = 0 === $i % 2 ? '1px solid var(--border)' : 'none';
@@ -145,7 +145,7 @@ get_header();
 <?php nyas_final_cta( array(
 	'eyebrow' => __( 'Talk to us', 'nyas' ),
 	'heading' => __( 'Pick up the phone. We\'ll <em>actually answer.</em>', 'nyas' ),
-	'lede'    => __( 'The number on this site reaches a real person, twenty-four hours a day, in our Long Island City office.', 'nyas' ),
+	'lede'    => __( 'The number on this site reaches a real person, twenty-four hours a day, in our Long Island office.', 'nyas' ),
 ) ); ?>
 
 <?php get_footer();

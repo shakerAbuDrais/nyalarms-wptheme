@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint-php:
+    name: PHP syntax lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+          tools: none
+
+      - name: php -l every theme file
+        run: |
+          set -e
+          fail=0
+          while IFS= read -r -d '' f; do
+            if ! php -l "$f" > /tmp/lint.out 2>&1; then
+              echo "::error file=$f::$(tail -n2 /tmp/lint.out | head -n1)"
+              fail=1
+            fi
+          done < <(find . -name '*.php' -not -path './vendor/*' -not -path './node_modules/*' -print0)
+          [ "$fail" -eq 0 ] && echo "All PHP files pass syntax check."
+          exit $fail
+
+  lint-js:
+    name: JS syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: node --check every script
+        run: |
+          set -e
+          for f in assets/js/*.js; do
+            node --check "$f"
+            echo "OK $f"
+          done
+
+  content-guards:
+    name: Content guards
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The honest-claims rule: fictional entities and retired copy must not
+      # reappear in templates. (data.php slugs are exempt — they key existing
+      # WP page lookups.)
+      - name: Forbid retired/fictional strings in templates
+        run: |
+          set -e
+          fail=0
+          for pattern in 'Diana Velez' 'Marcus Tan' 'Priya Iyer' 'Rashaan Cole' 'NationalCo' 'ships in the box' 'Sixteen years' 'since 2009'; do
+            if grep -rn --include='*.php' -e "$pattern" . ; then
+              echo "::error::Forbidden string found: $pattern"
+              fail=1
+            fi
+          done
+          exit $fail

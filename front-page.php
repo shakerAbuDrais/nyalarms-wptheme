@@ -7,7 +7,7 @@
  *   2. Trust strip
  *   3. Quote section
  *   4. Services grid (asymmetric "ten ways we keep watch")
- *   5. Service quiz (find-my-fit)
+ *   5. Quote wizard (4-step instant quote)
  *   6. How it works
  *   7. Scenarios (tabbed explainer)
  *   8. Why us / differentiators
@@ -122,7 +122,7 @@ $services = nyas_services();
 				array( 'icon' => 'pin',          'title' => 'Free site walk',     'when' => 'Within 48 hours', 'body' => 'A licensed NY consultant visits your property — usually within 48 hours — to map entry points, blind spots, and risk vectors.' ),
 				array( 'icon' => 'briefcase',    'title' => 'Right-sized quote',  'when' => 'Same week',       'body' => 'You get a one-page proposal with hardware, monitoring, and labor itemized. No bundles. No "starter" gimmicks.' ),
 				array( 'icon' => 'shield-check', 'title' => 'Clean installation', 'when' => '1 – 2 days on site', 'body' => 'In-house technicians (no subcontractors) wire and configure your system, typically in a day for a home, two for a small business.' ),
-				array( 'icon' => 'monitor',      'title' => 'We watch, you live', 'when' => '24 / 7 / 365',    'body' => 'Our UL-listed station in Long Island City confirms alarms, calls 911, and reaches you — every day of the year.' ),
+				array( 'icon' => 'monitor',      'title' => 'We watch, you live', 'when' => '24 / 7 / 365',    'body' => 'Our UL-listed station on Long Island confirms alarms, calls 911, and reaches you — every day of the year.' ),
 			);
 			foreach ( $steps as $s ) : ?>
 				<div class="how-card">
@@ -289,23 +289,23 @@ $services = nyas_services();
 			<div>
 				<?php nyas_eyebrow( __( 'Case study · 12 retail locations · Manhattan + Brooklyn', 'nyas' ), false, 'color:var(--brand-signal);margin-bottom:16px' ); ?>
 				<h2 class="display-lg" style="color:var(--fg);margin-bottom:24px">
-					<?php esc_html_e( 'How', 'nyas' ); ?> <em style="color:var(--brand-signal)"><?php esc_html_e( 'Maman', 'nyas' ); ?></em> <?php esc_html_e( 'Cut Shrinkage 41% in a Year.', 'nyas' ); ?>
+					<?php esc_html_e( 'How a', 'nyas' ); ?> <em style="color:var(--brand-signal)"><?php esc_html_e( 'Manhattan Bakery Chain', 'nyas' ); ?></em> <?php esc_html_e( 'Cut Shrinkage 41% in a Year.', 'nyas' ); ?>
 				</h2>
 				<p style="color:var(--fg-2);font-size:17px;line-height:1.6;margin-bottom:32px;max-width:520px">
-					<?php esc_html_e( 'When the SoHo bakery chain expanded to twelve locations, after-hours theft was costing $180k a year. We replaced four alarm vendors with one integrated stack — cameras, panic buttons, and a single dashboard.', 'nyas' ); ?>
+					<?php esc_html_e( 'When this NYC bakery group expanded to twelve locations across Manhattan and Brooklyn, after-hours theft was costing $180k a year. We replaced four alarm vendors with one integrated stack — cameras, panic buttons, and a single dashboard.', 'nyas' ); ?>
 				</p>
 				<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:32px;padding-top:28px;border-top:1px solid var(--border)">
 					<div class="stat"><span class="stat-num" style="color:var(--fg)"><em style="color:var(--brand-signal)">41%</em></span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Shrinkage drop', 'nyas' ); ?></span></div>
 					<div class="stat"><span class="stat-num" style="color:var(--fg)">$73k</span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Annual savings', 'nyas' ); ?></span></div>
 					<div class="stat"><span class="stat-num" style="color:var(--fg)">14 days</span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Full rollout', 'nyas' ); ?></span></div>
 				</div>
-				<a href="<?php echo esc_url( home_url( '/cases/maman/' ) ); ?>" class="btn btn-lg btn-signal"><?php esc_html_e( 'Read the case study', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
+				<a href="<?php echo esc_url( home_url( '/cases/' ) ); ?>" class="btn btn-lg btn-signal"><?php esc_html_e( 'Read the case study', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
 			</div>
 			<div style="position:relative">
 				<?php nyas_photo( 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80', 'Retail interior at night', 'aspect-ratio:4/5;border-radius:16px' ); ?>
 				<div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:12px;padding:20px;color:var(--fg)">
 					<div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-3);margin-bottom:8px"><?php esc_html_e( 'Live · 02:14 a.m.', 'nyas' ); ?></div>
-					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--fg-2);margin-bottom:4px"><?php esc_html_e( 'Maman · Spring St — Zone 4 motion', 'nyas' ); ?></div>
+					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--fg-2);margin-bottom:4px"><?php esc_html_e( 'Manhattan retail location — Zone 4 motion', 'nyas' ); ?></div>
 					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--brand-signal)"><?php esc_html_e( 'Verified false (cleaning crew). NYPD not dispatched.', 'nyas' ); ?></div>
 				</div>
 			</div>
@@ -345,19 +345,17 @@ $services = nyas_services();
 	<div class="container">
 		<div class="nyas-coverage" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center">
 			<div>
-				<?php nyas_eyebrow( __( 'Coverage', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="margin-bottom:24px"><?php esc_html_e( 'All Five Boroughs.', 'nyas' ); ?> <em><?php esc_html_e( 'One Number.', 'nyas' ); ?></em></h2>
+				<h2 class="display-lg" style="margin-bottom:24px"><?php esc_html_e( 'NYC\'s Alarms.', 'nyas' ); ?> <em><?php esc_html_e( 'Watched From Long Island.', 'nyas' ); ?></em></h2>
 				<p style="font-size:17px;line-height:1.6;color:var(--fg-2);max-width:480px;margin-bottom:32px">
-					<?php esc_html_e( 'We don\'t outsource installation, monitoring, or service calls. Every technician dispatches from one of three NYC depots: Long Island City, the South Bronx, or Sunset Park.', 'nyas' ); ?>
+					<?php esc_html_e( 'Our UL-listed central station sits in Long Island, NY — close enough that operators know your block, your precinct, and your weather. Local people watching local properties. No outsourcing, no overseas call centers.', 'nyas' ); ?>
 				</p>
 				<div style="display:flex;flex-direction:column;gap:4px">
 					<?php
 					$boroughs = array(
-						array( 'Manhattan',     '3,420', 'Tribeca · UES · Harlem · Inwood' ),
-						array( 'Brooklyn',      '2,810', 'Park Slope · Williamsburg · Bay Ridge' ),
-						array( 'Queens',        '1,940', 'Astoria · LIC · Forest Hills · Jamaica' ),
-						array( 'The Bronx',     '780',   'Riverdale · Fordham · Throgs Neck' ),
-						array( 'Staten Island', '450',   'St. George · New Dorp · Tottenville' ),
+						array( 'Manhattan', '3,420', 'Tribeca · UES · Harlem · Inwood' ),
+						array( 'Brooklyn',  '2,810', 'Park Slope · Williamsburg · Bay Ridge' ),
+						array( 'Queens',    '1,940', 'Astoria · Long Island City · Forest Hills · Jamaica' ),
+						array( 'The Bronx', '780',   'Riverdale · Fordham · Throgs Neck' ),
 					);
 					foreach ( $boroughs as $i => $b ) :
 						$top_border = 0 === $i ? '1px solid var(--border-strong)' : '1px solid var(--border)';
@@ -372,7 +370,7 @@ $services = nyas_services();
 			</div>
 			<div class="ny-map-wrap">
 				<div id="nyas-leaflet" class="ny-map" data-nyas-map></div>
-				<div class="ny-map-foot"><?php esc_html_e( '3 depots · 9,400+ properties · all five boroughs', 'nyas' ); ?></div>
+				<div class="ny-map-foot"><?php esc_html_e( 'UL-listed station in Long Island · 9,400+ properties · 4 boroughs', 'nyas' ); ?></div>
 			</div>
 		</div>
 	</div>
@@ -381,7 +379,16 @@ $services = nyas_services();
 <?php // ─── 13. FAQ ─── ?>
 <?php get_template_part( 'template-parts/section', 'faq' ); ?>
 
-<?php // ─── 14. Recent insights ─── ?>
+<?php // ─── 14. Recent insights (hidden entirely until real posts exist) ─── ?>
+<?php
+$recent = new WP_Query( array(
+	'posts_per_page' => 3,
+	'post_status'    => 'publish',
+	'no_found_rows'  => true,
+) );
+
+if ( $recent->have_posts() ) :
+	?>
 <section>
 	<div class="container">
 		<div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:48px;gap:32px;flex-wrap:wrap">
@@ -389,61 +396,37 @@ $services = nyas_services();
 				<?php nyas_eyebrow( __( 'Insights', 'nyas' ), true, 'margin-bottom:16px' ); ?>
 				<h2 class="display-lg"><?php esc_html_e( 'Field Notes From the', 'nyas' ); ?> <em><?php esc_html_e( 'Monitoring Desk.', 'nyas' ); ?></em></h2>
 			</div>
-			<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="btn btn-md btn-ghost"><?php esc_html_e( 'All posts', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 14 ); ?></a>
+			<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/' ) ); ?>" class="btn btn-md btn-ghost"><?php esc_html_e( 'All posts', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 14 ); ?></a>
 		</div>
 
 		<div class="grid grid-3">
 			<?php
-			$recent = new WP_Query( array(
-				'posts_per_page' => 3,
-				'post_status'    => 'publish',
-				'no_found_rows'  => true,
-			) );
-
-			if ( $recent->have_posts() ) {
-				while ( $recent->have_posts() ) {
-					$recent->the_post();
-					$cat = get_the_category();
-					$tag = $cat ? $cat[0]->name : __( 'Insights', 'nyas' );
-					?>
-					<a href="<?php the_permalink(); ?>" class="card" style="text-decoration:none;color:inherit;padding:0;overflow:hidden;display:flex;flex-direction:column">
-						<?php if ( has_post_thumbnail() ) : ?>
-							<?php nyas_photo( get_the_post_thumbnail_url( null, 'nyas-card' ), get_the_title(), 'aspect-ratio:4/3;border-radius:0;border-bottom:1px solid var(--border)' ); ?>
-						<?php endif; ?>
-						<div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex:1">
-							<div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-								<span class="pill pill-paper"><?php echo esc_html( $tag ); ?></span>
-								<span style="font-size:12px;color:var(--fg-3)"><?php echo esc_html( nyas_reading_time() ); ?></span>
-							</div>
-							<h3 style="font-family:var(--ff-display);font-weight:800;font-size:22px;line-height:1.15;letter-spacing:-0.01em"><?php the_title(); ?></h3>
-							<div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--fg-3);font-family:var(--ff-mono)"><?php echo esc_html( get_the_date() ); ?></div>
+			while ( $recent->have_posts() ) {
+				$recent->the_post();
+				$cat = get_the_category();
+				$tag = $cat ? $cat[0]->name : __( 'Insights', 'nyas' );
+				?>
+				<a href="<?php the_permalink(); ?>" class="card" style="text-decoration:none;color:inherit;padding:0;overflow:hidden;display:flex;flex-direction:column">
+					<?php if ( has_post_thumbnail() ) : ?>
+						<?php nyas_photo( get_the_post_thumbnail_url( null, 'nyas-card' ), get_the_title(), 'aspect-ratio:4/3;border-radius:0;border-bottom:1px solid var(--border)' ); ?>
+					<?php endif; ?>
+					<div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex:1">
+						<div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+							<span class="pill pill-paper"><?php echo esc_html( $tag ); ?></span>
+							<span style="font-size:12px;color:var(--fg-3)"><?php echo esc_html( nyas_reading_time() ); ?></span>
 						</div>
-					</a>
-					<?php
-				}
-				wp_reset_postdata();
-			} else {
-				// Fallback to seeded posts when no WP content exists.
-				foreach ( array_slice( nyas_seed_posts(), 0, 3 ) as $p ) {
-					?>
-					<a href="<?php echo esc_url( home_url( '/blog/' . $p['slug'] . '/' ) ); ?>" class="card" style="text-decoration:none;color:inherit;padding:0;overflow:hidden;display:flex;flex-direction:column">
-						<?php nyas_photo( $p['img'], $p['title'], 'aspect-ratio:4/3;border-radius:0;border-bottom:1px solid var(--border)' ); ?>
-						<div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex:1">
-							<div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-								<span class="pill pill-paper"><?php echo esc_html( $p['tag'] ); ?></span>
-								<span style="font-size:12px;color:var(--fg-3)"><?php echo esc_html( $p['read'] ); ?></span>
-							</div>
-							<h3 style="font-family:var(--ff-display);font-weight:800;font-size:22px;line-height:1.15;letter-spacing:-0.01em"><?php echo esc_html( $p['title'] ); ?></h3>
-							<div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--fg-3);font-family:var(--ff-mono)"><?php echo esc_html( $p['date'] ); ?></div>
-						</div>
-					</a>
-					<?php
-				}
+						<h3 style="font-family:var(--ff-display);font-weight:800;font-size:22px;line-height:1.15;letter-spacing:-0.01em"><?php the_title(); ?></h3>
+						<div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--fg-3);font-family:var(--ff-mono)"><?php echo esc_html( get_the_date() ); ?></div>
+					</div>
+				</a>
+				<?php
 			}
+			wp_reset_postdata();
 			?>
 		</div>
 	</div>
 </section>
+<?php endif; ?>
 
 <?php nyas_seam( 'ink', __( 'Get protected', 'nyas' ) ); ?>
 

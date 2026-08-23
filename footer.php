@@ -85,7 +85,7 @@
 						<a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><?php esc_html_e( 'About', 'nyas' ); ?></a>
 						<a href="<?php echo esc_url( home_url( '/cases/' ) ); ?>"><?php esc_html_e( 'Case studies', 'nyas' ); ?></a>
 						<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>"><?php esc_html_e( 'Insights', 'nyas' ); ?></a>
-						<a href="#quote"><?php esc_html_e( 'Free quote', 'nyas' ); ?></a>
+						<a href="<?php echo esc_url( is_front_page() ? '#quote' : home_url( '/#quote' ) ); ?>"><?php esc_html_e( 'Free quote', 'nyas' ); ?></a>
 					<?php } ?>
 				</div>
 			</div>
@@ -94,8 +94,12 @@
 				<h4><?php esc_html_e( 'Contact', 'nyas' ); ?></h4>
 				<div class="flex-col" style="font-size:13px">
 					<a href="tel:<?php echo esc_attr( nyas_phone_tel() ); ?>"><?php echo esc_html( nyas_phone() ); ?></a>
-					<a href="mailto:<?php echo esc_attr( get_theme_mod( 'nyas_email', 'dispatch@newyorkalarmsystems.com' ) ); ?>"><?php echo esc_html( get_theme_mod( 'nyas_email', 'dispatch@nyas.com' ) ); ?></a>
-					<span style="color:rgba(255,255,255,0.50)"><?php echo esc_html( get_theme_mod( 'nyas_address', '188 Lafayette St, NYC' ) ); ?></span>
+					<?php $footer_email = get_theme_mod( 'nyas_email', 'dispatch@newyorkalarmsystems.com' ); ?>
+					<a href="mailto:<?php echo esc_attr( $footer_email ); ?>"><?php echo esc_html( $footer_email ); ?></a>
+					<?php $footer_address = get_theme_mod( 'nyas_address', '' ); ?>
+					<?php if ( $footer_address ) : ?>
+						<span style="color:rgba(255,255,255,0.50)"><?php echo esc_html( $footer_address ); ?></span>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

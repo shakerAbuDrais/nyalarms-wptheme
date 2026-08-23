@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NYAS_VERSION', '1.1.8' );
+define( 'NYAS_VERSION', '1.2.0' );
 define( 'NYAS_DIR', trailingslashit( get_template_directory() ) );
 define( 'NYAS_URI', trailingslashit( get_template_directory_uri() ) );
 
@@ -108,6 +108,22 @@ require_once NYAS_DIR . 'inc/data.php';
 require_once NYAS_DIR . 'inc/setup-wizard.php';
 require_once NYAS_DIR . 'inc/leads.php';
 require_once NYAS_DIR . 'inc/admin-settings.php';
+
+/**
+ * Redirect the commonly guessed /blog/ URL to the real posts page.
+ */
+function nyas_blog_redirect() {
+	if ( ! is_404() ) {
+		return;
+	}
+	$path = isset( $_SERVER['REQUEST_URI'] ) ? wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH ) : '';
+	if ( '/blog' === untrailingslashit( (string) $path ) ) {
+		$posts_page = get_option( 'page_for_posts' );
+		wp_safe_redirect( $posts_page ? get_permalink( $posts_page ) : home_url( '/' ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'nyas_blog_redirect' );
 
 /**
  * One-time cleanup — trash WordPress's default sample content ("Hello

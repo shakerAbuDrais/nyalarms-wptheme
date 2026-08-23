@@ -12,8 +12,6 @@
     'section .container > .grid-4',
     '.section-sunk .container > div.grid',
     'ul.services-list',
-    '.blog-grid',
-    '.case-grid',
   ];
 
   const isMobile = () => window.matchMedia('(max-width: 720px)').matches;

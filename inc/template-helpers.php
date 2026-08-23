@@ -85,7 +85,9 @@ function nyas_lead_form( $args = array() ) {
 
 	$id = sanitize_html_class( $args['id'] );
 	?>
-	<form class="nyas-lead-form" id="<?php echo esc_attr( $id ); ?>" data-nyas-form data-nyas-form-id="<?php echo esc_attr( $id ); ?>" novalidate>
+	<form class="nyas-lead-form" id="<?php echo esc_attr( $id ); ?>" data-nyas-form data-nyas-form-id="<?php echo esc_attr( $id ); ?>"
+		data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>"
+		data-nonce="<?php echo esc_attr( wp_create_nonce( 'nyas_submit_lead' ) ); ?>" novalidate>
 		<div class="nyas-form-fields" style="display:flex;flex-direction:column;gap:12px">
 			<?php if ( ! $args['compact'] ) : ?>
 				<div class="radios" data-nyas-radio-group>

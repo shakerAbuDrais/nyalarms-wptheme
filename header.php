@@ -91,7 +91,7 @@ if ( is_front_page() ) {
 			<a href="tel:<?php echo esc_attr( nyas_phone_tel() ); ?>" class="header-phone">
 				<?php nyas_icon( 'phone', 14 ); ?> <?php echo esc_html( nyas_phone() ); ?>
 			</a>
-			<a href="#quote" class="btn btn-md btn-signal header-cta-btn"><?php esc_html_e( 'Free quote', 'nyas' ); ?></a>
+			<a href="<?php echo esc_url( is_front_page() || is_page_template( 'page-templates/page-service.php' ) ? '#quote' : home_url( '/#quote' ) ); ?>" class="btn btn-md btn-signal header-cta-btn"><?php esc_html_e( 'Free quote', 'nyas' ); ?></a>
 			<button type="button" class="nav-burger" aria-label="<?php esc_attr_e( 'Open menu', 'nyas' ); ?>" aria-expanded="false" data-nyas-burger>
 				<span></span><span></span><span></span>
 			</button>
@@ -145,7 +145,7 @@ if ( is_front_page() ) {
 					<div class="mobile-phone-card-num"><?php echo esc_html( nyas_phone() ); ?></div>
 				</div>
 			</a>
-			<a href="#quote" class="btn btn-lg btn-signal" style="width:100%;justify-content:center">
+			<a href="<?php echo esc_url( is_front_page() || is_page_template( 'page-templates/page-service.php' ) ? '#quote' : home_url( '/#quote' ) ); ?>" class="btn btn-lg btn-signal" style="width:100%;justify-content:center">
 				<?php esc_html_e( 'Free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?>
 			</a>
 			<div class="mobile-drawer-meta">

@@ -24,9 +24,9 @@ foreach ( $cases as $c ) {
 	<div class="container">
 		<?php nyas_eyebrow( __( 'Case studies', 'nyas' ), true, 'margin-bottom:20px' ); ?>
 		<div class="nyas-cases-head" style="display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:end">
-			<h1 class="display-xl"><?php esc_html_e( 'The work,', 'nyas' ); ?> <em><?php esc_html_e( 'signed and dated.', 'nyas' ); ?></em></h1>
+			<h1 class="display-xl"><?php esc_html_e( 'The Work,', 'nyas' ); ?> <em><?php esc_html_e( 'Up Close.', 'nyas' ); ?></em></h1>
 			<p class="lede" style="margin:0">
-				<?php esc_html_e( 'Six stories from the field — with real stats, real names, and the people who lived through them.', 'nyas' ); ?>
+				<?php esc_html_e( 'Six snapshots from the field — anonymized for client privacy — showing the problems we get called for and how the systems responded.', 'nyas' ); ?>
 			</p>
 		</div>
 	</div>
@@ -93,8 +93,8 @@ foreach ( $cases as $c ) {
 
 <section class="section-ink" style="padding:64px 0">
 	<div class="container" style="text-align:center">
-		<h2 class="display-md" style="color:var(--fg-on-ink);margin-bottom:16px"><?php esc_html_e( 'Want yours', 'nyas' ); ?> <em style="color:#7AA0FF"><?php esc_html_e( 'here', 'nyas' ); ?></em> <?php esc_html_e( 'next year?', 'nyas' ); ?></h2>
-		<a href="#quote" class="btn btn-lg btn-signal"><?php esc_html_e( 'Start with a free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
+		<h2 class="display-md" style="color:var(--fg-on-ink);margin-bottom:16px"><?php esc_html_e( 'Want Yours', 'nyas' ); ?> <em style="color:#7AA0FF"><?php esc_html_e( 'Here', 'nyas' ); ?></em> <?php esc_html_e( 'Next Year?', 'nyas' ); ?></h2>
+		<a href="<?php echo esc_url( home_url( '/#quote' ) ); ?>" class="btn btn-lg btn-signal"><?php esc_html_e( 'Start with a free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
 	</div>
 </section>
 

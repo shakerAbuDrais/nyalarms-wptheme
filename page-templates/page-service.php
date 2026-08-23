@@ -41,7 +41,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 					<a href="tel:<?php echo esc_attr( nyas_phone_tel() ); ?>" class="btn btn-lg btn-ghost"><?php nyas_icon( 'phone', 14 ); ?> <?php echo esc_html( nyas_phone() ); ?></a>
 				</div>
 				<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:28px;border-top:1px solid var(--border)">
-					<div class="stat"><span class="stat-num">5,420+</span><span class="stat-lbl"><?php esc_html_e( 'NYC properties', 'nyas' ); ?></span></div>
+					<div class="stat"><span class="stat-num">9,400+</span><span class="stat-lbl"><?php esc_html_e( 'NYC properties', 'nyas' ); ?></span></div>
 					<div class="stat"><span class="stat-num">28s</span><span class="stat-lbl"><?php esc_html_e( 'Median dispatch', 'nyas' ); ?></span></div>
 					<div class="stat"><span class="stat-num">1 day</span><span class="stat-lbl"><?php esc_html_e( 'Typical install', 'nyas' ); ?></span></div>
 				</div>
@@ -66,7 +66,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 		<div class="nyas-included" style="display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start">
 			<div>
 				<?php nyas_eyebrow( __( 'What\'s included', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg"><?php esc_html_e( 'Built around', 'nyas' ); ?> <em><?php esc_html_e( 'your space', 'nyas' ); ?></em>, <?php esc_html_e( 'not a bundle.', 'nyas' ); ?></h2>
+				<h2 class="display-lg"><?php esc_html_e( 'Built Around', 'nyas' ); ?> <em><?php esc_html_e( 'Your Space', 'nyas' ); ?></em>, <?php esc_html_e( 'Not a Bundle.', 'nyas' ); ?></h2>
 			</div>
 			<div class="grid grid-2">
 				<?php
@@ -76,7 +76,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 					array( 'cam',          'Indoor & outdoor cams', '4K, color night vision, two-way audio. Cloud + local NVR.' ),
 					array( 'monitor',      'Smart panel',           'Touchscreen panel. Wi-Fi + LTE backup. Smart-home ready.' ),
 					array( 'phone',        'Mobile app',            'iOS and Android. Arm, disarm, view live, share with family.' ),
-					array( 'shield-check', '24/7 monitoring',       'UL-listed central station, Long Island City. 28-second median dispatch.' ),
+					array( 'shield-check', '24/7 monitoring',       'UL-listed central station on Long Island. 28-second median dispatch.' ),
 				);
 				foreach ( $included as $it ) :
 					?>
@@ -101,7 +101,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 	<div class="container">
 		<div style="margin-bottom:48px">
 			<?php nyas_eyebrow( __( 'How an install actually goes', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( 'Five days from call to', 'nyas' ); ?> <em><?php esc_html_e( 'armed.', 'nyas' ); ?></em></h2>
+			<h2 class="display-lg" style="max-width:720px"><?php esc_html_e( 'Five Days From Call to', 'nyas' ); ?> <em><?php esc_html_e( 'Armed.', 'nyas' ); ?></em></h2>
 		</div>
 		<div class="grid grid-5" style="gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--brand-paper)">
 			<?php
@@ -139,7 +139,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 				array( 'Comms',                'Dual-path: broadband + LTE-M cellular backup' ),
 				array( 'Sensors',              'Door, window, glass-break, motion (PIR + microwave)' ),
 				array( 'Cameras',              'Indoor & outdoor 4K with two-way audio' ),
-				array( 'Monitoring',           'UL-listed central station, Long Island City' ),
+				array( 'Monitoring',           'UL-listed central station on Long Island' ),
 				array( 'Avg dispatch',         '28 seconds (12-month rolling median)' ),
 				array( 'Insurance certificate','Stamped, mailed within 5 business days of go-live' ),
 				array( 'Cancel notice',        '30 days. Equipment is yours — no removal fee.' ),
@@ -160,7 +160,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 		<div style="display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start">
 			<div>
 				<?php nyas_eyebrow( __( 'Why NYC is different', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg"><?php esc_html_e( 'A New York property isn\'t a', 'nyas' ); ?> <em><?php esc_html_e( 'suburban', 'nyas' ); ?></em> <?php esc_html_e( 'property.', 'nyas' ); ?></h2>
+				<h2 class="display-lg"><?php esc_html_e( 'A New York Property Isn\'t a', 'nyas' ); ?> <em><?php esc_html_e( 'Suburban', 'nyas' ); ?></em> <?php esc_html_e( 'Property.', 'nyas' ); ?></h2>
 			</div>
 			<div class="seo-prose">
 				<p><?php esc_html_e( 'Most national alarm companies sell a kit designed for a 2,400-square-foot ranch in Plano, Texas. Then they ship it to a fourth-floor walk-up in Hell\'s Kitchen and wonder why the install takes two days and the customer has questions the technician can\'t answer.', 'nyas' ); ?></p>
@@ -176,8 +176,8 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 	<div class="container">
 		<div style="margin-bottom:48px;max-width:720px">
 			<?php nyas_eyebrow( __( 'By property type', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg"><?php esc_html_e( 'A different system for', 'nyas' ); ?> <em><?php esc_html_e( 'each kind of property.', 'nyas' ); ?></em></h2>
-			<p class="muted" style="font-size:16px;margin-top:12px">
+			<h2 class="display-lg"><?php esc_html_e( 'A Different System for', 'nyas' ); ?> <em><?php esc_html_e( 'Each Kind of Property.', 'nyas' ); ?></em></h2>
+			<p class="muted" style="font-size:17px;line-height:1.6;margin-top:12px">
 				<?php esc_html_e( 'What we install depends on what you live or work in. Here\'s how the build changes across the most common NYC property types — and the gotchas we plan around.', 'nyas' ); ?>
 			</p>
 		</div>
@@ -246,9 +246,9 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 		<div style="display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start">
 			<div>
 				<?php nyas_eyebrow( __( 'Where we install', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg" style="margin-bottom:16px"><?php esc_html_e( 'All five boroughs.', 'nyas' ); ?> <em><?php esc_html_e( 'One number.', 'nyas' ); ?></em></h2>
+				<h2 class="display-lg" style="margin-bottom:16px"><?php esc_html_e( 'All Five Boroughs.', 'nyas' ); ?> <em><?php esc_html_e( 'One Number.', 'nyas' ); ?></em></h2>
 				<p style="font-size:16px;line-height:1.6;color:var(--fg-2);max-width:380px">
-					<?php esc_html_e( 'Same-week site walks across NYC. Most properties are visited within 48 hours of the first call. We dispatch from three depots: Long Island City, the South Bronx, and Sunset Park.', 'nyas' ); ?>
+					<?php esc_html_e( 'Same-week site walks across NYC. Most properties are visited within 48 hours of the first call, and every system reports to our UL-listed central station on Long Island.', 'nyas' ); ?>
 				</p>
 			</div>
 			<div class="grid grid-2" style="gap:16px">
@@ -277,7 +277,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 	<div class="container">
 		<div style="margin-bottom:48px;max-width:720px">
 			<?php nyas_eyebrow( __( 'Mistakes we see', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-			<h2 class="display-lg"><?php esc_html_e( 'Five mistakes NYC buyers make', 'nyas' ); ?> <em><?php esc_html_e( 'before they call us.', 'nyas' ); ?></em></h2>
+			<h2 class="display-lg"><?php esc_html_e( 'Five Mistakes NYC Buyers Make', 'nyas' ); ?> <em><?php esc_html_e( 'Before They Call Us.', 'nyas' ); ?></em></h2>
 		</div>
 		<div class="grid grid-2" style="gap:24px">
 			<?php
@@ -306,15 +306,15 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 		<div style="display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start">
 			<div>
 				<?php nyas_eyebrow( __( 'Glossary', 'nyas' ), true, 'margin-bottom:16px' ); ?>
-				<h2 class="display-lg"><?php esc_html_e( 'Plain English on', 'nyas' ); ?> <em><?php esc_html_e( 'alarm jargon.', 'nyas' ); ?></em></h2>
-				<p style="font-size:15px;line-height:1.6;color:var(--fg-2);margin-top:12px;max-width:320px">
+				<h2 class="display-lg"><?php esc_html_e( 'Plain English on', 'nyas' ); ?> <em><?php esc_html_e( 'Alarm Jargon.', 'nyas' ); ?></em></h2>
+				<p style="font-size:17px;line-height:1.6;color:var(--fg-2);margin-top:12px;max-width:360px">
 					<?php esc_html_e( 'Most quotes you\'ll receive from competitors are written to confuse. Here\'s what each term actually means.', 'nyas' ); ?>
 				</p>
 			</div>
 			<div>
 				<?php
 				$glossary = array(
-					array( __( 'UL-listed monitoring', 'nyas' ),    __( 'Underwriters Laboratories certifies central stations that meet operational and physical-security standards (UL 827). Insurers usually require it for premium discounts. Ours is in Long Island City.', 'nyas' ) ),
+					array( __( 'UL-listed monitoring', 'nyas' ),    __( 'Underwriters Laboratories certifies central stations that meet operational and physical-security standards (UL 827). Insurers usually require it for premium discounts. Ours is on Long Island.', 'nyas' ) ),
 					array( __( 'LTE-M / cellular backup', 'nyas' ), __( 'A small cellular radio inside the panel that reports alarms even when your internet, Wi-Fi, or power is out. Non-negotiable in NYC.', 'nyas' ) ),
 					array( __( 'Glass-break sensor', 'nyas' ),      __( 'A microphone tuned to the high-frequency signature of breaking glass. Catches break-ins before the intruder reaches the window contact.', 'nyas' ) ),
 					array( __( 'Dual-tech motion', 'nyas' ),        __( 'A motion sensor that requires both passive infrared (PIR) and microwave to trigger together. Cuts false alarms from steam radiators, sun, and pets.', 'nyas' ) ),

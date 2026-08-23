@@ -195,9 +195,12 @@ function nyas_handle_lead_submit() {
 	$lname = isset( $contact['lname'] ) ? sanitize_text_field( $contact['lname'] ) : '';
 	$phone = isset( $contact['phone'] ) ? sanitize_text_field( $contact['phone'] ) : '';
 	$email = isset( $contact['email'] ) ? sanitize_email( $contact['email'] )      : '';
+	$zip   = isset( $data['zip'] )      ? sanitize_text_field( $data['zip'] )      : '';
 
-	if ( empty( $email ) || ! is_email( $email ) ) {
-		wp_send_json_error( array( 'message' => __( 'Invalid email.', 'nyas' ) ), 400 );
+	// The quote wizard collects an email; the simple lead form collects a
+	// phone number only. Accept a lead when either contact channel is valid.
+	if ( ( empty( $email ) || ! is_email( $email ) ) && '' === trim( $phone ) ) {
+		wp_send_json_error( array( 'message' => __( 'A phone number or email is required.', 'nyas' ) ), 400 );
 	}
 
 	$title = trim( $fname . ' ' . $lname ) . ' — ' . $property;
@@ -227,6 +230,7 @@ function nyas_handle_lead_submit() {
 	update_post_meta( $post_id, 'nyas_quote_high',    (int) ( $quote['high']    ?? 0 ) );
 	update_post_meta( $post_id, 'nyas_quote_monthly', (int) ( $quote['monthly'] ?? 0 ) );
 	update_post_meta( $post_id, 'nyas_quote_items',   isset( $quote['items'] ) && is_array( $quote['items'] ) ? $quote['items'] : array() );
+	update_post_meta( $post_id, 'nyas_zip',           $zip );
 	update_post_meta( $post_id, 'nyas_url',           $url );
 	update_post_meta( $post_id, 'nyas_ip',            isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '' );
 
@@ -299,6 +303,14 @@ function nyas_send_lead_notification( $post_id ) {
 	);
 	if ( $email ) {
 		$headers[] = 'Reply-To: ' . $fname . ' ' . $lname . ' <' . $email . '>';
+	}
+	$cc = trim( get_option( 'nyas_notify_cc', '' ) );
+	if ( $cc ) {
+		foreach ( array_map( 'trim', explode( ',', $cc ) ) as $cc_addr ) {
+			if ( is_email( $cc_addr ) ) {
+				$headers[] = 'Cc: ' . $cc_addr;
+			}
+		}
 	}
 
 	wp_mail( $to, $subject, $body, $headers );

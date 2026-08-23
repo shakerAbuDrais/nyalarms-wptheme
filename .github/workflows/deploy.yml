@@ -1,0 +1,82 @@
+name: Deploy to Cloudways
+
+# Continuous deployment: every push to main pulls the latest code into the
+# live Cloudways app (same as pressing "Pull" in the Cloudways panel) and
+# purges Varnish so the change is visible immediately.
+#
+# Requires four repository secrets (Settings → Secrets and variables →
+# Actions → New repository secret):
+#
+#   CLOUDWAYS_EMAIL      the Cloudways account email
+#   CLOUDWAYS_API_KEY    Cloudways Platform → <account menu> → API Keys
+#   CLOUDWAYS_SERVER_ID  numeric id — visible in the panel URL when the
+#                        server is open (…/server/<SERVER_ID>/…)
+#   CLOUDWAYS_APP_ID     numeric id — visible in the panel URL when the
+#                        app is open (…/apps/<APP_ID>/…)
+#
+# Until the secrets are set, the job runs and skips gracefully.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CW_EMAIL: ${{ secrets.CLOUDWAYS_EMAIL }}
+      CW_API_KEY: ${{ secrets.CLOUDWAYS_API_KEY }}
+      CW_SERVER_ID: ${{ secrets.CLOUDWAYS_SERVER_ID }}
+      CW_APP_ID: ${{ secrets.CLOUDWAYS_APP_ID }}
+      DEPLOY_BRANCH: main
+      DEPLOY_PATH: wp-content/themes/nyas-theme/
+    steps:
+      - name: Check configuration
+        id: config
+        run: |
+          if [ -z "$CW_EMAIL" ] || [ -z "$CW_API_KEY" ] || [ -z "$CW_SERVER_ID" ] || [ -z "$CW_APP_ID" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Cloudways secrets not set — skipping deploy. Add CLOUDWAYS_EMAIL / CLOUDWAYS_API_KEY / CLOUDWAYS_SERVER_ID / CLOUDWAYS_APP_ID in repo Settings → Secrets to enable CD."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get Cloudways access token
+        id: token
+        if: steps.config.outputs.configured == 'true'
+        run: |
+          set -e
+          TOKEN=$(curl -sf -X POST https://api.cloudways.com/api/v1/oauth/access_token \
+            --data-urlencode "email=$CW_EMAIL" \
+            --data-urlencode "api_key=$CW_API_KEY" | jq -r '.access_token // empty')
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Cloudways authentication failed — check CLOUDWAYS_EMAIL / CLOUDWAYS_API_KEY."
+            exit 1
+          fi
+          echo "::add-mask::$TOKEN"
+          echo "token=$TOKEN" >> "$GITHUB_OUTPUT"
+
+      - name: Pull latest code into the app
+        if: steps.config.outputs.configured == 'true'
+        run: |
+          set -e
+          RESP=$(curl -sf -X POST https://api.cloudways.com/api/v1/git/pull \
+            -H "Authorization: Bearer ${{ steps.token.outputs.token }}" \
+            --data-urlencode "server_id=$CW_SERVER_ID" \
+            --data-urlencode "app_id=$CW_APP_ID" \
+            --data-urlencode "branch_name=$DEPLOY_BRANCH" \
+            --data-urlencode "deploy_path=$DEPLOY_PATH")
+          echo "git/pull response: $RESP"
+
+      - name: Purge Varnish
+        if: steps.config.outputs.configured == 'true'
+        run: |
+          curl -sf -X POST https://api.cloudways.com/api/v1/service/varnish \
+            -H "Authorization: Bearer ${{ steps.token.outputs.token }}" \
+            --data-urlencode "server_id=$CW_SERVER_ID" \
+            --data-urlencode "action=purge" || echo "::warning::Varnish purge failed (non-fatal) — purge manually in the panel if the change isn't visible."
