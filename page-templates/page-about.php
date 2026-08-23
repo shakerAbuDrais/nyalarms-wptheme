@@ -59,10 +59,10 @@ get_header();
 		<div class="grid grid-4" style="border-top:1px solid var(--border-strong)">
 			<?php
 			$nums = array(
-				array( '9,400+',  'NYC properties protected' ),
-				array( '28s',     'Median dispatch time, 2025' ),
-				array( '99.96%',  'Central-station uptime' ),
-				array( '22',      'In-house W-2 technicians' ),
+				array( '12 yrs',    'Serving the New York area' ),
+				array( 'Licensed',  'NY License #12000314318' ),
+				array( 'UL-listed', 'Central-station monitoring' ),
+				array( 'Res + Com', 'Homes and businesses alike' ),
 			);
 			foreach ( $nums as $s ) :
 				?>
@@ -125,10 +125,10 @@ get_header();
 		<div class="grid grid-2" style="gap:0">
 			<?php
 			$values = array(
-				array( 'No subcontractors, ever.',     'Every technician on your property is a W-2 employee, background-checked, and badge-carrying. We don\'t rent labor.' ),
-				array( 'You own your hardware.',       'No leased equipment. No surprise removals. The system you bought is yours, including if you cancel monitoring.' ),
+				array( 'No subcontractors, ever.',     'Every technician on your property is our own, background-checked, and badge-carrying. We don\'t rent labor.' ),
+				array( 'Buy it or rent it.',           'Own your system outright, or rent it — your choice. Either way, monitoring stays month-to-month, with a discount on annual agreements.' ),
 				array( 'Month-to-month monitoring.',   'Cancel anytime with 30 days\' notice. We earn your business in 30-day increments, not 60-month contracts.' ),
-				array( 'A real human picks up.',       'No phone trees, no overseas call centers. The first ring goes to a New Yorker on Long Island.' ),
+				array( 'A real human picks up.',       'No phone trees, no overseas call centers. When you call, a real New Yorker answers — and we\'ll come by for anything.' ),
 			);
 			foreach ( $values as $i => $v ) :
 				$right = 0 === $i % 2 ? '1px solid var(--border)' : 'none';
@@ -145,7 +145,7 @@ get_header();
 <?php nyas_final_cta( array(
 	'eyebrow' => __( 'Talk to us', 'nyas' ),
 	'heading' => __( 'Pick up the phone. We\'ll <em>actually answer.</em>', 'nyas' ),
-	'lede'    => __( 'The number on this site reaches a real person, twenty-four hours a day, in our Long Island office.', 'nyas' ),
+	'lede'    => __( 'The number on this site reaches a real person, twenty-four hours a day, at our Brooklyn office.', 'nyas' ),
 ) ); ?>
 
 <?php get_footer();

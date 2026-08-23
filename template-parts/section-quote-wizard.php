@@ -32,6 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( 'Real numbers, not "starting from" gimmicks', 'nyas' ); ?></span></div>
 					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( '4 quick steps · about 60 seconds', 'nyas' ); ?></span></div>
 					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( 'A specialist follows up to schedule the free site walk', 'nyas' ); ?></span></div>
+					<div class="quiz-meta-row"><?php nyas_icon( 'check', 14 ); ?><span><?php esc_html_e( 'Buy or rent your equipment — monitoring month-to-month', 'nyas' ); ?></span></div>
 				</div>
 			</div>
 

@@ -13,7 +13,7 @@ $cards = array(
 	array( 'icon' => 'sensor',  't' => __( 'Sensor', 'nyas' ),   's' => __( 'Door, window, glass-break, motion', 'nyas' ) ),
 	array( 'icon' => 'cam',     't' => __( 'Camera', 'nyas' ),   's' => __( '4K, AI verify, two-way audio', 'nyas' ) ),
 	array( 'icon' => 'monitor', 't' => __( 'Monitor', 'nyas' ),  's' => __( 'UL-listed, on Long Island', 'nyas' ) ),
-	array( 'icon' => 'bell',    't' => __( 'Dispatch', 'nyas' ), 's' => __( '28s median to NYPD/FDNY', 'nyas' ) ),
+	array( 'icon' => 'bell',    't' => __( 'Dispatch', 'nyas' ), 's' => __( 'Verified events to NYPD/FDNY', 'nyas' ) ),
 );
 ?>
 <section class="hero-spec-strip">

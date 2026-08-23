@@ -27,9 +27,9 @@ $steps = array(
 	</div>
 	<div class="container response-timeline-inner">
 		<div class="response-timeline-header">
-			<div class="eyebrow"><?php esc_html_e( 'Anatomy of a 28-second response', 'nyas' ); ?></div>
+			<div class="eyebrow"><?php esc_html_e( 'Anatomy of a rapid response', 'nyas' ); ?></div>
 			<h2><?php esc_html_e( 'From a sensor alert to', 'nyas' ); ?> <em><?php esc_html_e( 'NYPD dispatch', 'nyas' ); ?></em> <?php esc_html_e( 'in less than half a minute.', 'nyas' ); ?></h2>
-			<p><?php esc_html_e( 'Median across 12 months of monitored alarms. Measured station-side — no marketing math.', 'nyas' ); ?></p>
+			<p><?php esc_html_e( 'Here\'s what happens the moment a sensor trips — step by step, from the first signal to officers on the way.', 'nyas' ); ?></p>
 		</div>
 		<div class="rt-track">
 			<div class="rt-rail">

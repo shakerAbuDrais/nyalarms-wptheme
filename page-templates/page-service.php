@@ -41,8 +41,8 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 					<a href="tel:<?php echo esc_attr( nyas_phone_tel() ); ?>" class="btn btn-lg btn-ghost"><?php nyas_icon( 'phone', 14 ); ?> <?php echo esc_html( nyas_phone() ); ?></a>
 				</div>
 				<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:28px;border-top:1px solid var(--border)">
-					<div class="stat"><span class="stat-num">9,400+</span><span class="stat-lbl"><?php esc_html_e( 'NYC properties', 'nyas' ); ?></span></div>
-					<div class="stat"><span class="stat-num">28s</span><span class="stat-lbl"><?php esc_html_e( 'Median dispatch', 'nyas' ); ?></span></div>
+					<div class="stat"><span class="stat-num">12 yrs</span><span class="stat-lbl"><?php esc_html_e( 'Serving New York', 'nyas' ); ?></span></div>
+					<div class="stat"><span class="stat-num">UL</span><span class="stat-lbl"><?php esc_html_e( 'Listed monitoring', 'nyas' ); ?></span></div>
 					<div class="stat"><span class="stat-num">1 day</span><span class="stat-lbl"><?php esc_html_e( 'Typical install', 'nyas' ); ?></span></div>
 				</div>
 			</div>
@@ -76,7 +76,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 					array( 'cam',          'Indoor & outdoor cams', '4K, color night vision, two-way audio. Cloud + local NVR.' ),
 					array( 'monitor',      'Smart panel',           'Touchscreen panel. Wi-Fi + LTE backup. Smart-home ready.' ),
 					array( 'phone',        'Mobile app',            'iOS and Android. Arm, disarm, view live, share with family.' ),
-					array( 'shield-check', '24/7 monitoring',       'UL-listed central station on Long Island. 28-second median dispatch.' ),
+					array( 'shield-check', '24/7 monitoring',       'UL-listed central station on Long Island. Verified before dispatch.' ),
 				);
 				foreach ( $included as $it ) :
 					?>
@@ -135,12 +135,12 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 		<div class="grid grid-2" style="gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--brand-paper)">
 			<?php
 			$specs = array(
-				array( 'Panel',                'DSC PowerG / Honeywell Lyric, encrypted mesh' ),
+				array( 'Panel',                'Honeywell Resideo, encrypted wireless' ),
 				array( 'Comms',                'Dual-path: broadband + LTE-M cellular backup' ),
 				array( 'Sensors',              'Door, window, glass-break, motion (PIR + microwave)' ),
 				array( 'Cameras',              'Indoor & outdoor 4K with two-way audio' ),
 				array( 'Monitoring',           'UL-listed central station on Long Island' ),
-				array( 'Avg dispatch',         '28 seconds (12-month rolling median)' ),
+				array( 'Response',             'Video or two-way audio verification before dispatch' ),
 				array( 'Insurance certificate','Stamped, mailed within 5 business days of go-live' ),
 				array( 'Cancel notice',        '30 days. Equipment is yours — no removal fee.' ),
 			);
@@ -284,7 +284,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 			$mistakes = array(
 				array( '01', __( 'Buying a national kit off Amazon', 'nyas' ),         __( 'Most consumer kits depend on Wi-Fi, ship without a cellular module, and use sensors tuned for new-construction drywall. They miss glass-break events on bay windows and cry false-alarm on every steam-radiator click.', 'nyas' ) ),
 				array( '02', __( 'Skipping the cellular backup', 'nyas' ),             __( 'If your alarm reports over Wi-Fi only, a thief who unplugs the router has just disarmed your property. Every NYAS install ships with an LTE-M cellular module that runs even when power and internet are down.', 'nyas' ) ),
-				array( '03', __( 'Locking into a 36-month contract', 'nyas' ),         __( 'National companies subsidize the hardware in exchange for a long-term monitoring contract. The math only works for them. Hardware should be one-time. Monitoring should be month-to-month. Period.', 'nyas' ) ),
+				array( '03', __( 'Locking into a 36-month contract', 'nyas' ),         __( 'National companies subsidize the hardware in exchange for a long-term monitoring contract. The math only works for them. Buy or rent your hardware on your terms — and keep monitoring month-to-month.', 'nyas' ) ),
 				array( '04', __( 'Forgetting the cellar hatch', 'nyas' ),              __( 'In brownstones, the cellar hatch is the most-broken-in entry point in the city — and the most-overlooked on a self-installed system. Same goes for fire escapes, garden gates, and roof bulkheads.', 'nyas' ) ),
 				array( '05', __( 'Ignoring the insurance discount', 'nyas' ),          __( 'Most NYC insurers (Chubb, Travelers, Liberty, Pure) discount 5–20% on premiums for a centrally-monitored system with a stamped certificate. Over a decade, the discount typically pays for the entire monitoring fee.', 'nyas' ) ),
 				array( '06', __( 'Not telling the co-op board', 'nyas' ),              __( 'Some boards require notification (or pre-approval) before any device is installed. We pre-file ACR forms, supply the cert of insurance, and brief the super before we arrive. It\'s the difference between an install and a stop-work order.', 'nyas' ) ),
@@ -318,7 +318,7 @@ $service = nyas_service( $qs_slug ) ?: nyas_service( $slug ) ?: nyas_services()[
 					array( __( 'LTE-M / cellular backup', 'nyas' ), __( 'A small cellular radio inside the panel that reports alarms even when your internet, Wi-Fi, or power is out. Non-negotiable in NYC.', 'nyas' ) ),
 					array( __( 'Glass-break sensor', 'nyas' ),      __( 'A microphone tuned to the high-frequency signature of breaking glass. Catches break-ins before the intruder reaches the window contact.', 'nyas' ) ),
 					array( __( 'Dual-tech motion', 'nyas' ),        __( 'A motion sensor that requires both passive infrared (PIR) and microwave to trigger together. Cuts false alarms from steam radiators, sun, and pets.', 'nyas' ) ),
-					array( __( 'Verified video', 'nyas' ),          __( 'Before we dispatch police, our operator opens the camera feed and confirms a real event. Verified video drops false dispatches by 91% — saving you fines and saving the NYPD trips.', 'nyas' ) ),
+					array( __( 'Verified video', 'nyas' ),          __( 'Before police are dispatched, an operator opens the camera feed and confirms a real event. Verified video dramatically cuts false dispatches — saving you fines and saving the NYPD trips.', 'nyas' ) ),
 					array( __( 'Two-way audio', 'nyas' ),           __( 'Speaker + mic at the panel and at the doorbell. Operators can challenge an intruder by name — which usually ends the encounter on its own.', 'nyas' ) ),
 					array( __( 'ACR / building work permit', 'nyas' ), __( 'New York-specific paperwork some co-ops or condos require before any wall penetration. We handle it for you.', 'nyas' ) ),
 					array( __( 'Month-to-month', 'nyas' ),          __( 'You can cancel monitoring with 30 days\' written notice. No early-termination fee. Hardware stays yours.', 'nyas' ) ),

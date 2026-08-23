@@ -44,8 +44,8 @@ function nyas_services() {
 			'cat'   => 'Industrial',
 			'name'  => 'Warehouse alarm systems',
 			'short' => 'Warehouse',
-			'desc'  => 'Perimeter, motion, dock-bay sensors. UL fire-rated. Designed for high-bay environments.',
-			'feats' => array( 'Perimeter beams', 'Loading dock sensors', 'Fire integration', 'Inventory cameras' ),
+			'desc'  => 'Perimeter, motion, dock-bay sensors. Designed for high-bay environments.',
+			'feats' => array( 'Perimeter beams', 'Loading dock sensors', 'Volumetric motion', 'Inventory cameras' ),
 			'img'   => 'https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80',
 		),
 		array(
@@ -105,7 +105,7 @@ function nyas_services() {
 			'name'  => 'Alarm systems monitoring',
 			'short' => 'Monitoring',
 			'desc'  => '24/7 UL-listed central station on Long Island. We watch what we install — and what others installed too.',
-			'feats' => array( 'UL 827 listed', 'NYPD-recognized', '28s avg dispatch', 'Take-over service' ),
+			'feats' => array( 'UL 827 listed', 'Verified response', '24/7 operators', 'Take-over service' ),
 			'img'   => 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900&q=80',
 		),
 		array(
@@ -167,11 +167,11 @@ function nyas_cases() {
 		array(
 			'slug'     => 'beth-israel',
 			'industry' => 'Medical',
-			'title'    => 'Medical center hits 28-second median dispatch on duress alerts',
+			'title'    => 'Medical center upgrades duress response across four floors',
 			'client'   => 'Medical center · Manhattan',
 			'summary'  => 'Replaced a five-year-old emergency response system with HIPAA-aware monitoring and code-blue integration across four floors.',
 			'stats'    => array(
-				array( 'n' => '28s',     'l' => 'Median dispatch' ),
+				array( 'n' => '24/7',    'l' => 'Duress coverage' ),
 				array( 'n' => '4 floors','l' => 'Coverage' ),
 			),
 			'img'      => 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&q=85',

@@ -25,7 +25,7 @@
 				</p>
 				<div style="display:flex;gap:8px;margin-top:20px;flex-wrap:wrap">
 					<span class="pill" style="background:rgba(255,255,255,0.10);color:#fff"><?php esc_html_e( 'UL-listed', 'nyas' ); ?></span>
-					<span class="pill" style="background:rgba(255,255,255,0.10);color:#fff"><?php echo esc_html( get_theme_mod( 'nyas_license', 'NY License #12B-0049281' ) ); ?></span>
+					<span class="pill" style="background:rgba(255,255,255,0.10);color:#fff"><?php echo esc_html( get_theme_mod( 'nyas_license', 'NY License #12000314318' ) ); ?></span>
 				</div>
 			</div>
 
@@ -94,9 +94,9 @@
 				<h4><?php esc_html_e( 'Contact', 'nyas' ); ?></h4>
 				<div class="flex-col" style="font-size:13px">
 					<a href="tel:<?php echo esc_attr( nyas_phone_tel() ); ?>"><?php echo esc_html( nyas_phone() ); ?></a>
-					<?php $footer_email = get_theme_mod( 'nyas_email', 'dispatch@newyorkalarmsystems.com' ); ?>
+					<?php $footer_email = get_theme_mod( 'nyas_email', 'info@newyorkalarmsystems.com' ); ?>
 					<a href="mailto:<?php echo esc_attr( $footer_email ); ?>"><?php echo esc_html( $footer_email ); ?></a>
-					<?php $footer_address = get_theme_mod( 'nyas_address', '' ); ?>
+					<?php $footer_address = get_theme_mod( 'nyas_address', '750 Grand St, Unit 8S, Brooklyn, NY 11211' ); ?>
 					<?php if ( $footer_address ) : ?>
 						<span style="color:rgba(255,255,255,0.50)"><?php echo esc_html( $footer_address ); ?></span>
 					<?php endif; ?>
@@ -106,7 +106,7 @@
 
 		<div class="footer-bottom">
 			<span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?></span>
-			<span><?php esc_html_e( 'Brooklyn · Manhattan · Queens · Bronx · Staten Island', 'nyas' ); ?></span>
+			<span><?php esc_html_e( 'Manhattan · Brooklyn · Queens · The Bronx · Long Island · Westchester', 'nyas' ); ?></span>
 		</div>
 	</div>
 </footer>

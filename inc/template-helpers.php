@@ -39,7 +39,7 @@ function nyas_photo( $src, $alt = '', $style = '', $class = '' ) {
  * Phone number used across the site (filterable / customizer-driven).
  */
 function nyas_phone() {
-	return apply_filters( 'nyas_phone', get_theme_mod( 'nyas_phone', '(212) 555-0142' ) );
+	return apply_filters( 'nyas_phone', get_theme_mod( 'nyas_phone', '(347) 778-0820' ) );
 }
 
 function nyas_phone_tel() {

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $benefits = array(
 	array( 'icon' => 'shield-check', 'title' => __( '24/7 monitoring', 'nyas' ),     'sub' => __( 'UL-listed central station, never offline', 'nyas' ) ),
-	array( 'icon' => 'zap',          'title' => __( 'Immediate response', 'nyas' ),  'sub' => __( 'Median 28-second dispatch decision', 'nyas' ) ),
+	array( 'icon' => 'zap',          'title' => __( 'Immediate response', 'nyas' ),  'sub' => __( 'Verified alarms escalated in seconds', 'nyas' ) ),
 	array( 'icon' => 'bell',         'title' => __( 'Police call & dispatch', 'nyas' ), 'sub' => __( 'NYPD verified-response protocol', 'nyas' ) ),
 );
 ?>

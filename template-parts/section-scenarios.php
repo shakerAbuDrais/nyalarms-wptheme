@@ -30,7 +30,7 @@ $scenarios = array(
 		'icon'   => 'shop',
 		'live'   => __( 'Manhattan', 'nyas' ),
 		'title'  => 'Madison Ave. storefront, after close',
-		'story'  => 'A motion sensor in the stockroom triggers ten minutes after the last employee badged out. Our station verifies through the camera before any dispatch — cutting false alarms by 91%.',
+		'story'  => 'A motion sensor in the stockroom triggers ten minutes after the last employee badged out. The station verifies through the camera before any dispatch — sharply cutting false alarms.',
 		'events' => array(
 			array( '00:00', 'Stockroom motion + door contact disagree.' ),
 			array( '00:06', 'Operator pulls live camera, verifies movement.' ),
@@ -124,7 +124,7 @@ $scenarios = array(
 							?>
 						</span>
 						<span style="background:rgba(11,18,32,0.85);backdrop-filter:blur(8px);color:#fff;font-size:11px;font-weight:700;padding:6px 12px;border-radius:999px;font-family:var(--ff-mono)">
-							<?php esc_html_e( 'Avg dispatch · 28s', 'nyas' ); ?>
+							<?php esc_html_e( 'Verified response', 'nyas' ); ?>
 						</span>
 					</div>
 				</div>

@@ -150,7 +150,7 @@ if ( is_front_page() ) {
 			</a>
 			<div class="mobile-drawer-meta">
 				<span class="pill"><?php esc_html_e( 'UL-listed', 'nyas' ); ?></span>
-				<span class="pill"><?php echo esc_html( get_theme_mod( 'nyas_license', 'NY License #12B-0049281' ) ); ?></span>
+				<span class="pill"><?php echo esc_html( get_theme_mod( 'nyas_license', 'NY License #12000314318' ) ); ?></span>
 			</div>
 		</div>
 	</div>

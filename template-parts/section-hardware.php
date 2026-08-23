@@ -41,7 +41,7 @@ $items = array(
 
 $facts = array(
 	array( 'k' => 'AES-128', 'v' => __( 'Encryption every link', 'nyas' ) ),
-	array( 'k' => '< 28s',   'v' => __( 'Median dispatch time', 'nyas' ) ),
+	array( 'k' => 'LTE-M',   'v' => __( 'Cellular backup path', 'nyas' ) ),
 	array( 'k' => '24h',     'v' => __( 'Cellular battery backup', 'nyas' ) ),
 	array( 'k' => 'IP67',    'v' => __( 'Weather-rated outdoor', 'nyas' ) ),
 );

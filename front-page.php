@@ -122,7 +122,7 @@ $services = nyas_services();
 				array( 'icon' => 'pin',          'title' => 'Free site walk',     'when' => 'Within 48 hours', 'body' => 'A licensed NY consultant visits your property — usually within 48 hours — to map entry points, blind spots, and risk vectors.' ),
 				array( 'icon' => 'briefcase',    'title' => 'Right-sized quote',  'when' => 'Same week',       'body' => 'You get a one-page proposal with hardware, monitoring, and labor itemized. No bundles. No "starter" gimmicks.' ),
 				array( 'icon' => 'shield-check', 'title' => 'Clean installation', 'when' => '1 – 2 days on site', 'body' => 'In-house technicians (no subcontractors) wire and configure your system, typically in a day for a home, two for a small business.' ),
-				array( 'icon' => 'monitor',      'title' => 'We watch, you live', 'when' => '24 / 7 / 365',    'body' => 'Our UL-listed station on Long Island confirms alarms, calls 911, and reaches you — every day of the year.' ),
+				array( 'icon' => 'monitor',      'title' => 'We watch, you live', 'when' => '24 / 7 / 365',    'body' => 'A UL-listed central station on Long Island confirms alarms, calls 911, and reaches you — every day of the year.' ),
 			);
 			foreach ( $steps as $s ) : ?>
 				<div class="how-card">
@@ -154,10 +154,10 @@ $services = nyas_services();
 		<div class="why-grid">
 			<?php
 			$why = array(
-				array( 'icon' => 'zap',          'title' => __( '30-second dispatch', 'nyas' ), 'desc' => __( 'We measure every alarm. Our 12-month rolling median is 28 seconds, station to officer.', 'nyas' ) ),
-				array( 'icon' => 'users',        'title' => __( 'No subcontractors', 'nyas' ),  'desc' => __( 'Every technician on your property is a W-2 employee, background-checked, and badge-carrying.', 'nyas' ) ),
-				array( 'icon' => 'pin',          'title' => __( 'Local monitoring', 'nyas' ),   'desc' => __( 'Your alarm is watched from our UL-listed station in Long Island, NY — not an out-of-state call center in Texas, or an overseas one in Manila.', 'nyas' ) ),
-				array( 'icon' => 'lock',         'title' => __( 'Equipment you own', 'nyas' ),  'desc' => __( 'No leases. No predatory 5-year contracts. Cancel monitoring with 30 days\' notice, anytime.', 'nyas' ) ),
+				array( 'icon' => 'zap',          'title' => __( 'Verified response', 'nyas' ),  'desc' => __( 'Camera or two-way audio verification before dispatch — so police treat our alarms as confirmed events, not guesses.', 'nyas' ) ),
+				array( 'icon' => 'users',        'title' => __( 'No subcontractors', 'nyas' ),  'desc' => __( 'Every technician on your property is our own, background-checked, and badge-carrying.', 'nyas' ) ),
+				array( 'icon' => 'pin',          'title' => __( 'Local monitoring', 'nyas' ),   'desc' => __( 'Your alarm is watched from a UL-listed station in Long Island, NY — not an out-of-state call center in Texas, or an overseas one in Manila.', 'nyas' ) ),
+				array( 'icon' => 'lock',         'title' => __( 'Buy it or rent it', 'nyas' ),  'desc' => __( 'Own your equipment outright or rent it — monitoring stays month-to-month either way, with a discount on annual agreements.', 'nyas' ) ),
 				array( 'icon' => 'award',        'title' => __( 'UL listed', 'nyas' ),          'desc' => __( 'Our central station carries UL 827 and NYPD-recognized burglar response certifications.', 'nyas' ) ),
 				array( 'icon' => 'shield-check', 'title' => __( 'Insurance-grade', 'nyas' ),    'desc' => __( 'We issue a UL-listed monitoring certificate accepted by major NY insurers — qualifying you for premium discounts and policy preferences.', 'nyas' ) ),
 			);
@@ -187,7 +187,7 @@ $services = nyas_services();
 			<ul class="quote-bullets">
 				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Free site walk within 48 hours', 'nyas' ); ?></li>
 				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'One-page proposal, no bundles', 'nyas' ); ?></li>
-				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Equipment you own, monitoring month-to-month', 'nyas' ); ?></li>
+				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Buy or rent your equipment — monitoring month-to-month', 'nyas' ); ?></li>
 				<li><?php nyas_icon( 'check', 16 ); ?> <?php esc_html_e( 'Insurance-discount certificate included', 'nyas' ); ?></li>
 			</ul>
 		</div>
@@ -230,9 +230,9 @@ $services = nyas_services();
 					$rows = array(
 						array( 'Monitoring location',      'Long Island, NY',           'Texas / Colorado',   'New York City',          'Rapid Response (3rd-party)' ),
 						array( 'Contract length',          'Month-to-month or annual',  '36-month',           'Multi-year (commercial)','Month-to-month' ),
-						array( 'Equipment ownership',      'You own it',                'Leased',             'Proprietary',            'You own it' ),
-						array( 'In-house W-2 technicians', 'yes',                       'partial',            'yes',                    'no' ),
-						array( 'Avg dispatch time',        '28 seconds',                '~60 seconds',        'Residential + Commercial', '~90 seconds' ),
+						array( 'Equipment ownership',      'Buy or rent',               'Leased',             'Proprietary',            'You own it' ),
+						array( 'In-house technicians',      'yes',                       'partial',            'yes',                    'no' ),
+						array( 'Avg dispatch time',        'Verified response',         '~60 seconds',        'Residential + Commercial', '~90 seconds' ),
 						array( 'Avg service response time','1.5 days',                  '7–8 days',           '4.5 days',               'None' ),
 						array( 'UL monitoring certificate','yes',                       'yes',                'yes',                    'partial' ),
 						array( 'NYC permits & FDNY filings','yes',                      'no',                 'yes',                    'no' ),
@@ -318,12 +318,16 @@ $services = nyas_services();
 <?php // ─── 10b. Response timeline (animated 5-step) ─── ?>
 <?php get_template_part( 'template-parts/section', 'response-timeline' ); ?>
 
-<?php nyas_seam( 'paper', __( 'Avg arrival 11 min', 'nyas' ) ); ?>
+<?php nyas_seam( 'paper' ); ?>
 
-<?php // ─── 11. Reviews carousel ─── ?>
-<?php get_template_part( 'template-parts/section', 'reviews' ); ?>
+<?php
+// ─── 11. Reviews carousel — intentionally NOT rendered. The prototype's
+// review quotes are unverifiable ("Nothing we can prove" — client brief,
+// July 2026). Re-add via get_template_part( 'template-parts/section',
+// 'reviews' ) once real customer reviews are supplied.
+?>
 
-<?php // ─── 11b. Mid-page CTA — breaks up the Reviews → Coverage → FAQ → Insights stretch ─── ?>
+<?php // ─── 11b. Mid-page CTA ─── ?>
 <section class="midpage-cta-section">
 	<div class="container">
 		<div class="midpage-cta">
@@ -347,7 +351,7 @@ $services = nyas_services();
 			<div>
 				<h2 class="display-lg" style="margin-bottom:24px"><?php esc_html_e( 'NYC\'s Alarms.', 'nyas' ); ?> <em><?php esc_html_e( 'Watched From Long Island.', 'nyas' ); ?></em></h2>
 				<p style="font-size:17px;line-height:1.6;color:var(--fg-2);max-width:480px;margin-bottom:32px">
-					<?php esc_html_e( 'Our UL-listed central station sits in Long Island, NY — close enough that operators know your block, your precinct, and your weather. Local people watching local properties. No outsourcing, no overseas call centers.', 'nyas' ); ?>
+					<?php esc_html_e( 'Every system reports to a UL-listed central station in Long Island, NY — close enough that operators know your block, your precinct, and your weather. Local people watching local properties. No overseas call centers.', 'nyas' ); ?>
 				</p>
 				<div style="display:flex;flex-direction:column;gap:4px">
 					<?php
@@ -370,7 +374,7 @@ $services = nyas_services();
 			</div>
 			<div class="ny-map-wrap">
 				<div id="nyas-leaflet" class="ny-map" data-nyas-map></div>
-				<div class="ny-map-foot"><?php esc_html_e( 'UL-listed station in Long Island · 9,400+ properties · 4 boroughs', 'nyas' ); ?></div>
+				<div class="ny-map-foot"><?php esc_html_e( 'UL-listed monitoring · Serving NYC, Long Island & Westchester', 'nyas' ); ?></div>
 			</div>
 		</div>
 	</div>

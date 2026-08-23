@@ -27,7 +27,7 @@
 		const accent = (cs.getPropertyValue('--brand-signal-2') || '#1F4DD8').trim() || '#1F4DD8';
 
 		const depots = [
-			{ name: 'Long Island monitoring HQ', lat: 40.7448, lng: -73.7485, kind: 'UL-listed central station' }
+			{ name: 'Long Island monitoring station', lat: 40.7448, lng: -73.7485, kind: 'UL-listed central station' }
 		];
 
 		const boroughs = [
