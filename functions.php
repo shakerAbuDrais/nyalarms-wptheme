@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NYAS_VERSION', '1.1.7' );
+define( 'NYAS_VERSION', '1.1.8' );
 define( 'NYAS_DIR', trailingslashit( get_template_directory() ) );
 define( 'NYAS_URI', trailingslashit( get_template_directory_uri() ) );
 
@@ -108,6 +108,27 @@ require_once NYAS_DIR . 'inc/data.php';
 require_once NYAS_DIR . 'inc/setup-wizard.php';
 require_once NYAS_DIR . 'inc/leads.php';
 require_once NYAS_DIR . 'inc/admin-settings.php';
+
+/**
+ * One-time cleanup — trash WordPress's default sample content ("Hello
+ * world!" post and "Sample Page") if it's still published. Trashing is
+ * reversible from wp-admin; a flag option makes this run only once.
+ */
+function nyas_cleanup_default_content() {
+	if ( get_option( 'nyas_default_content_cleaned' ) ) {
+		return;
+	}
+	$hello = get_page_by_path( 'hello-world', OBJECT, 'post' );
+	if ( $hello && 'trash' !== $hello->post_status ) {
+		wp_trash_post( $hello->ID );
+	}
+	$sample = get_page_by_path( 'sample-page', OBJECT, 'page' );
+	if ( $sample && 'trash' !== $sample->post_status ) {
+		wp_trash_post( $sample->ID );
+	}
+	update_option( 'nyas_default_content_cleaned', 1 );
+}
+add_action( 'init', 'nyas_cleanup_default_content' );
 
 /**
  * Favicon — shield mark on brand blue. Defers to a Customizer Site Icon

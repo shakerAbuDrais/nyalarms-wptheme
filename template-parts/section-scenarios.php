@@ -117,7 +117,7 @@ $scenarios = array(
 					<?php nyas_photo( $d['img'], $d['title'], 'position:absolute;inset:0;border-radius:16px' ); ?>
 					<div style="position:absolute;top:20px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center">
 						<span style="background:rgba(11,18,32,0.85);backdrop-filter:blur(8px);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px">
-							<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#3CD68C;margin-right:8px;vertical-align:middle"></span>
+							<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#7AA0FF;margin-right:8px;vertical-align:middle"></span>
 							<?php
 							/* translators: %s: borough name. */
 							printf( esc_html__( 'Live · %s', 'nyas' ), esc_html( $d['live'] ) );

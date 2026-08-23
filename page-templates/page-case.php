@@ -40,7 +40,7 @@ $case    = nyas_case( $qs_slug ) ?: nyas_case( $slug ) ?: nyas_cases()[0];
 				<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
 					<?php foreach ( $case['stats'] as $s ) : ?>
 						<div style="padding:16px 0;border-top:1px solid rgba(246,243,236,0.20)">
-							<div style="font-family:var(--ff-display);font-weight:800;font-size:48px;color:#3CD68C;line-height:1;letter-spacing:-0.025em"><?php echo esc_html( $s['n'] ); ?></div>
+							<div style="font-family:var(--ff-display);font-weight:800;font-size:48px;color:#7AA0FF;line-height:1;letter-spacing:-0.025em"><?php echo esc_html( $s['n'] ); ?></div>
 							<div style="font-size:11px;color:rgba(246,243,236,0.55);text-transform:uppercase;letter-spacing:0.12em;margin-top:6px"><?php echo esc_html( $s['l'] ); ?></div>
 						</div>
 					<?php endforeach; ?>
@@ -137,7 +137,7 @@ $case    = nyas_case( $qs_slug ) ?: nyas_case( $slug ) ?: nyas_cases()[0];
 <section class="section-ink" style="padding:88px 0">
 	<div class="container nyas-case-cta" style="display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center">
 		<div>
-			<h2 class="display-md" style="color:var(--fg-on-ink);margin-bottom:16px"><?php esc_html_e( 'Tell us about', 'nyas' ); ?> <em style="color:#3CD68C"><?php esc_html_e( 'your stores', 'nyas' ); ?></em>.</h2>
+			<h2 class="display-md" style="color:var(--fg-on-ink);margin-bottom:16px"><?php esc_html_e( 'Tell us about', 'nyas' ); ?> <em style="color:#7AA0FF"><?php esc_html_e( 'your stores', 'nyas' ); ?></em>.</h2>
 			<p style="color:rgba(246,243,236,0.78);font-size:17px;margin-bottom:24px;max-width:480px"><?php esc_html_e( 'Multi-location operators — we\'ll quote a single-source rollout in 48 hours.', 'nyas' ); ?></p>
 			<a href="tel:<?php echo esc_attr( nyas_phone_tel() ); ?>" class="btn btn-lg btn-signal"><?php nyas_icon( 'phone', 15 ); ?> <?php echo esc_html( nyas_phone() ); ?></a>
 		</div>

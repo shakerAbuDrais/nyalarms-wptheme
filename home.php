@@ -12,9 +12,9 @@ get_header();
 	<div class="container">
 		<?php nyas_eyebrow( __( 'Insights', 'nyas' ), true, 'margin-bottom:20px' ); ?>
 		<div class="nyas-blog-head" style="display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:end">
-			<h1 class="display-xl"><?php esc_html_e( 'Field notes from the', 'nyas' ); ?> <em><?php esc_html_e( 'monitoring desk.', 'nyas' ); ?></em></h1>
+			<h1 class="display-xl"><?php esc_html_e( 'Field Notes From the', 'nyas' ); ?> <em><?php esc_html_e( 'Monitoring Desk.', 'nyas' ); ?></em></h1>
 			<p class="lede" style="margin:0">
-				<?php esc_html_e( 'Buyers guides, NYPD response data, lessons from the central station — written by the people on the floor in Long Island City.', 'nyas' ); ?>
+				<?php esc_html_e( 'Buyers guides, NYPD response data, lessons from the central station — written by the people on the floor of our Long Island monitoring station.', 'nyas' ); ?>
 			</p>
 		</div>
 	</div>
@@ -149,7 +149,7 @@ if ( ! empty( $categories ) ) : ?>
 	<div class="container nyas-newsletter" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center">
 		<div>
 			<?php nyas_eyebrow( __( 'Newsletter', 'nyas' ), false, 'color:rgba(246,243,236,0.55);margin-bottom:14px' ); ?>
-			<h2 class="display-md" style="color:var(--fg-on-ink);margin-bottom:12px"><?php esc_html_e( 'One email a month.', 'nyas' ); ?> <em style="color:#3CD68C"><?php esc_html_e( 'Worth opening.', 'nyas' ); ?></em></h2>
+			<h2 class="display-md" style="color:var(--fg-on-ink);margin-bottom:12px"><?php esc_html_e( 'One Email a Month.', 'nyas' ); ?> <em style="color:#7AA0FF"><?php esc_html_e( 'Worth Opening.', 'nyas' ); ?></em></h2>
 			<p style="color:rgba(246,243,236,0.78);font-size:15px;margin:0"><?php esc_html_e( 'Field notes, NYC response data, buyer\'s guides — no sales emails.', 'nyas' ); ?></p>
 		</div>
 		<form data-nyas-newsletter style="display:flex;gap:8px;flex-wrap:wrap">

@@ -44,7 +44,7 @@ foreach ( $cases as $c ) {
 					<div style="display:flex;gap:32px;padding-top:24px;border-top:1px solid rgba(246,243,236,0.12)">
 						<?php foreach ( $featured['stats'] as $s ) : ?>
 							<div>
-								<div style="font-family:var(--ff-display);font-weight:800;font-size:40px;color:#3CD68C;letter-spacing:-0.02em"><?php echo esc_html( $s['n'] ); ?></div>
+								<div style="font-family:var(--ff-display);font-weight:800;font-size:40px;color:#7AA0FF;letter-spacing:-0.02em"><?php echo esc_html( $s['n'] ); ?></div>
 								<div style="font-size:11px;color:rgba(246,243,236,0.55);text-transform:uppercase;letter-spacing:0.12em"><?php echo esc_html( $s['l'] ); ?></div>
 							</div>
 						<?php endforeach; ?>
@@ -93,7 +93,7 @@ foreach ( $cases as $c ) {
 
 <section class="section-ink" style="padding:64px 0">
 	<div class="container" style="text-align:center">
-		<h2 class="display-md" style="color:var(--fg-on-ink);margin-bottom:16px"><?php esc_html_e( 'Want yours', 'nyas' ); ?> <em style="color:#3CD68C"><?php esc_html_e( 'here', 'nyas' ); ?></em> <?php esc_html_e( 'next year?', 'nyas' ); ?></h2>
+		<h2 class="display-md" style="color:var(--fg-on-ink);margin-bottom:16px"><?php esc_html_e( 'Want yours', 'nyas' ); ?> <em style="color:#7AA0FF"><?php esc_html_e( 'here', 'nyas' ); ?></em> <?php esc_html_e( 'next year?', 'nyas' ); ?></h2>
 		<a href="#quote" class="btn btn-lg btn-signal"><?php esc_html_e( 'Start with a free quote', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
 	</div>
 </section>

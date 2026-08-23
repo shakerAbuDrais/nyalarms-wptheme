@@ -446,10 +446,10 @@ pre, code { white-space: pre-wrap; word-break: break-word; }
 	[id="cta-form"] { padding: 20px !important; }
 }
 
-/* Headline em color stays brand on the "ink" green-em variant in dark sections */
+/* Headline em color on dark "ink" sections — light brand blue */
 .section-ink em,
 .section-ink h2 em,
-.section-ink h1 em { color: #3CD68C; }
+.section-ink h1 em { color: #7AA0FF; }
 
 /* ─────────────────────────────────────────────────────
    "Why us — Six reasons" section
