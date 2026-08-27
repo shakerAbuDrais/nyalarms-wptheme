@@ -142,7 +142,8 @@ function nyas_cases() {
 		array(
 			'slug'      => 'tower-ny',
 			'industry'  => 'Automotive',
-			'title'     => '7-location NYC auto dealership cuts security costs by 32% and reduces workplace accidents by nearly 60%',
+			'title'     => 'Tower NY cuts security costs 32% and workplace accidents by nearly 60%',
+			'headline'  => 'Tower NY Cut Security Costs <em style="color:#7AA0FF">32%</em> Across 7 Locations.',
 			'client'    => 'Tower NY · Brooklyn, Queens & the Bronx · 7 locations',
 			'summary'   => 'Tower NY, a local auto dealership and service company with seven locations across Brooklyn, Queens, and the Bronx, was facing significant security and safety challenges. They turned to New York Alarm Systems to modernize their security infrastructure and bring all seven locations under one reliable, centralized system.',
 			'challenge' => array(

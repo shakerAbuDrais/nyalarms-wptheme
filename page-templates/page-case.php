@@ -33,22 +33,22 @@ get_header();
 			array( $case['industry'] ),
 		), true ); ?>
 
-		<div class="nyas-case-hero" style="display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:end">
+		<div class="nyas-case-hero" style="display:grid;grid-template-columns:1.4fr 1fr;gap:72px;align-items:center">
 			<div>
-				<?php nyas_eyebrow( sprintf( __( 'Case study · %s', 'nyas' ), $case['industry'] ), false, 'color:rgba(246,243,236,0.55);margin-bottom:16px' ); ?>
-				<h1 class="display-xl" style="color:var(--fg-on-ink);margin-bottom:24px">
-					<?php echo wp_kses_post( $case['title'] ); ?>
+				<?php nyas_eyebrow( sprintf( __( 'Case study · %s', 'nyas' ), $case['industry'] ), false, 'color:rgba(246,243,236,0.55);margin-bottom:18px' ); ?>
+				<h1 class="display-lg" style="color:var(--fg-on-ink);margin-bottom:22px;max-width:620px;text-wrap:balance">
+					<?php echo wp_kses_post( isset( $case['headline'] ) ? $case['headline'] : $case['title'] ); ?>
 				</h1>
-				<p style="font-size:21px;line-height:1.5;color:rgba(246,243,236,0.85);font-family:var(--ff-display);font-weight:500;max-width:640px">
+				<p style="font-size:17px;line-height:1.65;color:rgba(246,243,236,0.78);max-width:560px;margin:0">
 					<?php echo esc_html( $case['summary'] ); ?>
 				</p>
 			</div>
 			<div>
-				<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
+				<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px">
 					<?php foreach ( $case['stats'] as $s ) : ?>
-						<div style="padding:16px 0;border-top:1px solid rgba(246,243,236,0.20)">
-							<div style="font-family:var(--ff-display);font-weight:800;font-size:48px;color:#7AA0FF;line-height:1;letter-spacing:-0.025em"><?php echo esc_html( $s['n'] ); ?></div>
-							<div style="font-size:11px;color:rgba(246,243,236,0.55);text-transform:uppercase;letter-spacing:0.12em;margin-top:6px"><?php echo esc_html( $s['l'] ); ?></div>
+						<div style="padding:20px 0;border-top:1px solid rgba(246,243,236,0.20)">
+							<div style="font-family:var(--ff-display);font-weight:800;font-size:clamp(30px,3vw,40px);color:#7AA0FF;line-height:1;letter-spacing:-0.02em"><?php echo esc_html( $s['n'] ); ?></div>
+							<div style="font-size:11px;color:rgba(246,243,236,0.55);text-transform:uppercase;letter-spacing:0.1em;margin-top:8px;line-height:1.4"><?php echo esc_html( $s['l'] ); ?></div>
 						</div>
 					<?php endforeach; ?>
 				</div>
