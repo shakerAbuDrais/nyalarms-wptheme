@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NYAS_VERSION', '1.3.0' );
+define( 'NYAS_VERSION', '1.3.1' );
 define( 'NYAS_DIR', trailingslashit( get_template_directory() ) );
 define( 'NYAS_URI', trailingslashit( get_template_directory_uri() ) );
 
@@ -145,6 +145,27 @@ function nyas_cleanup_default_content() {
 	update_option( 'nyas_default_content_cleaned', 1 );
 }
 add_action( 'init', 'nyas_cleanup_default_content' );
+
+/**
+ * One-time migration — the fabricated "Maman" case page becomes the real
+ * Tower NY case study (Aug 2026 client doc). Renames the page slug and
+ * title; WordPress's old-slug redirect keeps /cases/maman/ working.
+ */
+function nyas_migrate_tower_case() {
+	if ( get_option( 'nyas_tower_case_migrated' ) ) {
+		return;
+	}
+	$page = get_page_by_path( 'cases/maman' );
+	if ( $page ) {
+		wp_update_post( array(
+			'ID'         => $page->ID,
+			'post_name'  => 'tower-ny',
+			'post_title' => 'Tower NY',
+		) );
+	}
+	update_option( 'nyas_tower_case_migrated', 1 );
+}
+add_action( 'init', 'nyas_migrate_tower_case' );
 
 /**
  * Favicon — shield mark on brand blue. Defers to a Customizer Site Icon

@@ -140,17 +140,37 @@ function nyas_service( $id ) {
 function nyas_cases() {
 	return array(
 		array(
-			'slug'     => 'maman',
-			'industry' => 'Retail',
-			'title'    => 'Bakery chain cuts shrinkage 41% across 12 NYC locations',
-			'client'   => 'Bakery chain · Manhattan + Brooklyn · 12 locations',
-			'summary'  => 'Replaced four legacy alarm vendors with one integrated stack. Twelve stores, one dashboard, fourteen days.',
-			'stats'    => array(
-				array( 'n' => '41%', 'l' => 'Shrinkage drop' ),
-				array( 'n' => '$73k', 'l' => 'Annual savings' ),
+			'slug'      => 'tower-ny',
+			'industry'  => 'Automotive',
+			'title'     => '7-location NYC auto dealership cuts security costs by 32% and reduces workplace accidents by nearly 60%',
+			'client'    => 'Tower NY · Brooklyn, Queens & the Bronx · 7 locations',
+			'summary'   => 'Tower NY, a local auto dealership and service company with seven locations across Brooklyn, Queens, and the Bronx, was facing significant security and safety challenges. They turned to New York Alarm Systems to modernize their security infrastructure and bring all seven locations under one reliable, centralized system.',
+			'challenge' => array(
+				'Each location was operating with a different alarm system. Some were outdated, others were newer, but none were being properly maintained.',
+				'The company was dealing with recurring issues including communication failures, wireless sensors with depleted batteries, and communication modules that had not been properly tested. Their surveillance cameras were also aging, frequently malfunctioning, and completely separate from the alarm systems.',
+				'The result was a growing security problem across the business, including burglaries, missing inventory and auto parts, false alarms, and preventable workplace incidents.',
 			),
-			'img'      => 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=85',
-			'featured' => true,
+			'solution'  => array(
+				'Our team standardized the security infrastructure across all seven Tower NY locations using Honeywell alarm systems.',
+				'We also created a centralized dashboard, giving management clear visibility into every location from one place.',
+				'The existing camera systems were upgraded and integrated with the alarm systems. We then configured predefined events and automated alerts to immediately notify management when specific incidents occurred, while allowing our monitoring station to quickly assess situations and respond appropriately.',
+				'The technology upgrade also significantly reduced false alarms and made the entire security operation easier to manage.',
+			),
+			'impact'    => array(
+				'Workplace accidents decreased by nearly 60%',
+				'Burglary incidents went from four successful break-ins per year to one unsuccessful attempt that resulted in an arrest',
+				'Missing parts and inventory, previously a significant expense, became a minor issue within six months',
+				'Security subscription costs were reduced by 32%',
+				'Tower NY saved more than $16,000 within the first 18 months',
+			),
+			'stats'     => array(
+				array( 'n' => '32%',   'l' => 'Lower security costs' ),
+				array( 'n' => '~60%',  'l' => 'Fewer workplace accidents' ),
+				array( 'n' => '$16k+', 'l' => 'Saved in 18 months' ),
+				array( 'n' => '7',     'l' => 'Locations on one dashboard' ),
+			),
+			'img'       => NYAS_URI . 'assets/img/case-tower-ny.webp',
+			'featured'  => true,
 		),
 		array(
 			'slug'     => 'iannone',
@@ -216,6 +236,10 @@ function nyas_cases() {
 }
 
 function nyas_case( $slug ) {
+	// Legacy alias — the old /cases/maman/ page now carries the Tower NY study.
+	if ( 'maman' === $slug ) {
+		$slug = 'tower-ny';
+	}
 	foreach ( nyas_cases() as $case ) {
 		if ( $case['slug'] === $slug ) {
 			return $case;

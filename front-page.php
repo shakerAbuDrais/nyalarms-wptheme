@@ -287,26 +287,26 @@ $services = nyas_services();
 	<div class="container">
 		<div class="nyas-feat-case" style="display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center">
 			<div>
-				<?php nyas_eyebrow( __( 'Case study · 12 retail locations · Manhattan + Brooklyn', 'nyas' ), false, 'color:var(--brand-signal);margin-bottom:16px' ); ?>
+				<?php nyas_eyebrow( __( 'Case study · 7 locations · Brooklyn, Queens & the Bronx', 'nyas' ), false, 'color:var(--brand-signal);margin-bottom:16px' ); ?>
 				<h2 class="display-lg" style="color:var(--fg);margin-bottom:24px">
-					<?php esc_html_e( 'How a', 'nyas' ); ?> <em style="color:var(--brand-signal)"><?php esc_html_e( 'Manhattan Bakery Chain', 'nyas' ); ?></em> <?php esc_html_e( 'Cut Shrinkage 41% in a Year.', 'nyas' ); ?>
+					<?php esc_html_e( 'How', 'nyas' ); ?> <em style="color:var(--brand-signal)"><?php esc_html_e( 'Tower NY', 'nyas' ); ?></em> <?php esc_html_e( 'Cut Security Costs 32% Across 7 Dealerships.', 'nyas' ); ?>
 				</h2>
 				<p style="color:var(--fg-2);font-size:17px;line-height:1.6;margin-bottom:32px;max-width:520px">
-					<?php esc_html_e( 'When this NYC bakery group expanded to twelve locations across Manhattan and Brooklyn, after-hours theft was costing $180k a year. We replaced four alarm vendors with one integrated stack — cameras, panic buttons, and a single dashboard.', 'nyas' ); ?>
+					<?php esc_html_e( 'Seven dealership and service locations, each running a different aging alarm system. We standardized everything on Honeywell, integrated the cameras, and put every location on one centralized dashboard — cutting false alarms, break-ins, and preventable workplace incidents.', 'nyas' ); ?>
 				</p>
 				<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:32px;padding-top:28px;border-top:1px solid var(--border)">
-					<div class="stat"><span class="stat-num" style="color:var(--fg)"><em style="color:var(--brand-signal)">41%</em></span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Shrinkage drop', 'nyas' ); ?></span></div>
-					<div class="stat"><span class="stat-num" style="color:var(--fg)">$73k</span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Annual savings', 'nyas' ); ?></span></div>
-					<div class="stat"><span class="stat-num" style="color:var(--fg)">14 days</span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Full rollout', 'nyas' ); ?></span></div>
+					<div class="stat"><span class="stat-num" style="color:var(--fg)"><em style="color:var(--brand-signal)">32%</em></span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Lower security costs', 'nyas' ); ?></span></div>
+					<div class="stat"><span class="stat-num" style="color:var(--fg)">~60%</span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Fewer workplace accidents', 'nyas' ); ?></span></div>
+					<div class="stat"><span class="stat-num" style="color:var(--fg)">$16k+</span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Saved in 18 months', 'nyas' ); ?></span></div>
 				</div>
-				<a href="<?php echo esc_url( home_url( '/cases/' ) ); ?>" class="btn btn-lg btn-signal"><?php esc_html_e( 'Read the case study', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
+				<a href="<?php echo esc_url( home_url( '/cases/tower-ny/' ) ); ?>" class="btn btn-lg btn-signal"><?php esc_html_e( 'Read the case study', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
 			</div>
 			<div style="position:relative">
-				<?php nyas_photo( 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80', 'Retail interior at night', 'aspect-ratio:4/5;border-radius:16px' ); ?>
+				<?php nyas_photo( NYAS_URI . 'assets/img/case-tower-ny.webp', 'Tower NY dealership showroom', 'aspect-ratio:4/5;border-radius:16px' ); ?>
 				<div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:12px;padding:20px;color:var(--fg)">
-					<div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-3);margin-bottom:8px"><?php esc_html_e( 'Live · 02:14 a.m.', 'nyas' ); ?></div>
-					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--fg-2);margin-bottom:4px"><?php esc_html_e( 'Manhattan retail location — Zone 4 motion', 'nyas' ); ?></div>
-					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--brand-signal)"><?php esc_html_e( 'Verified false (cleaning crew). NYPD not dispatched.', 'nyas' ); ?></div>
+					<div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-3);margin-bottom:8px"><?php esc_html_e( 'One dashboard · 7 locations', 'nyas' ); ?></div>
+					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--fg-2);margin-bottom:4px"><?php esc_html_e( 'Honeywell alarms + integrated cameras', 'nyas' ); ?></div>
+					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--brand-signal)"><?php esc_html_e( 'Automated alerts · verified before dispatch', 'nyas' ); ?></div>
 				</div>
 			</div>
 		</div>

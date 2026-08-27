@@ -65,13 +65,36 @@ $case    = nyas_case( $qs_slug ) ?: nyas_case( $slug ) ?: nyas_cases()[0];
 			<div><div class="eyebrow" style="margin-bottom:4px"><?php esc_html_e( 'Summary', 'nyas' ); ?></div><div style="font-size:14px;font-weight:600"><?php echo esc_html( wp_trim_words( $case['summary'], 8 ) ); ?></div></div>
 		</div>
 
-		<h2><?php esc_html_e( 'The problem', 'nyas' ); ?></h2>
-		<p><?php echo esc_html( $case['summary'] ); ?></p>
+		<?php if ( ! empty( $case['challenge'] ) ) : ?>
+			<h2><?php esc_html_e( 'The Challenge', 'nyas' ); ?></h2>
+			<?php foreach ( (array) $case['challenge'] as $para ) : ?>
+				<p><?php echo esc_html( $para ); ?></p>
+			<?php endforeach; ?>
+		<?php else : ?>
+			<h2><?php esc_html_e( 'The problem', 'nyas' ); ?></h2>
+			<p><?php echo esc_html( $case['summary'] ); ?></p>
+		<?php endif; ?>
 
-		<h2><?php esc_html_e( 'The result', 'nyas' ); ?></h2>
-		<?php foreach ( $case['stats'] as $s ) : ?>
-			<p><strong><?php echo esc_html( $s['n'] ); ?></strong> — <?php echo esc_html( $s['l'] ); ?>.</p>
-		<?php endforeach; ?>
+		<?php if ( ! empty( $case['solution'] ) ) : ?>
+			<h2><?php esc_html_e( 'The Solution', 'nyas' ); ?></h2>
+			<?php foreach ( (array) $case['solution'] as $para ) : ?>
+				<p><?php echo esc_html( $para ); ?></p>
+			<?php endforeach; ?>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $case['impact'] ) ) : ?>
+			<h2><?php esc_html_e( 'The Impact', 'nyas' ); ?></h2>
+			<ul>
+				<?php foreach ( (array) $case['impact'] as $point ) : ?>
+					<li><?php echo esc_html( $point ); ?></li>
+				<?php endforeach; ?>
+			</ul>
+		<?php else : ?>
+			<h2><?php esc_html_e( 'The result', 'nyas' ); ?></h2>
+			<?php foreach ( $case['stats'] as $s ) : ?>
+				<p><strong><?php echo esc_html( $s['n'] ); ?></strong> — <?php echo esc_html( $s['l'] ); ?>.</p>
+			<?php endforeach; ?>
+		<?php endif; ?>
 	</div>
 </section>
 

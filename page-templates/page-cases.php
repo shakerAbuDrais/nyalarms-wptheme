@@ -26,7 +26,7 @@ foreach ( $cases as $c ) {
 		<div class="nyas-cases-head" style="display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:end">
 			<h1 class="display-xl"><?php esc_html_e( 'The Work,', 'nyas' ); ?> <em><?php esc_html_e( 'Up Close.', 'nyas' ); ?></em></h1>
 			<p class="lede" style="margin:0">
-				<?php esc_html_e( 'Six snapshots from the field — anonymized for client privacy — showing the problems we get called for and how the systems responded.', 'nyas' ); ?>
+				<?php esc_html_e( 'Stories from the field — led by our seven-location security overhaul for Tower NY — showing the problems we get called for and how the systems responded.', 'nyas' ); ?>
 			</p>
 		</div>
 	</div>
