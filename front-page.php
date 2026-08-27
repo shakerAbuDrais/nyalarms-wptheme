@@ -289,10 +289,10 @@ $services = nyas_services();
 			<div>
 				<?php nyas_eyebrow( __( 'Case study · 7 locations · Brooklyn, Queens & the Bronx', 'nyas' ), false, 'color:var(--brand-signal);margin-bottom:16px' ); ?>
 				<h2 class="display-lg" style="color:var(--fg);margin-bottom:24px">
-					<?php esc_html_e( 'How', 'nyas' ); ?> <em style="color:var(--brand-signal)"><?php esc_html_e( 'Tower NY', 'nyas' ); ?></em> <?php esc_html_e( 'Cut Security Costs 32% Across 7 Dealerships.', 'nyas' ); ?>
+					<?php esc_html_e( 'How', 'nyas' ); ?> <em style="color:var(--brand-signal)"><?php esc_html_e( 'Tower NY', 'nyas' ); ?></em> <?php esc_html_e( 'Cut Security Costs 32% Across 7 Locations.', 'nyas' ); ?>
 				</h2>
 				<p style="color:var(--fg-2);font-size:17px;line-height:1.6;margin-bottom:32px;max-width:520px">
-					<?php esc_html_e( 'Seven dealership and service locations, each running a different aging alarm system. We standardized everything on Honeywell, integrated the cameras, and put every location on one centralized dashboard — cutting false alarms, break-ins, and preventable workplace incidents.', 'nyas' ); ?>
+					<?php esc_html_e( 'Seven dealership and service locations, seven different alarm systems — some outdated, none properly maintained. We standardized everything on Honeywell, integrated the cameras, and put every location on one centralized dashboard — cutting false alarms, break-ins, and preventable workplace incidents.', 'nyas' ); ?>
 				</p>
 				<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:32px;padding-top:28px;border-top:1px solid var(--border)">
 					<div class="stat"><span class="stat-num" style="color:var(--fg)"><em style="color:var(--brand-signal)">32%</em></span><span class="stat-lbl" style="color:var(--fg-3)"><?php esc_html_e( 'Lower security costs', 'nyas' ); ?></span></div>
@@ -302,7 +302,7 @@ $services = nyas_services();
 				<a href="<?php echo esc_url( home_url( '/cases/tower-ny/' ) ); ?>" class="btn btn-lg btn-signal"><?php esc_html_e( 'Read the case study', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 15 ); ?></a>
 			</div>
 			<div style="position:relative">
-				<?php nyas_photo( NYAS_URI . 'assets/img/case-tower-ny.webp', 'Tower NY dealership showroom', 'aspect-ratio:4/5;border-radius:16px' ); ?>
+				<?php nyas_photo( NYAS_URI . 'assets/img/case-tower-ny.webp', 'Auto dealership showroom', 'aspect-ratio:4/5;border-radius:16px' ); ?>
 				<div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:12px;padding:20px;color:var(--fg)">
 					<div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-3);margin-bottom:8px"><?php esc_html_e( 'One dashboard · 7 locations', 'nyas' ); ?></div>
 					<div style="font-family:var(--ff-mono);font-size:13px;color:var(--fg-2);margin-bottom:4px"><?php esc_html_e( 'Honeywell alarms + integrated cameras', 'nyas' ); ?></div>
