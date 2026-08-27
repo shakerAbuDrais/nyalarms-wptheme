@@ -11,11 +11,18 @@
 
 add_filter( 'nyas_header_ink', '__return_true' );
 
-get_header();
-
+// Resolve the case BEFORE any output so unknown slugs (e.g. removed demo
+// cases) can bounce to the archive instead of rendering the wrong study.
 $slug    = sanitize_key( get_post_field( 'post_name' ) );
 $qs_slug = isset( $_GET['c'] ) ? sanitize_key( wp_unslash( $_GET['c'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-$case    = nyas_case( $qs_slug ) ?: nyas_case( $slug ) ?: nyas_cases()[0];
+$case    = nyas_case( $qs_slug ) ?: nyas_case( $slug );
+
+if ( ! $case ) {
+	wp_safe_redirect( home_url( '/cases/' ), 302 );
+	exit;
+}
+
+get_header();
 ?>
 
 <section class="section-ink" style="padding:72px 0 96px">
@@ -111,6 +118,9 @@ $case    = nyas_case( $qs_slug ) ?: nyas_case( $slug ) ?: nyas_cases()[0];
 	</div>
 </section>
 
+<?php
+$related = array_slice( array_filter( nyas_cases(), function ( $c ) use ( $case ) { return $c['slug'] !== $case['slug']; } ), 0, 3 );
+if ( ! empty( $related ) ) : ?>
 <section style="padding:64px 0">
 	<div class="container">
 		<div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:32px">
@@ -118,9 +128,7 @@ $case    = nyas_case( $qs_slug ) ?: nyas_case( $slug ) ?: nyas_cases()[0];
 			<a href="<?php echo esc_url( home_url( '/cases/' ) ); ?>" class="btn btn-sm btn-ghost"><?php esc_html_e( 'All cases', 'nyas' ); ?> <?php nyas_icon( 'arrow-right', 12 ); ?></a>
 		</div>
 		<div class="grid grid-3">
-			<?php
-			$related = array_slice( array_filter( nyas_cases(), function ( $c ) use ( $case ) { return $c['slug'] !== $case['slug']; } ), 0, 3 );
-			foreach ( $related as $r ) : ?>
+			<?php foreach ( $related as $r ) : ?>
 				<a href="<?php echo esc_url( home_url( '/cases/' . $r['slug'] . '/' ) ); ?>" class="card" style="text-decoration:none;color:inherit;padding:0;overflow:hidden">
 					<?php nyas_photo( $r['img'], $r['title'], 'aspect-ratio:4/3;border-radius:0' ); ?>
 					<div style="padding:20px">
@@ -132,6 +140,7 @@ $case    = nyas_case( $qs_slug ) ?: nyas_case( $slug ) ?: nyas_cases()[0];
 		</div>
 	</div>
 </section>
+<?php endif; ?>
 
 <section class="section-ink" style="padding:88px 0">
 	<div class="container nyas-case-cta" style="display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center">

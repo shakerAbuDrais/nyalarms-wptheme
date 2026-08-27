@@ -9,15 +9,18 @@
 
 get_header();
 
-$cases      = nyas_cases();
-$industries = array( 'All', 'Retail', 'Construction', 'Medical', 'Schools', 'Warehouse', 'Residential' );
-$featured   = null;
+$cases    = nyas_cases();
+$featured = null;
 foreach ( $cases as $c ) {
 	if ( ! empty( $c['featured'] ) ) {
 		$featured = $c;
 		break;
 	}
 }
+
+// Non-featured cases drive the filter bar + grid; both hide when empty.
+$rest       = array_values( array_filter( $cases, function ( $c ) { return empty( $c['featured'] ); } ) );
+$industries = array_merge( array( 'All' ), array_values( array_unique( wp_list_pluck( $rest, 'industry' ) ) ) );
 ?>
 
 <section style="padding:72px 0 32px">
@@ -26,7 +29,7 @@ foreach ( $cases as $c ) {
 		<div class="nyas-cases-head" style="display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:end">
 			<h1 class="display-xl"><?php esc_html_e( 'The Work,', 'nyas' ); ?> <em><?php esc_html_e( 'Up Close.', 'nyas' ); ?></em></h1>
 			<p class="lede" style="margin:0">
-				<?php esc_html_e( 'Stories from the field — led by our seven-location security overhaul for Tower NY — showing the problems we get called for and how the systems responded.', 'nyas' ); ?>
+				<?php esc_html_e( 'Real work, told straight — starting with our seven-location security overhaul for Tower NY. More case studies are on the way.', 'nyas' ); ?>
 			</p>
 		</div>
 	</div>
@@ -55,6 +58,7 @@ foreach ( $cases as $c ) {
 	</section>
 <?php endif; ?>
 
+<?php if ( ! empty( $rest ) ) : ?>
 <section data-nyas-filter="cases" style="padding:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
 	<div class="container" style="display:flex;align-items:center;gap:8px;padding:16px 32px;overflow-x:auto">
 		<?php foreach ( $industries as $i => $ind ) : ?>
@@ -66,7 +70,7 @@ foreach ( $cases as $c ) {
 <section style="padding:64px 0 96px">
 	<div class="container">
 		<div class="grid grid-3" data-nyas-filter-grid>
-			<?php foreach ( $cases as $c ) : if ( ! empty( $c['featured'] ) ) continue; ?>
+			<?php foreach ( $rest as $c ) : ?>
 				<a href="<?php echo esc_url( home_url( '/cases/' . $c['slug'] . '/' ) ); ?>"
 				   class="card"
 				   data-nyas-filter-item="<?php echo esc_attr( $c['industry'] ); ?>"
@@ -90,6 +94,7 @@ foreach ( $cases as $c ) {
 		</div>
 	</div>
 </section>
+<?php endif; ?>
 
 <section class="section-ink" style="padding:64px 0">
 	<div class="container" style="text-align:center">

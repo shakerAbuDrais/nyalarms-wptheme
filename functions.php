@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NYAS_VERSION', '1.3.2' );
+define( 'NYAS_VERSION', '1.3.3' );
 define( 'NYAS_DIR', trailingslashit( get_template_directory() ) );
 define( 'NYAS_URI', trailingslashit( get_template_directory_uri() ) );
 
@@ -166,6 +166,26 @@ function nyas_migrate_tower_case() {
 	update_option( 'nyas_tower_case_migrated', 1 );
 }
 add_action( 'init', 'nyas_migrate_tower_case' );
+
+/**
+ * One-time cleanup — trash the five invented demo case-study pages
+ * (their data entries are gone; only the real Tower NY case remains).
+ * Trashing is reversible from wp-admin.
+ */
+function nyas_remove_demo_cases() {
+	if ( get_option( 'nyas_demo_cases_removed' ) ) {
+		return;
+	}
+	$demo_slugs = array( 'iannone', 'beth-israel', 'columbia-prep', 'maspeth-warehouse', 'bronx-condo' );
+	foreach ( $demo_slugs as $demo_slug ) {
+		$page = get_page_by_path( 'cases/' . $demo_slug );
+		if ( $page && 'trash' !== $page->post_status ) {
+			wp_trash_post( $page->ID );
+		}
+	}
+	update_option( 'nyas_demo_cases_removed', 1 );
+}
+add_action( 'init', 'nyas_remove_demo_cases' );
 
 /**
  * Favicon — shield mark on brand blue. Defers to a Customizer Site Icon

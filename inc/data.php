@@ -134,8 +134,8 @@ function nyas_service( $id ) {
 }
 
 /**
- * Case studies — anonymized per the honest-claims rule (no client names
- * until real, client-approved case studies replace these).
+ * Case studies — real, client-supplied only (honest-claims rule).
+ * Tower NY source: TOWER_NY Case_Study.docx, Aug 2026.
  */
 function nyas_cases() {
 	return array(
@@ -171,66 +171,6 @@ function nyas_cases() {
 			),
 			'img'       => NYAS_URI . 'assets/img/case-tower-ny.webp',
 			'featured'  => true,
-		),
-		array(
-			'slug'     => 'iannone',
-			'industry' => 'Construction',
-			'title'    => 'Queens contractor stops job-site theft on 14 active sites',
-			'client'   => 'General contractor · Queens',
-			'summary'  => 'After two break-ins on a Queens build, we deployed solar towers, GPS-tagged tools, and a verified-dispatch protocol. Zero theft incidents in eleven months.',
-			'stats'    => array(
-				array( 'n' => '0',     'l' => 'Theft incidents' ),
-				array( 'n' => '11 mo', 'l' => 'Since rollout' ),
-			),
-			'img'      => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=85',
-		),
-		array(
-			'slug'     => 'beth-israel',
-			'industry' => 'Medical',
-			'title'    => 'Medical center upgrades duress response across four floors',
-			'client'   => 'Medical center · Manhattan',
-			'summary'  => 'Replaced a five-year-old emergency response system with HIPAA-aware monitoring and code-blue integration across four floors.',
-			'stats'    => array(
-				array( 'n' => '24/7',    'l' => 'Duress coverage' ),
-				array( 'n' => '4 floors','l' => 'Coverage' ),
-			),
-			'img'      => 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&q=85',
-		),
-		array(
-			'slug'     => 'columbia-prep',
-			'industry' => 'Schools',
-			'title'    => 'Private school deploys lockdown response in 8 weeks',
-			'client'   => 'Private school · Upper West Side',
-			'summary'  => 'Classroom panic buttons, PA integration, and a NYPD direct-line protocol — rolled out before Labor Day.',
-			'stats'    => array(
-				array( 'n' => '8 wk', 'l' => 'Rollout' ),
-				array( 'n' => '32',   'l' => 'Classrooms' ),
-			),
-			'img'      => 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=85',
-		),
-		array(
-			'slug'     => 'maspeth-warehouse',
-			'industry' => 'Warehouse',
-			'title'    => 'Maspeth distribution warehouse lowers premiums 18%',
-			'client'   => 'Distribution warehouse · Maspeth, Queens',
-			'summary'  => 'Perimeter beams, 32 dock-bay sensors, and AI video analytics — insurance discount letter the same week.',
-			'stats'    => array(
-				array( 'n' => '18%', 'l' => 'Premium drop' ),
-				array( 'n' => '32',  'l' => 'Dock bays' ),
-			),
-			'img'      => 'https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=85',
-		),
-		array(
-			'slug'     => 'bronx-condo',
-			'industry' => 'Residential',
-			'title'    => 'Riverdale condo board picks one alarm vendor for 84 units',
-			'client'   => 'Condo board · Riverdale, the Bronx',
-			'summary'  => 'After three years of mismatched vendors, the board signed a single-source agreement covering all units, common areas, and the lobby.',
-			'stats'    => array(
-				array( 'n' => '84', 'l' => 'Units' ),
-				array( 'n' => '1',  'l' => 'Vendor' ),
-			),
-			'img'      => 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=85',
 		),
 	);
 }
