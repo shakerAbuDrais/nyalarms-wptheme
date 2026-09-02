@@ -45,15 +45,7 @@ if ( is_front_page() ) {
 					<path d="m9 12 2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 				</svg>
 			</span>
-			<span class="logo-txt"><?php
-				$site_name = get_bloginfo( 'name' );
-				if ( false !== stripos( $site_name, 'alarm' ) ) {
-					// Highlight the word "alarm" if it appears in the site title.
-					echo wp_kses_post( str_ireplace( 'alarm', '<em>alarm</em>', $site_name ) );
-				} else {
-					echo 'newyork<em>alarm</em>systems';
-				}
-			?></span>
+			<span class="logo-txt"><?php echo wp_kses_post( nyas_brand_wordmark() ); ?></span>
 		</a>
 
 		<nav class="nav" aria-label="<?php esc_attr_e( 'Primary', 'nyas' ); ?>">
@@ -111,7 +103,7 @@ if ( is_front_page() ) {
 						<path d="m9 12 2 2 4-4" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 					</svg>
 				</span>
-				<span class="drawer-brand">newyork<em>alarm</em>systems</span>
+				<span class="drawer-brand"><?php echo wp_kses_post( nyas_brand_wordmark() ); ?></span>
 			</div>
 			<button type="button" class="drawer-close" aria-label="<?php esc_attr_e( 'Close menu', 'nyas' ); ?>" data-nyas-drawer-close>
 				<?php nyas_icon( 'close', 18 ); ?>

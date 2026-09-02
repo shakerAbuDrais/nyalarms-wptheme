@@ -23,7 +23,7 @@ $scenarios = array(
 			array( '00:28', 'NYPD dispatched. Officers en route.' ),
 			array( '00:46', 'Dispatcher shares live video with NYPD.' ),
 		),
-		'img'    => 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80',
+		'img'    => NYAS_URI . 'assets/img/scenario-park-slope-brownstone.webp',
 	),
 	'business' => array(
 		'label'  => __( 'At your business', 'nyas' ),
@@ -38,7 +38,7 @@ $scenarios = array(
 			array( '00:22', 'NYPD + you receive simultaneous alert.' ),
 			array( '00:51', 'Officers on scene; suspect detained.' ),
 		),
-		'img'    => 'https://images.unsplash.com/photo-1604754742629-3e5728249d73?w=900&q=80',
+		'img'    => NYAS_URI . 'assets/img/scenario-madison-ave-storefront.webp',
 	),
 	'site' => array(
 		'label'  => __( 'On-site', 'nyas' ),
@@ -53,7 +53,7 @@ $scenarios = array(
 			array( '00:23', 'GC notified by SMS with timestamped clip.' ),
 			array( '00:34', 'Police log filed; insurance evidence packaged.' ),
 		),
-		'img'    => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=80',
+		'img'    => NYAS_URI . 'assets/img/scenario-brooklyn-construction-site.webp',
 	),
 	'fire' => array(
 		'label'  => __( 'When fire strikes', 'nyas' ),
@@ -68,7 +68,7 @@ $scenarios = array(
 			array( '00:14', 'Family voice-line opens; head-count confirmed safe outside.' ),
 			array( '04:30', 'FDNY arrives. Family already evacuated; damage limited to basement.' ),
 		),
-		'img'    => 'https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=900&q=80',
+		'img'    => NYAS_URI . 'assets/img/scenario-upper-east-side-townhouse.webp',
 	),
 );
 ?>
@@ -79,7 +79,7 @@ $scenarios = array(
 			<?php nyas_eyebrow( __( 'What happens when', 'nyas' ), false, 'margin-bottom:16px' ); ?>
 			<h2 class="display-lg"><?php esc_html_e( 'A Real Alarm. A Real Response.', 'nyas' ); ?> <em><?php esc_html_e( 'In Under a Minute.', 'nyas' ); ?></em></h2>
 			<p class="muted" style="font-size:17px;line-height:1.6;margin-top:12px">
-				<?php esc_html_e( 'See exactly what our monitoring station does the moment a sensor trips — at home, at your business, on a construction site, or during a fire.', 'nyas' ); ?>
+				<?php esc_html_e( 'See exactly what the central station does the moment a sensor trips — at home, at your business, on a construction site, or during a fire.', 'nyas' ); ?>
 			</p>
 		</div>
 

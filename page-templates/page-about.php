@@ -26,7 +26,7 @@ get_header();
 	<div class="container">
 		<div class="about-mosaic">
 			<?php nyas_photo( 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80', 'NYC skyline', 'grid-column:span 2;grid-row:span 2' ); ?>
-			<?php nyas_photo( 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80', 'Brownstone' ); ?>
+			<?php nyas_photo( NYAS_URI . 'assets/img/about-brooklyn.webp', 'Brooklyn brownstone block' ); ?>
 			<?php nyas_photo( 'https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80', 'Camera' ); ?>
 			<?php nyas_photo( 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80', 'Team' ); ?>
 			<?php nyas_photo( NYAS_URI . 'assets/img/office.webp', 'Office' ); ?>

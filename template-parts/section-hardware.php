@@ -17,25 +17,25 @@ $items = array(
 		'code' => 'NYS-01',
 		'name' => __( 'Cellular hub', 'nyas' ),
 		'spec' => __( 'LTE-M + Z-Wave Plus · 24h battery', 'nyas' ),
-		'img'  => 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1400&q=80',
+		'img'  => NYAS_URI . 'assets/img/hw-cellular-hub.webp',
 	),
 	array(
 		'code' => 'NYS-02',
 		'name' => __( 'Door / window contact', 'nyas' ),
 		'spec' => __( 'Encrypted 915MHz · 5-year cell', 'nyas' ),
-		'img'  => 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=80',
+		'img'  => NYAS_URI . 'assets/img/hw-door-window-contact.webp',
 	),
 	array(
 		'code' => 'NYS-03',
 		'name' => __( '4K outdoor camera', 'nyas' ),
 		'spec' => __( 'IR 100ft · IP67 · onboard AI', 'nyas' ),
-		'img'  => 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1800&q=80',
+		'img'  => NYAS_URI . 'assets/img/hw-4k-outdoor-camera.webp',
 	),
 	array(
 		'code' => 'NYS-04',
 		'name' => __( 'Indoor motion sensor', 'nyas' ),
 		'spec' => __( 'Pet-immune · 30ft · 7-year battery', 'nyas' ),
-		'img'  => 'https://images.unsplash.com/photo-1545987796-200677ee1011?w=1400&q=80',
+		'img'  => NYAS_URI . 'assets/img/hw-indoor-motion-sensor.webp',
 	),
 );
 

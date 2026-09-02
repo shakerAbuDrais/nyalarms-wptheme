@@ -158,7 +158,7 @@ $services = nyas_services();
 				array( 'icon' => 'users',        'title' => __( 'No subcontractors', 'nyas' ),  'desc' => __( 'Every technician on your property is our own, background-checked, and badge-carrying.', 'nyas' ) ),
 				array( 'icon' => 'pin',          'title' => __( 'Local monitoring', 'nyas' ),   'desc' => __( 'Your alarm is watched from a UL-listed station in Long Island, NY — not an out-of-state call center in Texas, or an overseas one in Manila.', 'nyas' ) ),
 				array( 'icon' => 'lock',         'title' => __( 'Buy it or rent it', 'nyas' ),  'desc' => __( 'Own your equipment outright or rent it — monitoring stays month-to-month either way, with a discount on annual agreements.', 'nyas' ) ),
-				array( 'icon' => 'award',        'title' => __( 'UL listed', 'nyas' ),          'desc' => __( 'Our central station carries UL 827 and NYPD-recognized burglar response certifications.', 'nyas' ) ),
+				array( 'icon' => 'award',        'title' => __( 'UL listed', 'nyas' ),          'desc' => __( 'Every system we install reports to a UL-listed central station on Long Island, staffed around the clock.', 'nyas' ) ),
 				array( 'icon' => 'shield-check', 'title' => __( 'Insurance-grade', 'nyas' ),    'desc' => __( 'We issue a UL-listed monitoring certificate accepted by major NY insurers — qualifying you for premium discounts and policy preferences.', 'nyas' ) ),
 			);
 			foreach ( $why as $it ) : ?>

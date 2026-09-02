@@ -14,7 +14,7 @@ get_header();
 		<div class="nyas-blog-head" style="display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:end">
 			<h1 class="display-xl"><?php esc_html_e( 'Field Notes From the', 'nyas' ); ?> <em><?php esc_html_e( 'Monitoring Desk.', 'nyas' ); ?></em></h1>
 			<p class="lede" style="margin:0">
-				<?php esc_html_e( 'Buyers guides, NYPD response data, lessons from the central station — written by the people on the floor of our Long Island monitoring station.', 'nyas' ); ?>
+				<?php esc_html_e( 'Buyers guides, NYC building rules, and lessons from twelve years of installs — written by the people who design, install, and stand behind the systems.', 'nyas' ); ?>
 			</p>
 		</div>
 	</div>

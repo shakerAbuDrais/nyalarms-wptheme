@@ -36,6 +36,14 @@ function nyas_photo( $src, $alt = '', $style = '', $class = '' ) {
 }
 
 /**
+ * Brand wordmark — always the company name, never the domain
+ * (client note, Sept 2026). "Alarm" carries the signal-blue accent.
+ */
+function nyas_brand_wordmark() {
+	return apply_filters( 'nyas_brand_wordmark', 'New York <em>Alarm</em> Systems' );
+}
+
+/**
  * Phone number used across the site (filterable / customizer-driven).
  */
 function nyas_phone() {

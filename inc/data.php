@@ -36,7 +36,7 @@ function nyas_services() {
 			'short' => 'Commercial',
 			'desc'  => 'Multi-tenant, mixed-use, industry-grade panels rated for 24/7 commercial use.',
 			'feats' => array( 'Panel + zoning', 'Access control', 'Multi-site dashboard', 'Insurance certs' ),
-			'img'   => 'https://images.unsplash.com/photo-1665852444247-b094252e722a?w=900&q=80&auto=format&fit=crop',
+			'img'   => NYAS_URI . 'assets/img/svc-commercial.webp',
 		),
 		array(
 			'id'    => 'warehouse',
@@ -106,7 +106,7 @@ function nyas_services() {
 			'short' => 'Monitoring',
 			'desc'  => '24/7 UL-listed central station on Long Island. We watch what we install — and what others installed too.',
 			'feats' => array( 'UL 827 listed', 'Verified response', '24/7 operators', 'Take-over service' ),
-			'img'   => 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900&q=80',
+			'img'   => NYAS_URI . 'assets/img/svc-monitoring.webp',
 		),
 		array(
 			'id'    => 'video',
