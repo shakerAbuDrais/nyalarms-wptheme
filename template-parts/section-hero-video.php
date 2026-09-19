@@ -39,7 +39,7 @@ $poster = apply_filters(
 		<div class="hero-videobg-content">
 			<div class="hero-videobg-tag">
 				<span class="hero-videobg-tag-pulse"></span>
-				<?php esc_html_e( 'Live monitoring · 24/7 on Long Island', 'nyas' ); ?>
+				<?php esc_html_e( '24/7 NYC & Beyond', 'nyas' ); ?>
 			</div>
 			<h1 class="hero-videobg-title">
 				<?php esc_html_e( 'One System.', 'nyas' ); ?><br /><em><?php esc_html_e( 'Local Team. Max Results.', 'nyas' ); ?></em>
