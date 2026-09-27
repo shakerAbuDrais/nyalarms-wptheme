@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NYAS_VERSION', '1.4.1' );
+define( 'NYAS_VERSION', '1.5.0' );
 define( 'NYAS_DIR', trailingslashit( get_template_directory() ) );
 define( 'NYAS_URI', trailingslashit( get_template_directory_uri() ) );
 
@@ -109,6 +109,7 @@ require_once NYAS_DIR . 'inc/setup-wizard.php';
 require_once NYAS_DIR . 'inc/leads.php';
 require_once NYAS_DIR . 'inc/admin-settings.php';
 require_once NYAS_DIR . 'inc/posts.php';
+require_once NYAS_DIR . 'inc/posts-batch-2.php';
 
 /**
  * Redirect the commonly guessed /blog/ URL to the real posts page.
